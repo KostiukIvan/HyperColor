@@ -68,6 +68,10 @@ def main(config):
         from datasets.shapenet import ShapeNetDataset
         dataset = ShapeNetDataset(root_dir=config['data_dir'],
                                   classes=config['classes'])
+    elif dataset_name == "photogrammetry":
+        from datasets.photogrammetry import PhotogrammetryDataset
+        dataset = PhotogrammetryDataset(root_dir=config['data_dir'],
+                                 classes=config['classes'])
     else:
         raise ValueError(f'Invalid dataset name. Expected `shapenet` or '
                          f'`faust`. Got: `{dataset_name}`')
