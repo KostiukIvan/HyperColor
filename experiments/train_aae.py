@@ -185,10 +185,12 @@ def main(config):
         for i, point_data in enumerate(points_dataloader, 1):
 
             X, _ = point_data
-            X = X.to(device)
+            X = X.to(device, dtype=torch.float)
 
             # Change dim [BATCH, N_POINTS, N_DIM] -> [BATCH, N_DIM, N_POINTS]
             if X.size(-1) == 3:
+                X.transpose_(X.dim() - 2, X.dim() - 1)
+            elif X.size(-1) == 6:
                 X.transpose_(X.dim() - 2, X.dim() - 1)
 
             if pointnet:
