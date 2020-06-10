@@ -95,7 +95,7 @@ class Encoder(nn.Module):
         self.relu_slope = config['model']['E']['relu_slope']
 
         self.conv = nn.Sequential(
-            nn.Conv1d(in_channels=3, out_channels=64, kernel_size=1, bias=self.use_bias),
+            nn.Conv1d(in_channels=6, out_channels=64, kernel_size=1, bias=self.use_bias),
             nn.ReLU(inplace=True),
 
             nn.Conv1d(in_channels=64, out_channels=128, kernel_size=1, bias=self.use_bias),
