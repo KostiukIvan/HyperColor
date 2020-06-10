@@ -19,7 +19,7 @@
     "n_points": 2048,
 
     "max_epochs": 2000,
-    "batch_size": 64,
+    "batch_size": 5,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
     "z_size": 2048,
