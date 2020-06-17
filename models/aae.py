@@ -5,12 +5,12 @@ import torch.nn as nn
 class HyperNetwork(nn.Module):
     def __init__(self, config, device):
         super().__init__()
-
+        
         self.z_size = config['z_size']
         self.use_bias = config['model']['HN']['use_bias']
         self.relu_slope = config['model']['HN']['relu_slope']
         # target network layers out channels
-        target_network_out_ch = [3] + config['model']['TN']['layer_out_channels'] + [3]
+        target_network_out_ch = [6] + config['model']['TN']['layer_out_channels'] + [6]
         target_network_use_bias = int(config['model']['TN']['use_bias'])
 
         self.model = nn.Sequential(
@@ -40,6 +40,7 @@ class HyperNetwork(nn.Module):
 
     def forward(self, x):
         output = self.model(x)
+        # arr = [target_network_layer(output) for target_network_layer in self.output]
         return torch.cat([target_network_layer(output) for target_network_layer in self.output], 1)
 
 
@@ -52,8 +53,8 @@ class TargetNetwork(nn.Module):
         # target network layers out channels
         out_ch = config['model']['TN']['layer_out_channels']
 
-        layer_data, split_index = self._get_layer_data(start_index=0, end_index=out_ch[0] * 3,
-                                                       shape=(out_ch[0], 3), weights=weights)
+        layer_data, split_index = self._get_layer_data(start_index=0, end_index=out_ch[0] * 6,
+                                                       shape=(out_ch[0], 6), weights=weights)
         self.layers = {"1": layer_data}
 
         for x in range(1, len(out_ch)):
@@ -63,8 +64,8 @@ class TargetNetwork(nn.Module):
             self.layers[str(x + 1)] = layer_data
 
         layer_data, split_index = self._get_layer_data(start_index=split_index,
-                                                       end_index=split_index + (out_ch[-1] * 3),
-                                                       shape=(3, out_ch[-1]), weights=weights)
+                                                       end_index=split_index + (out_ch[-1] * 6),
+                                                       shape=(6, out_ch[-1]), weights=weights)
         self.output = layer_data
         self.activation = torch.nn.ReLU()
         assert split_index == len(weights)

@@ -236,6 +236,7 @@ def main(config):
             total_loss_discriminator += loss_discriminator.item()
             discriminator_optimizer.step()
 
+            #import pdb; pdb.set_trace()
             # hyper network training
             target_networks_weights = hyper_network(codes)
 
@@ -267,6 +268,9 @@ def main(config):
                 # An alternative is c = 0 iff a = -1, b = 1
                 c = 1.0
                 loss_encoder = 0.5 * (synth_logit - c)**2
+
+            print(loss_reconstruction.item())
+            print(loss_encoder.item())
 
             if pointnet:
                 regularization_loss = config['feature_regularization_coef'] * \
