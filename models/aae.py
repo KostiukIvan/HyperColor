@@ -10,7 +10,7 @@ class HyperNetwork(nn.Module):
         self.use_bias = config['model']['HN']['use_bias']
         self.relu_slope = config['model']['HN']['relu_slope']
         # target network layers out channels
-        target_network_out_ch = [6] + config['model']['TN']['layer_out_channels'] + [6]
+        target_network_out_ch = [4] + config['model']['TN']['layer_out_channels'] + [4]
         target_network_use_bias = int(config['model']['TN']['use_bias'])
 
         self.model = nn.Sequential(
@@ -53,8 +53,8 @@ class TargetNetwork(nn.Module):
         # target network layers out channels
         out_ch = config['model']['TN']['layer_out_channels']
 
-        layer_data, split_index = self._get_layer_data(start_index=0, end_index=out_ch[0] * 6,
-                                                       shape=(out_ch[0], 6), weights=weights)
+        layer_data, split_index = self._get_layer_data(start_index=0, end_index=out_ch[0] * 4,
+                                                       shape=(out_ch[0], 4), weights=weights)
         self.layers = {"1": layer_data}
 
         for x in range(1, len(out_ch)):
@@ -64,8 +64,8 @@ class TargetNetwork(nn.Module):
             self.layers[str(x + 1)] = layer_data
 
         layer_data, split_index = self._get_layer_data(start_index=split_index,
-                                                       end_index=split_index + (out_ch[-1] * 6),
-                                                       shape=(6, out_ch[-1]), weights=weights)
+                                                       end_index=split_index + (out_ch[-1] * 4),
+                                                       shape=(4, out_ch[-1]), weights=weights)
         self.output = layer_data
         self.activation = torch.nn.ReLU()
         assert split_index == len(weights)
@@ -96,7 +96,7 @@ class Encoder(nn.Module):
         self.relu_slope = config['model']['E']['relu_slope']
 
         self.conv = nn.Sequential(
-            nn.Conv1d(in_channels=6, out_channels=64, kernel_size=1, bias=self.use_bias),
+            nn.Conv1d(in_channels=4, out_channels=64, kernel_size=1, bias=self.use_bias),
             nn.ReLU(inplace=True),
 
             nn.Conv1d(in_channels=64, out_channels=128, kernel_size=1, bias=self.use_bias),

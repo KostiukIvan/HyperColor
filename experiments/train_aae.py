@@ -190,7 +190,7 @@ def main(config):
             # Change dim [BATCH, N_POINTS, N_DIM] -> [BATCH, N_DIM, N_POINTS]
             if X.size(-1) == 3:
                 X.transpose_(X.dim() - 2, X.dim() - 1)
-            elif X.size(-1) == 6:
+            elif X.size(-1) == 4:
                 X.transpose_(X.dim() - 2, X.dim() - 1)
 
             if pointnet:

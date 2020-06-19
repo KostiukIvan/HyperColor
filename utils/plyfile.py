@@ -946,7 +946,7 @@ def load_photogrammetry(filename: str, split: str = ' ') -> _np.ndarray:
     with open(filename) as f:
         for line in f:
             result.append(_np.array(
-                [float(num) for num in line.split(split)][:-1]
+                [float(num) for num in line.split(split)][:4]
             ))
 
     return _np.array(result[:2048])
