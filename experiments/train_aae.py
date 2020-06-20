@@ -78,7 +78,7 @@ def main(config):
     elif dataset_name == "photogrammetry":
         from datasets.photogrammetry import PhotogrammetryDataset
         dataset = PhotogrammetryDataset(root_dir=config['data_dir'],
-				 classes=config['classes'])
+				 classes=config['classes'], config=config)
     else:
         raise ValueError(f'Invalid dataset name. Expected `shapenet` or '
                          f'`faust`. Got: `{dataset_name}`')
@@ -190,7 +190,7 @@ def main(config):
             # Change dim [BATCH, N_POINTS, N_DIM] -> [BATCH, N_DIM, N_POINTS]
             if X.size(-1) == 3:
                 X.transpose_(X.dim() - 2, X.dim() - 1)
-            elif X.size(-1) == 4:
+            elif X.size(-1) == 7:
                 X.transpose_(X.dim() - 2, X.dim() - 1)
 
             if pointnet:

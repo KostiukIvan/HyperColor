@@ -4,7 +4,7 @@ import numpy as np
 
 def generate_points_from_uniform_distribution(size, low=-1, high=1):
     while True:
-        points = torch.zeros([size[0] * 12, *size[1:]]).uniform_(low, high)
+        points = torch.zeros([size[0] * 37, *size[1:]]).uniform_(low, high)
         points = points[torch.norm(points, dim=1) < 1]
         if points.shape[0] >= size[0]:
             return points[:size[0]]
