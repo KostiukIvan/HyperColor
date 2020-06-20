@@ -18,8 +18,8 @@
     "num_workers": 8,
     "n_points": 2048,
 
-    "max_epochs": 5,
-    "batch_size": 5,
+    "max_epochs": 100,
+    "batch_size": 6,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
     "z_size": 2048,
@@ -72,7 +72,7 @@
         "D": {
             "type": "Adam",
             "hyperparams": {
-                "lr": 0.00001,
+                "lr": 0.0005,
                 "weight_decay": 0,
                 "betas": [0.9, 0.999],
                 "amsgrad": false
@@ -81,7 +81,7 @@
         "E_HN": {
             "type": "Adam",
             "hyperparams": {
-                "lr": 0.00001,
+                "lr": 0.0005,
                 "weight_decay": 0,
                 "betas": [0.9, 0.999],
                 "amsgrad": false
