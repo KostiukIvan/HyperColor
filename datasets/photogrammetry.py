@@ -10,7 +10,7 @@ from os.path import join
 from torch.utils.data import Dataset
 from utils.plyfile import load_photogrammetry
 
-all_classes = ['person']
+all_classes = ['person', 'boat','lamp']
 
 synth_id_to_number = {k : i for i, k in enumerate(all_classes)}
 

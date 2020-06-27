@@ -1,7 +1,7 @@
 {
-    "results_root": "./3d_point_cloud/results",
-    "clean_results_dir": false,
-    "clean_weights_dir": false,
+    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results",
+    "clean_results_dir": true,
+    "clean_weights_dir": true,
 
     "cuda": true,
     "gpu": 0,
@@ -11,15 +11,15 @@
     "metrics": [],
 
     "dataset": "photogrammetry",
-    "data_dir": "./3d_point_cloud/dataset/photogrammetry",
-    "classes": ["person"],
+    "data_dir": "/mnt/users/ikostiuk/local/3d_point_cloud/dataset/photogrammetry",
+    "classes": ["lamp"],
     "shuffle": true,
     "transforms": ["rotate"],
     "num_workers": 8,
     "n_points": 2048,
 
-    "max_epochs": 100,
-    "batch_size": 6,
+    "max_epochs": 3000,
+    "batch_size": 64,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
     "z_size": 2048,

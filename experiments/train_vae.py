@@ -210,12 +210,12 @@ def main(config):
         X_rec = X_rec.detach().cpu().numpy()
 
         for k in range(min(5, X_rec.shape[0])):
-            fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], in_u_sphere=True, show=False,
+            fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], C = X_rec[k][3:6].transpose(), in_u_sphere=True, show=False,
                                       title=str(epoch))
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_reconstructed.png'))
             plt.close(fig)
 
-            fig = plot_3d_point_cloud(X[k][0], X[k][1], X[k][2], in_u_sphere=True, show=False)
+            fig = plot_3d_point_cloud(X[k][0], X[k][1], X[k][2], C = X[k][3:6].transpose(), in_u_sphere=True, show=False)
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_real.png'))
             plt.close(fig)
 

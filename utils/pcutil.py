@@ -106,7 +106,7 @@ def unit_cube_grid_point_cloud(resolution, clip_sphere=False):
     return grid, spacing
 
 
-def plot_3d_point_cloud(x, y, z, show=True, show_axis=True, in_u_sphere=False,
+def plot_3d_point_cloud(x, y, z, C = None, show=True, show_axis=True, in_u_sphere=False,
                         marker='.', s=8, alpha=.8, figsize=(5, 5), elev=10,
                         azim=240, axis=None, title=None, x1=None, y1=None, z1=None, *args, **kwargs):
     plt.switch_backend('agg')
@@ -124,8 +124,14 @@ def plot_3d_point_cloud(x, y, z, show=True, show_axis=True, in_u_sphere=False,
         ax.scatter(x1, y1, z1, color='r', marker=marker, s=s*3, alpha=1, zorder=2, *args, **kwargs)
         alpha = 0.3
 
-    sc = ax.scatter(x, y, z, marker=marker, s=s, alpha=alpha, zorder=1, *args, **kwargs)
-    ax.view_init(elev=elev, azim=azim)
+    if C is not None: 
+        C[C>1] = 1
+        C[C<0] = 0
+        sc = ax.scatter(x, y, z, facecolors = C, marker=marker, s=s, alpha=alpha, zorder=1, *args, **kwargs)
+        ax.view_init(elev=elev, azim=azim)
+    else:
+        sc = ax.scatter(x, y, z, marker=marker, s=s, alpha=alpha, zorder=1, *args, **kwargs)
+        ax.view_init(elev=elev, azim=azim)
 
     if in_u_sphere:
         ax.set_xlim3d(-0.5, 0.5)
