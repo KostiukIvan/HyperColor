@@ -12,15 +12,15 @@ class CombinedLoss(nn.Module):
     def forward(self, gts, preds, gts_normals, sphere_edges = None):
         
         if sphere_edges != None:
-            return self.forward_with_edges_2(gts, preds, gts_normals, sphere_edges)
+            return self.forward_with_edges(gts, preds, gts_normals, sphere_edges)
         else:
             return self.forward_with_nearest_neighbour(gts, preds, gts_normals)
 
     def unit(self, tensor):
     	return torch.nn.functional.normalize(tensor, dim=1, p=2) # l_2 normalization
-        #return torch.norm(tensor, dim=1, p=2)
 
-    def forward_with_edges_2(self, gts, preds, gts_normals, sphere_edges):
+
+    def forward_with_edges(self, gts, preds, gts_normals, sphere_edges):
         process_colors = False
         if preds.shape[2] > 3:
             process_colors = True
@@ -69,7 +69,7 @@ class CombinedLoss(nn.Module):
 
         # ============= normal loss =============
         edge = edge.type(dtype)
-        normal = torch.stack([gts_normals[b, torch.squeeze(idx_first_to_second_0[b, :]), : ] for b in bt_num_idx])
+        normal = torch.stack([gts_normals[b, torch.squeeze(idx_first_to_second_0[b, :]), : ] for b in bt_num_idx]) # change  idx_first_to_second_0 to idx_second_to_first_0
         normal = normal[:, sphere_edges[:,0], : ] 
 
         edge = edge.type(ftype)
@@ -77,73 +77,6 @@ class CombinedLoss(nn.Module):
         cosine = torch.abs(torch.sum(torch.matmul(self.unit(normal),torch.transpose(self.unit(edge), dim0 = 1, dim1 = 2))))
         #cosine = torch.abs(torch.sum(torch.matmul(self.unit(normal), self.unit(edge))))
         normal_loss = torch.mean(cosine) * 50000
-        
-        result = color_loss + champfer_loss + normal_loss*10.0
-        
-        return result.type(dtype)
-
-
-
-    def forward_with_edges(self, gts, preds, gts_normals, sphere_edges):
-        process_colors = False
-        if preds.shape[2] > 3:
-            process_colors = True
-
-        if self.use_cuda:
-            dtype = torch.cuda.LongTensor
-            ftype = torch.cuda.FloatTensor
-            itype = torch.cuda.IntTensor
-        else:
-            dtype = torch.LongTensor
-            ftype = torch.float64
-            itype = torch.int32
-
-        
-        # data preparation
-        gts_points = gts[:, :, :3] # [2, 4096, 3]
-        if process_colors:
-            gts_colors = gts[:, :, 3:] # [2, 4096, 3]
-
-        preds_points = preds[:, :, :3] # [2, 4096, 3]
-        if process_colors:
-            preds_colors = preds[:, :, 3:] # [2, 4096, 3]
-
-        neighbours = dict()
-        for k, v in sphere_edges:
-            key = torch.tensor(k)
-            if str(key) in neighbours:
-                neighbours[str(key)].append(v)
-            else:
-                neighbours[str(key)] = [v]
-        
-        color_loss = torch.tensor(0.0).type(ftype)
-        normal_loss = torch.tensor(0.0).type(ftype)
-        champfer_loss = torch.tensor(0.0).type(ftype)
-
-        # ============== color loss ==============
-        
-
-        # ============ champfer loss ============
-        P = self.batch_pairwise_dist(gts_points, preds_points)
-        bt_num_idx = torch.arange(0, P.size(0)).type(dtype)
-        dist_first_to_second_0, idx_first_to_second_0 = torch.min(P, 1) 
-        dist_second_to_first_0, idx_second_to_first_0 = torch.min(P, 2)
-
-        champfer_loss = torch.sum(dist_first_to_second_0) + torch.sum(dist_second_to_first_0)   
-        pnt_num_idx = torch.arange(0, P.size(2)).type(dtype)     
-
-        # ============= normal loss =============
-        idx_first_to_second_0 = idx_first_to_second_0.type(dtype)
-
-        
-        # this part will be modified in the future !!!
-        for bt in bt_num_idx:
-            for i, start_index in zip(pnt_num_idx,idx_first_to_second_0[bt]):
-                start_index = start_index.type(itype)
-                if str(start_index) in neighbours:
-                    normal_loss += torch.abs(torch.sum((preds[bt, start_index] - preds[bt, neighbours[str(start_index)]]) * gts_normals[bt,i]))
-
-        print("cham : norm : ", champfer_loss, normal_loss)
         
         result = color_loss + champfer_loss + normal_loss*10.0
         
