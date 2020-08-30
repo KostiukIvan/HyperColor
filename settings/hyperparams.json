@@ -6,20 +6,21 @@
     "cuda": true,
     "gpu": 0,
 
-    "reconstruction_loss": "chamfer",
+    "reconstruction_loss": "combined",
 
     "metrics": [],
 
-    "dataset": "photogrammetry",
-    "data_dir": "/mnt/users/ikostiuk/local/3d_point_cloud/dataset/photogrammetry",
-    "classes": ["lamp"],
+    "dataset": "custom",
+    "data_dir": "/mnt/users/ikostiuk/home/3d_point_cloud/dataset/custom",
+    "classes": ["car"],
+    
     "shuffle": true,
     "transforms": ["rotate"],
     "num_workers": 8,
-    "n_points": 2048,
+    "n_points": 4096,
 
     "max_epochs": 3000,
-    "batch_size": 64,
+    "batch_size": 8,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
     "z_size": 2048,
@@ -40,6 +41,9 @@
 
     "target_network_input": {
         "constant": false,
+        "use_sphere_with_edges" : true,
+        "sphere_points_path" : "/home/ikostiuk/git_repos/HyperCloud/sphere_verts.txt",
+        "sphere_edges_path" : "/home/ikostiuk/git_repos/HyperCloud/sphere_edges.txt",
         "normalization": {
             "enable": true,
             "type": "progressive",

@@ -19,6 +19,8 @@ from models import aae
 from utils.pcutil import plot_3d_point_cloud
 from utils.util import find_latest_epoch, prepare_results_dir, cuda_setup, setup_logging, set_seed
 from utils.points import generate_points
+from utils.sphere import Sphere
+
 
 cudnn.benchmark = True
 
@@ -79,6 +81,13 @@ def main(config):
         from datasets.photogrammetry import PhotogrammetryDataset
         dataset = PhotogrammetryDataset(root_dir=config['data_dir'],
 				 classes=config['classes'], config=config)
+                 
+    elif dataset_name == "custom":
+        # import pdb; pdb.set_trace()
+        from datasets.customDataset import CustomDataset
+        dataset = CustomDataset(root_dir=config['data_dir'],
+                                classes=config['classes'], config=config)
+
     else:
         raise ValueError(f'Invalid dataset name. Expected `shapenet` or '
                          f'`faust`. Got: `{dataset_name}`')
@@ -93,6 +102,8 @@ def main(config):
                                    pin_memory=True)
 
     pointnet = config.get('pointnet', False)
+
+    
     #
     # Models
     #
@@ -121,9 +132,14 @@ def main(config):
     elif config['reconstruction_loss'].lower() == 'earth_mover':
         from utils.metrics import earth_mover_distance
         reconstruction_loss = earth_mover_distance
+    
+    elif config['reconstruction_loss'].lower() == 'combined':
+        from losses.combined_loss import CombinedLoss
+        reconstruction_loss = CombinedLoss().to(device)
+
     else:
         raise ValueError(f'Invalid reconstruction loss. Accepted `chamfer` or '
-                         f'`earth_mover`, got: {config["reconstruction_loss"]}')
+                         f'`earth_mover` or `custom`,  got: {config["reconstruction_loss"]}')
 
     #
     # Optimizers
@@ -184,14 +200,25 @@ def main(config):
         total_loss_regularization = 0.0
         for i, point_data in enumerate(points_dataloader, 1):
 
-            X, _ = point_data
-            X = X.to(device, dtype=torch.float)
+            if dataset_name == "custom":
+                #X = torch.cat((point_data['points'], point_data['colors']), dim=2)
+                X = point_data['points']
+                X = X.to(device, dtype=torch.float)
+                X_normals = point_data['normals'].to(device, dtype=torch.float)
+            else: 
+                X, _ = point_data
+                X = X.to(device, dtype=torch.float)
+
+            if config['target_network_input']['use_sphere_with_edges']:
+                sphere_edges = Sphere(config).get_sphere_edges()
+                sphere_edges = sphere_edges.to(device, dtype=torch.int32)
 
             # Change dim [BATCH, N_POINTS, N_DIM] -> [BATCH, N_DIM, N_POINTS]
             if X.size(-1) == 3:
                 X.transpose_(X.dim() - 2, X.dim() - 1)
-            elif X.size(-1) == 7:
+            elif X.size(-1) == 6:
                 X.transpose_(X.dim() - 2, X.dim() - 1)
+
 
             if pointnet:
                 _, feature_transform, codes = encoder(X)
@@ -245,8 +272,12 @@ def main(config):
                 target_network = aae.TargetNetwork(config, target_network_weights).to(device)
 
                 if not config['target_network_input']['constant'] or target_network_input is None:
-                    target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], X.shape[1]))
+                    if config['target_network_input']['use_sphere_with_edges']:
+                        target_network_input = Sphere(config).get_sphere_coord()
+                    else:
+                        target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], X.shape[1]))
 
+                    
                 X_rec[j] = torch.transpose(target_network(target_network_input.to(device)), 0, 1)
 
             if pointnet:
@@ -255,10 +286,20 @@ def main(config):
                                                           torch.transpose(X_rec, 1, 2).contiguous(),
                                                           batch_size=X.shape[0]).mean()
             else:
-                loss_reconstruction = torch.mean(
-                    config['reconstruction_coef'] *
-                    reconstruction_loss(X.permute(0, 2, 1) + 0.5,
-                                        X_rec.permute(0, 2, 1) + 0.5))
+
+                if config['target_network_input']['use_sphere_with_edges']:
+                    loss_reconstruction = torch.mean(
+                        config['reconstruction_coef'] *
+                        reconstruction_loss(X.permute(0, 2, 1) + 0.5,
+                                            X_rec.permute(0, 2, 1) + 0.5,
+                                            X_normals,
+                                            sphere_edges))
+                else:
+                    loss_reconstruction = torch.mean(
+                        config['reconstruction_coef'] *
+                        reconstruction_loss(X.permute(0, 2, 1) + 0.5,
+                                            X_rec.permute(0, 2, 1) + 0.5,
+                                            X_normals ))
 
             # encoder training
             synth_logit = discriminator(codes)
@@ -269,8 +310,8 @@ def main(config):
                 c = 1.0
                 loss_encoder = 0.5 * (synth_logit - c)**2
 
-            print(loss_reconstruction.item())
-            print(loss_encoder.item())
+            #print(loss_reconstruction.item())
+            #print(loss_encoder.item())
 
             if pointnet:
                 regularization_loss = config['feature_regularization_coef'] * \
@@ -316,7 +357,7 @@ def main(config):
         X = X.cpu().numpy()
         X_rec = X_rec.detach().cpu().numpy()
 
-        for k in range(min(5, X_rec.shape[0])):
+        for k in range(min(1, X_rec.shape[0])):
             fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], in_u_sphere=True, show=False,
                                       title=str(epoch))
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_reconstructed.png'))

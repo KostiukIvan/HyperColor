@@ -17,7 +17,7 @@ synth_id_to_number = {k: i for i, k in enumerate(synth_id_to_category.keys())}
 
 class CustomDataset(Dataset):
     def __init__(self, root_dir='/home/datasets/custom', classes=[],
-                 transform=None, split='train'):
+                 transform=None, split='train', config=None):
         """
         Args:
             root_dir (string): Directory with all the point clouds.
@@ -84,9 +84,8 @@ class CustomDataset(Dataset):
             df = pd.read_csv(path,sep=' ', header=None, engine='c', )
             if part == 'colors':
                 df = df.iloc[:, :-1] # drop the last column
-            if len(df.index) < 40_000:clear
-            
-                df = df.reindex(range(40_000), fill_value = 0) #add missing rows filled with zeros
+            #if len(df.index) < 40_000:
+                #df = df.reindex(range(40_000), fill_value = 0) #add missing rows filled with zeros
             result[part] = df.to_numpy()
         
         return result
