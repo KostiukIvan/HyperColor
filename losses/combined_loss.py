@@ -69,14 +69,14 @@ class CombinedLoss(nn.Module):
 
         # ============= normal loss =============
         edge = edge.type(dtype)
-        normal = torch.stack([gts_normals[b, torch.squeeze(idx_first_to_second_0[b, :]), : ] for b in bt_num_idx]) # change  idx_first_to_second_0 to idx_second_to_first_0
+        normal = torch.stack([gts_normals[b, torch.squeeze(idx_second_to_first_0[b, :]), : ] for b in bt_num_idx]) # change  idx_first_to_second_0 to idx_second_to_first_0
         normal = normal[:, sphere_edges[:,0], : ] 
 
         edge = edge.type(ftype)
         normal = normal.type(ftype)
         cosine = torch.abs(torch.sum(torch.matmul(self.unit(normal),torch.transpose(self.unit(edge), dim0 = 1, dim1 = 2))))
         #cosine = torch.abs(torch.sum(torch.matmul(self.unit(normal), self.unit(edge))))
-        normal_loss = torch.mean(cosine) * 50000
+        normal_loss = torch.mean(cosine) * 0.5
         
         result = color_loss + champfer_loss + normal_loss*10.0
         
