@@ -1,5 +1,6 @@
 import urllib
 import shutil
+import requests
 from os import listdir, makedirs, remove
 from os.path import exists, join
 from zipfile import ZipFile
@@ -17,7 +18,7 @@ synth_id_to_number = {k: i for i, k in enumerate(synth_id_to_category.keys())}
 
 class CustomDataset(Dataset):
     def __init__(self, root_dir='/home/datasets/custom', classes=[],
-                 transform=None, split='train'):
+                 transform=None, split='train', config=None):
         """
         Args:
             root_dir (string): Directory with all the point clouds.
@@ -84,9 +85,6 @@ class CustomDataset(Dataset):
             df = pd.read_csv(path,sep=' ', header=None, engine='c', )
             if part == 'colors':
                 df = df.iloc[:, :-1] # drop the last column
-            if len(df.index) < 40_000:clear
-            
-                df = df.reindex(range(40_000), fill_value = 0) #add missing rows filled with zeros
             result[part] = df.to_numpy()
         
         return result
@@ -109,8 +107,8 @@ class CustomDataset(Dataset):
         print(f'Custom Dataset doesn\'t exist in root directory {self.root_dir}. '
               f'Downloading...')
         makedirs(self.root_dir)
-
-        file_id = '1iAq823TB1KOBLcBI2ZUkc961bBkSA1an'
+        
+        file_id = '1j4kGNqJbrl408nyIvZx-NKE9IfsxuCad'
 
         filename = 'data.zip'
         file_path = join(self.root_dir, filename)
@@ -123,28 +121,28 @@ class CustomDataset(Dataset):
 
         remove(file_path)
 
-def save_google_file(self, file_id : str, destination: str):
-    URL = "https://docs.google.com/uc?export=download"
+    def save_google_file(self, file_id : str, destination: str):
+        URL = "https://docs.google.com/uc?export=download"
 
-    session = requests.Session()
+        session = requests.Session()
 
-    response = session.get(URL, params = { 'id' : file_id }, stream = True)
-   
-    #get download confirmation token
-    token = None
-    for key, value in response.cookies.items():
-        if key.startswith('download_warning'):
-            token = value
-            break
+        response = session.get(URL, params = { 'id' : file_id }, stream = True)
+    
+        #get download confirmation token
+        token = None
+        for key, value in response.cookies.items():
+            if key.startswith('download_warning'):
+                token = value
+                break
 
-    if token:
-        params = { 'id' : file_id, 'confirm' : token }
-        response = session.get(URL, params = params, stream = True)
+        if token:
+            params = { 'id' : file_id, 'confirm' : token }
+            response = session.get(URL, params = params, stream = True)
 
-    #save data to destination file
-    CHUNK_SIZE = 32768
+        #save data to destination file
+        CHUNK_SIZE = 32768
 
-    with open(destination, "wb") as f:
-        for chunk in response.iter_content(CHUNK_SIZE):
-            if chunk: # filter out keep-alive new chunks
-                f.write(chunk) 
+        with open(destination, "wb") as f:
+            for chunk in response.iter_content(CHUNK_SIZE):
+                if chunk: # filter out keep-alive new chunks
+                    f.write(chunk) 
