@@ -101,3 +101,27 @@ def get_distribution_dir(config):
             normed_str = 'normed_progressive_to_epoch_%d' % norm_max_epoch
 
     return '%s%s' % ('uniform', '_' + normed_str if normed_str else '')
+
+def load_sphere_triangulation():
+    """
+        Returns sphere triangulation - tuple(vertexes, edges)
+    """
+
+    edges_filepath = '/home/vhaievyi/projects/HyperCloudRepository/HyperCloud/3d_point_cloud/shpere_triangulation/sphere_edges.txt'
+    verts_filepath = '/home/vhaievyi/projects/HyperCloudRepository/HyperCloud/3d_point_cloud/shpere_triangulation/sphere_verts.txt'
+    edges = []
+    verts = []
+
+    with open(edges_filepath) as f:
+        for line in f:
+            edge_begin, edge_end = tuple(map(int, line.split(' ')))
+            edges.append([edge_begin, edge_end])
+    
+    with open(verts_filepath) as f:
+        for line in f:
+            x, y, z = tuple(map(float, line.split(' ')))
+            verts.append([x / 2.0, y / 2.0, z / 2.0])
+
+    return np.array(verts), np.array(edges)
+
+        

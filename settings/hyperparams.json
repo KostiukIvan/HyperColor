@@ -1,5 +1,5 @@
 {
-    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results",
+    "results_root": "/home/vhaievyi/projects/HyperCloudRepository/HyperCloud/3d_point_cloud/results",
     "clean_results_dir": true,
     "clean_weights_dir": true,
 
@@ -10,19 +10,19 @@
 
     "metrics": [],
 
-    "dataset": "photogrammetry",
-    "data_dir": "/mnt/users/ikostiuk/local/3d_point_cloud/dataset/photogrammetry",
-    "classes": ["lamp"],
+    "dataset": "custom",
+    "data_dir": "/home/vhaievyi/projects/HyperCloudRepository/HyperCloud/3d_point_cloud/dataset/custom",
+    "classes": ["car"],
     "shuffle": true,
     "transforms": ["rotate"],
     "num_workers": 8,
-    "n_points": 2048,
+    "n_points": 4096,
 
-    "max_epochs": 3000,
-    "batch_size": 64,
+    "max_epochs": 2000,
+    "batch_size": 10,
     "gradient_penalty_coef": 10,
-    "reconstruction_coef": 0.05,
-    "z_size": 2048,
+    "reconstruction_coef": 0.5,
+    "z_size": 30000,
     "pointnet": false,
     "feature_regularization_coef": 0.001,
     "wasserstein": true,
