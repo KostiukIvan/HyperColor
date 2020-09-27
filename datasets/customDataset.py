@@ -9,7 +9,7 @@ import numpy as np
 from torch.utils.data import Dataset
 
 synth_id_to_category = {
-    '02958343': 'car'
+    '02958343': 'car', '02747177': 'lamp', '02691156': 'airplane'
 }
 
 category_to_synth_id = {v: k for k, v in synth_id_to_category.items()}
@@ -27,6 +27,11 @@ class CustomDataset(Dataset):
         self.root_dir = root_dir
         self.transform = transform
         self.split = split
+
+        if not config:
+            raise ValueError("PhotogrammetryDataset JSON config is not set")
+            
+        self.config = config
 
         self._maybe_download_data()
 
@@ -86,6 +91,10 @@ class CustomDataset(Dataset):
                 df = df.iloc[:, :-1] # drop the last column
             #if len(df.index) < 40_000:
                 #df = df.reindex(range(40_000), fill_value = 0) #add missing rows filled with zeros
+                
+            remove_n = len(df.index) - self.config['n_points']
+            drop_indices = np.random.choice(df.index, remove_n, replace=False)
+            df = df.drop(drop_indices)
             result[part] = df.to_numpy()
         
         return result
@@ -121,6 +130,7 @@ class CustomDataset(Dataset):
             zip_f.extractall(self.root_dir)
 
         remove(file_path)
+
 
 def save_google_file(self, file_id : str, destination: str):
     URL = "https://docs.google.com/uc?export=download"

@@ -6,6 +6,7 @@ from shutil import rmtree
 from time import sleep
 import random
 import numpy as np
+from enum import Enum
 
 import torch
 
@@ -101,3 +102,11 @@ def get_distribution_dir(config):
             normed_str = 'normed_progressive_to_epoch_%d' % norm_max_epoch
 
     return '%s%s' % ('uniform', '_' + normed_str if normed_str else '')
+
+
+
+class CombinedLossType(Enum):
+    champher = 1
+    colors = 2
+    edges = 3
+    normals = 4

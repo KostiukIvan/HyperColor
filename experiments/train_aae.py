@@ -20,6 +20,7 @@ from utils.pcutil import plot_3d_point_cloud
 from utils.util import find_latest_epoch, prepare_results_dir, cuda_setup, setup_logging, set_seed
 from utils.points import generate_points
 from utils.sphere import Sphere
+from utils.util import CombinedLossType
 
 
 cudnn.benchmark = True
@@ -50,6 +51,15 @@ def feature_transform_regularization(t: torch.Tensor) -> torch.Tensor:
 
 def main(config):
     set_seed(config['seed'])
+
+    if torch.cuda.is_available():
+        dtype = torch.cuda.LongTensor
+        ftype = torch.cuda.FloatTensor
+        #ftype = torch.cuda.DoubleTensor
+    else:
+        dtype = torch.LongTensor
+        ftype = torch.float32
+        #ftype = torch.double
 
     results_dir = prepare_results_dir(config, 'aae', 'training')
     starting_epoch = find_latest_epoch(results_dir) + 1
@@ -107,17 +117,17 @@ def main(config):
     #
     # Models
     #
-    hyper_network = aae.HyperNetwork(config, device).to(device)
+    hyper_network = aae.HyperNetwork(config, device).to(device).type(ftype)
 
     if pointnet:
         from models.pointnet import PointNet
         encoder = PointNet(config).to(device)
         # PointNet initializes it's own weights during instance creation
     else:
-        encoder = aae.Encoder(config).to(device)
+        encoder = aae.Encoder(config).to(device).type(ftype)
         encoder.apply(weights_init)
 
-    discriminator = aae.Discriminator(config).to(device)
+    discriminator = aae.Discriminator(config).to(device).type(ftype)
 
     hyper_network.apply(weights_init)
     discriminator.apply(weights_init)
@@ -135,7 +145,7 @@ def main(config):
     
     elif config['reconstruction_loss'].lower() == 'combined':
         from losses.combined_loss import CombinedLoss
-        reconstruction_loss = CombinedLoss().to(device)
+        reconstruction_loss = CombinedLoss(config).to(device)
 
     else:
         raise ValueError(f'Invalid reconstruction loss. Accepted `chamfer` or '
@@ -185,10 +195,15 @@ def main(config):
         normalization_type = config['target_network_input']['normalization']['type']
         assert normalization_type == 'progressive', 'Invalid normalization type'
 
+    #if config['target_network_input']['use_sphere_with_edges']:
+    S_edges = Sphere(config).get_sphere_edges()
+    S_edges = S_edges.to(device, dtype=torch.int32)
+
     target_network_input = None
     for epoch in range(starting_epoch, config['max_epochs'] + 1):
         start_epoch_time = datetime.now()
         log.debug("Epoch: %s" % epoch)
+        print("Epoch : ", str(epoch))
         hyper_network.train()
         encoder.train()
         discriminator.train()
@@ -203,15 +218,14 @@ def main(config):
             if dataset_name == "custom":
                 #X = torch.cat((point_data['points'], point_data['colors']), dim=2)
                 X = point_data['points']
-                X = X.to(device, dtype=torch.float)
-                X_normals = point_data['normals'].to(device, dtype=torch.float)
+                X = X.to(device).type(ftype)
+                X_normals = point_data['normals'].to(device).type(ftype)
+
             else: 
                 X, _ = point_data
-                X = X.to(device, dtype=torch.float)
+                X = X.to(device).type(ftype)
 
-            if config['target_network_input']['use_sphere_with_edges']:
-                sphere_edges = Sphere(config).get_sphere_edges()
-                sphere_edges = sphere_edges.to(device, dtype=torch.int32)
+            #log.info("XXXXX: %s" % str(X.shape))
 
             # Change dim [BATCH, N_POINTS, N_DIM] -> [BATCH, N_DIM, N_POINTS]
             if X.size(-1) == 3:
@@ -227,7 +241,7 @@ def main(config):
 
             # discriminator training
             noise = torch.empty(codes.shape[0], config['z_size']).normal_(mean=config['normal_mu'],
-                                                                          std=config['normal_std']).to(device)
+                                                                          std=config['normal_std']).to(device).type(ftype)
             synth_logit = discriminator(codes)
             real_logit = discriminator(noise)
             if config.get('wasserstein', True):
@@ -266,40 +280,42 @@ def main(config):
             #import pdb; pdb.set_trace()
             # hyper network training
             target_networks_weights = hyper_network(codes)
-
             X_rec = torch.zeros(X.shape).to(device)
             for j, target_network_weights in enumerate(target_networks_weights):
                 target_network = aae.TargetNetwork(config, target_network_weights).to(device)
 
-                if not config['target_network_input']['constant'] or target_network_input is None:
-                    if config['target_network_input']['use_sphere_with_edges']:
-                        target_network_input = Sphere(config).get_sphere_coord()
-                    else:
-                        target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], X.shape[1]))
+                if config['target_network_input']['static_sphere']['enable'] and epoch >= config['target_network_input']['static_sphere']['after_epoch']:
+                    target_network_input = Sphere(config).get_sphere_coord() # using static sphere
 
-                    
-                X_rec[j] = torch.transpose(target_network(target_network_input.to(device)), 0, 1)
+                elif not config['target_network_input']['constant'] or target_network_input is None:
+                    target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], X.shape[1]))
+
+                X_rec[j] = torch.transpose(target_network(target_network_input.to(device).type(ftype)), 0, 1)
 
             if pointnet:
                 loss_reconstruction = config['reconstruction_coef'] * \
                                       reconstruction_loss(torch.transpose(X, 1, 2).contiguous(),
                                                           torch.transpose(X_rec, 1, 2).contiguous(),
                                                           batch_size=X.shape[0]).mean()
-            else:
+            elif config['reconstruction_loss'].lower() == 'combined': # champher loss + edge loss + normal loss
+                reconstruction_type = []
+                reconstruction_type.append(CombinedLossType.champher)
+                #reconstruction_type.append(CombinedLossType.colors)
+                #if config['target_network_input']['static_sphere']['enable'] and epoch >= config['target_network_input']['static_sphere']['after_epoch']:
+                    #reconstruction_type.append(CombinedLossType.edges)
+                    #reconstruction_type.append(CombinedLossType.normals)
 
-                if config['target_network_input']['use_sphere_with_edges']:
-                    loss_reconstruction = torch.mean(
-                        config['reconstruction_coef'] *
-                        reconstruction_loss(X.permute(0, 2, 1) + 0.5,
-                                            X_rec.permute(0, 2, 1) + 0.5,
-                                            X_normals,
-                                            sphere_edges))
-                else:
-                    loss_reconstruction = torch.mean(
-                        config['reconstruction_coef'] *
-                        reconstruction_loss(X.permute(0, 2, 1) + 0.5,
-                                            X_rec.permute(0, 2, 1) + 0.5,
-                                            X_normals ))
+                loss_reconstruction = torch.mean(config['reconstruction_coef'] * 
+                                            reconstruction_loss(X.permute(0, 2, 1) + 0.5,
+                                                            X_rec.permute(0, 2, 1) + 0.5,
+                                                            X_normals, S_edges,
+                                                            reconstruction_type))
+
+            else: # champher loss
+                loss_reconstruction = torch.mean(
+                    config['reconstruction_coef'] *
+                    reconstruction_loss(X.permute(0, 2, 1) + 0.5,
+                                        X_rec.permute(0, 2, 1) + 0.5))
 
             # encoder training
             synth_logit = discriminator(codes)
@@ -310,8 +326,6 @@ def main(config):
                 c = 1.0
                 loss_encoder = 0.5 * (synth_logit - c)**2
 
-            #print(loss_reconstruction.item())
-            #print(loss_encoder.item())
 
             if pointnet:
                 regularization_loss = config['feature_regularization_coef'] * \
@@ -354,10 +368,18 @@ def main(config):
         #
         # Save intermediate results
         #
+
         X = X.cpu().numpy()
         X_rec = X_rec.detach().cpu().numpy()
+        target_network_input = target_network_input.detach().cpu().numpy()
+
 
         for k in range(min(1, X_rec.shape[0])):
+            fig = plot_3d_point_cloud(target_network_input[:,0], target_network_input[:,1], target_network_input[:,2], in_u_sphere=True, show=False,
+                                      title=str(epoch))
+            fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_sphere.png'))
+            plt.close(fig)
+
             fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], in_u_sphere=True, show=False,
                                       title=str(epoch))
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_reconstructed.png'))

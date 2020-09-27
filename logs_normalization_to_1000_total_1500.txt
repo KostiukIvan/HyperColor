@@ -1,0 +1,2515 @@
+/mnt/users/ikostiuk/local/3d_point_cloud/results/aae/training/uniform_normed_progressive_to_epoch_500/custom/airplane
+True
+Epoch :  1001
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.592449188232422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.814483642578125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.26776123046875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 46.39752197265625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.452308654785156 	Normal loss : 0.0 
+Epoch :  1002
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.702669143676758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.446794509887695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 39.60094451904297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.02805519104004 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.67472457885742 	Normal loss : 0.0 
+Epoch :  1003
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.97800827026367 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.42123794555664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 46.39870834350586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 39.1685791015625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.559022903442383 	Normal loss : 0.0 
+Epoch :  1004
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.3047981262207 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.70924758911133 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.01430320739746 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.49537467956543 	Normal loss : 0.0 
+Epoch :  1005
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.264101028442383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.827449798583984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.599735260009766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.99277877807617 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.82141876220703 	Normal loss : 0.0 
+Epoch :  1006
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.41080093383789 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.1431884765625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.764249801635742 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.842506408691406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.904386520385742 	Normal loss : 0.0 
+Epoch :  1007
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.56987190246582 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.14446258544922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.13192367553711 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.207040786743164 	Normal loss : 0.0 
+Epoch :  1008
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.579360961914062 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.82282829284668 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.929105758666992 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.15568733215332 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.330760955810547 	Normal loss : 0.0 
+Epoch :  1009
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.34646224975586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.184223175048828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.928714752197266 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 38.98213195800781 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.655475616455078 	Normal loss : 0.0 
+Epoch :  1010
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.548980712890625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.19209861755371 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.717254638671875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.551544189453125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.349201202392578 	Normal loss : 0.0 
+Epoch :  1011
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.237146377563477 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.631072998046875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.38069152832031 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.45619010925293 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.49155807495117 	Normal loss : 0.0 
+Epoch :  1012
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.836101531982422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.214256286621094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.087987899780273 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.27022361755371 	Normal loss : 0.0 
+Epoch :  1013
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.705224990844727 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.14297103881836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.482154846191406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.065113067626953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.272727966308594 	Normal loss : 0.0 
+Epoch :  1014
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.950624465942383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.16282272338867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.3248176574707 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.408634185791016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.681358337402344 	Normal loss : 0.0 
+Epoch :  1015
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.73921585083008 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.816205978393555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.368377685546875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.596210479736328 	Normal loss : 0.0 
+Epoch :  1016
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.899219512939453 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.936697006225586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.702173233032227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.21388244628906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.17150115966797 	Normal loss : 0.0 
+Epoch :  1017
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.669858932495117 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.794464111328125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.62394142150879 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.426902770996094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.03925704956055 	Normal loss : 0.0 
+Epoch :  1018
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.325178146362305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.50107955932617 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.641145706176758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.82099533081055 	Normal loss : 0.0 
+Epoch :  1019
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.42938232421875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.26343536376953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.53257942199707 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.29364776611328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.47676086425781 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.080944061279297 	Normal loss : 0.0 
+Epoch :  1020
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.376150131225586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.693614959716797 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.759689331054688 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.000879287719727 	Normal loss : 0.0 
+Epoch :  1021
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.28328514099121 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.5284366607666 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.434181213378906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.66621780395508 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.230031967163086 	Normal loss : 0.0 
+Epoch :  1022
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.718542098999023 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 38.797584533691406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.9389533996582 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.531009674072266 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.300437927246094 	Normal loss : 0.0 
+Epoch :  1023
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 38.37852096557617 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.593027114868164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.019329071044922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.776962280273438 	Normal loss : 0.0 
+Epoch :  1024
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.75016403198242 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.34950065612793 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.963912963867188 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.8922061920166 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.560440063476562 	Normal loss : 0.0 
+Epoch :  1025
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.6618709564209 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.680397033691406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.47238540649414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.645517349243164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.15983581542969 	Normal loss : 0.0 
+Epoch :  1026
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.209692001342773 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.10441017150879 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.949020385742188 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.247886657714844 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 10.962881088256836 	Normal loss : 0.0 
+Epoch :  1027
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 38.08903503417969 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.328357696533203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.61421012878418 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.24760627746582 	Normal loss : 0.0 
+Epoch :  1028
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.54928207397461 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.486400604248047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.044376373291016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.550334930419922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.188373565673828 	Normal loss : 0.0 
+Epoch :  1029
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.434907913208008 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.40884017944336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.06263732910156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.741769790649414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.71992111206055 	Normal loss : 0.0 
+Epoch :  1030
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.84678649902344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.922204971313477 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.61823654174805 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.709949493408203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.68313217163086 	Normal loss : 0.0 
+Epoch :  1031
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.501270294189453 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.68930435180664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.228687286376953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.625518798828125 	Normal loss : 0.0 
+Epoch :  1032
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.6671142578125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.98204040527344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.0872859954834 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.73946762084961 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.212671279907227 	Normal loss : 0.0 
+Epoch :  1033
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.950389862060547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.75644302368164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.144901275634766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.76750373840332 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.824481964111328 	Normal loss : 0.0 
+Epoch :  1034
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.48493194580078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.052978515625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.07219886779785 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.594470977783203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.969390869140625 	Normal loss : 0.0 
+Epoch :  1035
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.89068031311035 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.727916717529297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.259838104248047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.126495361328125 	Normal loss : 0.0 
+Epoch :  1036
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.64299774169922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.617427825927734 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.33500289916992 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.04618835449219 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.857093811035156 	Normal loss : 0.0 
+Epoch :  1037
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.48120880126953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.824464797973633 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.74309539794922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.402284622192383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.370697021484375 	Normal loss : 0.0 
+Epoch :  1038
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.14068031311035 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.70962905883789 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.62286376953125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.69304275512695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.058563232421875 	Normal loss : 0.0 
+Epoch :  1039
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.804214477539062 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.571205139160156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.046396255493164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.550846099853516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 11.6155424118042 	Normal loss : 0.0 
+Epoch :  1040
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.547916412353516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.05790710449219 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.056644439697266 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.333515167236328 	Normal loss : 0.0 
+Epoch :  1041
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.429264068603516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.25104522705078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.773530960083008 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.22075080871582 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.143802642822266 	Normal loss : 0.0 
+Epoch :  1042
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.75489044189453 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.58417510986328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.075767517089844 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.758445739746094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.701160430908203 	Normal loss : 0.0 
+Epoch :  1043
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.94499969482422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.323158264160156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.239587783813477 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.226150512695312 	Normal loss : 0.0 
+Epoch :  1044
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.936614990234375 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.67329978942871 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.755353927612305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.152772903442383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.51150131225586 	Normal loss : 0.0 
+Epoch :  1045
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.761577606201172 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.884363174438477 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.032258987426758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.593250274658203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.217992782592773 	Normal loss : 0.0 
+Epoch :  1046
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.08794021606445 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.27152633666992 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.273944854736328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.98104476928711 	Normal loss : 0.0 
+Epoch :  1047
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.09618377685547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.950817108154297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.44859313964844 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.10263442993164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.11833190917969 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.956401824951172 	Normal loss : 0.0 
+Epoch :  1048
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.769418716430664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.047033309936523 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.120140075683594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.05976104736328 	Normal loss : 0.0 
+Epoch :  1049
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.249122619628906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.44951248168945 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.057029724121094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.584606170654297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.223175048828125 	Normal loss : 0.0 
+Epoch :  1050
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.464542388916016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.901485443115234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.842716217041016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.449766159057617 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.744163513183594 	Normal loss : 0.0 
+Epoch :  1051
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.545372009277344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.856853485107422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.21041488647461 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.6900691986084 	Normal loss : 0.0 
+Epoch :  1052
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.813385009765625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.2270565032959 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.835115432739258 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.278671264648438 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.960102081298828 	Normal loss : 0.0 
+Epoch :  1053
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.719234466552734 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.969758987426758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.324810028076172 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.269180297851562 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.4793586730957 	Normal loss : 0.0 
+Epoch :  1054
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.71699333190918 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.45363998413086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.24587631225586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.66567611694336 	Normal loss : 0.0 
+Epoch :  1055
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.161800384521484 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.496437072753906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.448486328125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.189233779907227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.777482986450195 	Normal loss : 0.0 
+Epoch :  1056
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.273025512695312 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.966678619384766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.896963119506836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.67032241821289 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.617298126220703 	Normal loss : 0.0 
+Epoch :  1057
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.285268783569336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.9886531829834 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 22.440654754638672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.14866065979004 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.5019416809082 	Normal loss : 0.0 
+Epoch :  1058
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.474836349487305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.18757629394531 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.513118743896484 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.134347915649414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.377307891845703 	Normal loss : 0.0 
+Epoch :  1059
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.337806701660156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.256669998168945 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.765718460083008 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.38286590576172 	Normal loss : 0.0 
+Epoch :  1060
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.1721248626709 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.24665069580078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.20823860168457 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.572561264038086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.952720642089844 	Normal loss : 0.0 
+Epoch :  1061
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.820785522460938 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.5208683013916 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.78972625732422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.673959732055664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.478633880615234 	Normal loss : 0.0 
+Epoch :  1062
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.376659393310547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.859106063842773 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.638938903808594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.100263595581055 	Normal loss : 0.0 
+Epoch :  1063
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.7728271484375 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.9876766204834 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.713979721069336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.4032096862793 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.74396514892578 	Normal loss : 0.0 
+Epoch :  1064
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.663436889648438 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.7593994140625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.415735244750977 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.825523376464844 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.731937408447266 	Normal loss : 0.0 
+Epoch :  1065
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.13644027709961 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.183319091796875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.557376861572266 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.42015075683594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.314678192138672 	Normal loss : 0.0 
+Epoch :  1066
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.01463508605957 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.170774459838867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.04874801635742 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.345462799072266 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.09575843811035 	Normal loss : 0.0 
+Epoch :  1067
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.367706298828125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.57868003845215 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.90312957763672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.980838775634766 	Normal loss : 0.0 
+Epoch :  1068
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.04340171813965 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.384550094604492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.23900032043457 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.775651931762695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.153078079223633 	Normal loss : 0.0 
+Epoch :  1069
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.857025146484375 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.0427188873291 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.46245574951172 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.683156967163086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 22.81466293334961 	Normal loss : 0.0 
+Epoch :  1070
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.83440589904785 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.764495849609375 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.509485244750977 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.618072509765625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 11.258930206298828 	Normal loss : 0.0 
+Epoch :  1071
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.61334991455078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.484697341918945 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.335538864135742 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.817792892456055 	Normal loss : 0.0 
+Epoch :  1072
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.566761016845703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.550508499145508 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.628395080566406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.358247756958008 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.93923568725586 	Normal loss : 0.0 
+Epoch :  1073
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.28414535522461 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.141887664794922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.669254302978516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.148975372314453 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.804750442504883 	Normal loss : 0.0 
+Epoch :  1074
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.24238967895508 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.76984977722168 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.33580780029297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.766033172607422 	Normal loss : 0.0 
+Epoch :  1075
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.39860534667969 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.84811782836914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.71293830871582 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.050107955932617 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.815568923950195 	Normal loss : 0.0 
+Epoch :  1076
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.62276840209961 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.818262100219727 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.981595993041992 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.61166000366211 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.118732452392578 	Normal loss : 0.0 
+Epoch :  1077
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.64133834838867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.04615020751953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.928604125976562 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.250713348388672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.801481246948242 	Normal loss : 0.0 
+Epoch :  1078
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.1001033782959 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.76047134399414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.025379180908203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.34977912902832 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.391780853271484 	Normal loss : 0.0 
+Epoch :  1079
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.263715744018555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 39.036537170410156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.687482833862305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 40.58125686645508 	Normal loss : 0.0 
+Epoch :  1080
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 38.55428695678711 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.1787052154541 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.026411056518555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.5272274017334 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.62762451171875 	Normal loss : 0.0 
+Epoch :  1081
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.90427780151367 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.41128158569336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.335432052612305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.282184600830078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.090757369995117 	Normal loss : 0.0 
+Epoch :  1082
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.852807998657227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.513290405273438 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.39032745361328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.248104095458984 	Normal loss : 0.0 
+Epoch :  1083
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.01970672607422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.994874954223633 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.912826538085938 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.8436164855957 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.25865936279297 	Normal loss : 0.0 
+Epoch :  1084
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.5860538482666 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.3875846862793 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.60874366760254 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.015581130981445 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.015718460083008 	Normal loss : 0.0 
+Epoch :  1085
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.361146926879883 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.584854125976562 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.047998428344727 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.985685348510742 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.561622619628906 	Normal loss : 0.0 
+Epoch :  1086
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.65081024169922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.17393493652344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.311931610107422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.728883743286133 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.649429321289062 	Normal loss : 0.0 
+Epoch :  1087
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.118885040283203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.103147506713867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.011213302612305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.427331924438477 	Normal loss : 0.0 
+Epoch :  1088
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.13694190979004 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.664859771728516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.172019958496094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.149141311645508 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.100269317626953 	Normal loss : 0.0 
+Epoch :  1089
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.41132164001465 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.58909034729004 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.246543884277344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.4604434967041 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.338829040527344 	Normal loss : 0.0 
+Epoch :  1090
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.451047897338867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.68456268310547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.739288330078125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.45907211303711 	Normal loss : 0.0 
+Epoch :  1091
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.244041442871094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.448638916015625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.027782440185547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.770475387573242 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.72312927246094 	Normal loss : 0.0 
+Epoch :  1092
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.11075210571289 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.871845245361328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.249221801757812 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.530746459960938 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.061504364013672 	Normal loss : 0.0 
+Epoch :  1093
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.67654800415039 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.367366790771484 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.461009979248047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.55101776123047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.10649108886719 	Normal loss : 0.0 
+Epoch :  1094
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.294769287109375 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.857690811157227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.04929542541504 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.434844970703125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.1425724029541 	Normal loss : 0.0 
+Epoch :  1095
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.265687942504883 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.776620864868164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.42273712158203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.010709762573242 	Normal loss : 0.0 
+Epoch :  1096
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.400165557861328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.254446029663086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.81822395324707 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.115970611572266 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.568510055541992 	Normal loss : 0.0 
+Epoch :  1097
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.4117431640625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.186355590820312 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.192426681518555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.599836349487305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.30240249633789 	Normal loss : 0.0 
+Epoch :  1098
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.888391494750977 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.86301612854004 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.77054786682129 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.1515007019043 	Normal loss : 0.0 
+Epoch :  1099
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.39162826538086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.96952247619629 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.912151336669922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.27182388305664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.032745361328125 	Normal loss : 0.0 
+Epoch :  1100
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.759639739990234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.82511329650879 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.130802154541016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.75040054321289 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.52467346191406 	Normal loss : 0.0 
+Epoch :  1101
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.99695587158203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.23889923095703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.68651580810547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.17608070373535 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 14.14122486114502 	Normal loss : 0.0 
+Epoch :  1102
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.58766746520996 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.32948684692383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.256988525390625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.476465225219727 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.859769821166992 	Normal loss : 0.0 
+Epoch :  1103
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.993701934814453 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.863338470458984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.84528923034668 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.46442413330078 	Normal loss : 0.0 
+Epoch :  1104
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.372922897338867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.325971603393555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.759836196899414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.374248504638672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.587156295776367 	Normal loss : 0.0 
+Epoch :  1105
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.934762954711914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.850772857666016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.849409103393555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.584991455078125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.614694595336914 	Normal loss : 0.0 
+Epoch :  1106
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.17774200439453 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.834087371826172 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.4251651763916 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.227500915527344 	Normal loss : 0.0 
+Epoch :  1107
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.90394592285156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.568828582763672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.355079650878906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.081865310668945 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.50650978088379 	Normal loss : 0.0 
+Epoch :  1108
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.30112075805664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.888843536376953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.238693237304688 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.929590225219727 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.040603637695312 	Normal loss : 0.0 
+Epoch :  1109
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.57052993774414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.16568374633789 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.573360443115234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.02460289001465 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.206844329833984 	Normal loss : 0.0 
+Epoch :  1110
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.699859619140625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.952625274658203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.21245765686035 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.973752975463867 	Normal loss : 0.0 
+Epoch :  1111
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.11897087097168 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.828332901000977 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.749080657958984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.929990768432617 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 21.11130142211914 	Normal loss : 0.0 
+Epoch :  1112
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.736799240112305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.347436904907227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.75680923461914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.55111312866211 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.775928497314453 	Normal loss : 0.0 
+Epoch :  1113
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.191547393798828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.598142623901367 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.356107711791992 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.00726890563965 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.41693115234375 	Normal loss : 0.0 
+Epoch :  1114
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.6340217590332 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.932174682617188 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.03416442871094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.971254348754883 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 12.555875778198242 	Normal loss : 0.0 
+Epoch :  1115
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 38.349788665771484 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.046064376831055 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.64533805847168 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.012516021728516 	Normal loss : 0.0 
+Epoch :  1116
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.78423500061035 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.082252502441406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.624977111816406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.034460067749023 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.980369567871094 	Normal loss : 0.0 
+Epoch :  1117
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.387775421142578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.459171295166016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.977758407592773 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.576818466186523 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.842592239379883 	Normal loss : 0.0 
+Epoch :  1118
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.5910758972168 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.71114730834961 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.296825408935547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.09671401977539 	Normal loss : 0.0 
+Epoch :  1119
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.99472999572754 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.60683250427246 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.60895538330078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.536012649536133 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.75725555419922 	Normal loss : 0.0 
+Epoch :  1120
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.44548034667969 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.381298065185547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.40796661376953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.929821014404297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.199594497680664 	Normal loss : 0.0 
+Epoch :  1121
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.570693969726562 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.04697036743164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.418415069580078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.29170036315918 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.381305694580078 	Normal loss : 0.0 
+Epoch :  1122
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.03695297241211 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.720783233642578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.154348373413086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.820955276489258 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.24591827392578 	Normal loss : 0.0 
+Epoch :  1123
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.357280731201172 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.26078414916992 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.312732696533203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.538700103759766 	Normal loss : 0.0 
+Epoch :  1124
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.069377899169922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.920927047729492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.895004272460938 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.554288864135742 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.64236068725586 	Normal loss : 0.0 
+Epoch :  1125
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.873857498168945 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.410701751708984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.08291244506836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.962881088256836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.58428955078125 	Normal loss : 0.0 
+Epoch :  1126
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.30350685119629 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.50472068786621 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.219913482666016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.55489730834961 	Normal loss : 0.0 
+Epoch :  1127
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.09713363647461 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.612173080444336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.411428451538086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.43781280517578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.27859115600586 	Normal loss : 0.0 
+Epoch :  1128
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.634187698364258 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.869651794433594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.831096649169922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.463294982910156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.682336807250977 	Normal loss : 0.0 
+Epoch :  1129
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.953027725219727 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.34615707397461 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.352083206176758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.90153503417969 	Normal loss : 0.0 
+Epoch :  1130
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.01624298095703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.633268356323242 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.144838333129883 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.43292236328125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.2274284362793 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.533065795898438 	Normal loss : 0.0 
+Epoch :  1131
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.23643112182617 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.616744995117188 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.831933975219727 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.57875061035156 	Normal loss : 0.0 
+Epoch :  1132
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.55357360839844 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.325660705566406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.34531784057617 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.254289627075195 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.871002197265625 	Normal loss : 0.0 
+Epoch :  1133
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.792598724365234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.06733322143555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.219749450683594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.622970581054688 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.43553924560547 	Normal loss : 0.0 
+Epoch :  1134
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.16161346435547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.59239959716797 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.433992385864258 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.068233489990234 	Normal loss : 0.0 
+Epoch :  1135
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.41449737548828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.624942779541016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.120914459228516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.111570358276367 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.986812591552734 	Normal loss : 0.0 
+Epoch :  1136
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.9622859954834 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.667757034301758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.141233444213867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.832916259765625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.23696517944336 	Normal loss : 0.0 
+Epoch :  1137
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.22307586669922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.708003997802734 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.475296020507812 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 43.20890808105469 	Normal loss : 0.0 
+Epoch :  1138
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.08713150024414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.19231414794922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.30720901489258 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.04620361328125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.10262680053711 	Normal loss : 0.0 
+Epoch :  1139
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.051855087280273 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.13872528076172 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.27528953552246 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.637218475341797 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.493324279785156 	Normal loss : 0.0 
+Epoch :  1140
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.06116485595703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.54622459411621 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.36992073059082 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.216571807861328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.244415283203125 	Normal loss : 0.0 
+Epoch :  1141
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.51361846923828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.122066497802734 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.564863204956055 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.07722282409668 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.927186965942383 	Normal loss : 0.0 
+Epoch :  1142
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.448925018310547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.149682998657227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.462692260742188 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.403575897216797 	Normal loss : 0.0 
+Epoch :  1143
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.123830795288086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.480751037597656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.281370162963867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.46181297302246 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.285593032836914 	Normal loss : 0.0 
+Epoch :  1144
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.04449462890625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.644132614135742 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.22304344177246 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.703176498413086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.093124389648438 	Normal loss : 0.0 
+Epoch :  1145
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.60521125793457 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.113739013671875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.622724533081055 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.90367889404297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 13.808757781982422 	Normal loss : 0.0 
+Epoch :  1146
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.149269104003906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.67816734313965 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.798828125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.293371200561523 	Normal loss : 0.0 
+Epoch :  1147
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.318450927734375 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.950714111328125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.73819351196289 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.33436965942383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.774805068969727 	Normal loss : 0.0 
+Epoch :  1148
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.13971710205078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.7301025390625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.207719802856445 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.05261993408203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.92772674560547 	Normal loss : 0.0 
+Epoch :  1149
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.109861373901367 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.644060134887695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.539213180541992 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.882587432861328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.543855667114258 	Normal loss : 0.0 
+Epoch :  1150
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.217891693115234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.830690383911133 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.628938674926758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.05361557006836 	Normal loss : 0.0 
+Epoch :  1151
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.695009231567383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.766298294067383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.894546508789062 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.62845993041992 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.581071853637695 	Normal loss : 0.0 
+Epoch :  1152
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.55157470703125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.06769561767578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.8671875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.906375885009766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.64194869995117 	Normal loss : 0.0 
+Epoch :  1153
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.07615089416504 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.7023811340332 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.74045181274414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.631309509277344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.405475616455078 	Normal loss : 0.0 
+Epoch :  1154
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.963674545288086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.532068252563477 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.43838882446289 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.540096282958984 	Normal loss : 0.0 
+Epoch :  1155
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.292251586914062 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.55204200744629 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 22.731212615966797 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.565811157226562 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.10155487060547 	Normal loss : 0.0 
+Epoch :  1156
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.572044372558594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.125240325927734 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.72137451171875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.585723876953125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.35962677001953 	Normal loss : 0.0 
+Epoch :  1157
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 39.37824249267578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.48422622680664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.596847534179688 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.383811950683594 	Normal loss : 0.0 
+Epoch :  1158
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.468055725097656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.911319732666016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.796783447265625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.059200286865234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.16546058654785 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 11.789759635925293 	Normal loss : 0.0 
+Epoch :  1159
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.601858139038086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.022714614868164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.883869171142578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.55134582519531 	Normal loss : 0.0 
+Epoch :  1160
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.007625579833984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.60077667236328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.759605407714844 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.32590675354004 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.106571197509766 	Normal loss : 0.0 
+Epoch :  1161
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.23908615112305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.85458755493164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.997182846069336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.36376190185547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 42.3989143371582 	Normal loss : 0.0 
+Epoch :  1162
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 46.72976303100586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 55.278812408447266 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 50.6317138671875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.67382049560547 	Normal loss : 0.0 
+Epoch :  1163
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.10648727416992 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.13585662841797 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.563129425048828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.44334602355957 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.01339340209961 	Normal loss : 0.0 
+Epoch :  1164
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.095664978027344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.480417251586914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.369441986083984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.5966739654541 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 39.654991149902344 	Normal loss : 0.0 
+Epoch :  1165
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.66070556640625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.004222869873047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.40944480895996 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.338132858276367 	Normal loss : 0.0 
+Epoch :  1166
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.92289733886719 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.21889877319336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.90638732910156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.36573028564453 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.712432861328125 	Normal loss : 0.0 
+Epoch :  1167
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 22.012874603271484 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.71167755126953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.83603858947754 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.649404525756836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.602603912353516 	Normal loss : 0.0 
+Epoch :  1168
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.179058074951172 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.649442672729492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.730968475341797 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.74186325073242 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.495594024658203 	Normal loss : 0.0 
+Epoch :  1169
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 21.90108871459961 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.45193099975586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.869291305541992 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.2586669921875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.87245750427246 	Normal loss : 0.0 
+Epoch :  1170
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.58706283569336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.43912124633789 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.177650451660156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.833744049072266 	Normal loss : 0.0 
+Epoch :  1171
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.67889976501465 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.22502326965332 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.418241500854492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.283058166503906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.5131778717041 	Normal loss : 0.0 
+Epoch :  1172
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.16122817993164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.79692268371582 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.4510612487793 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.226947784423828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.718212127685547 	Normal loss : 0.0 
+Epoch :  1173
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 40.7892951965332 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.39699935913086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.48668670654297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.605762481689453 	Normal loss : 0.0 
+Epoch :  1174
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.74098587036133 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.87740135192871 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.180007934570312 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.895862579345703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.341814041137695 	Normal loss : 0.0 
+Epoch :  1175
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.374420166015625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.6931037902832 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.337934494018555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.43674659729004 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.001523971557617 	Normal loss : 0.0 
+Epoch :  1176
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.074975967407227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.05446434020996 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.648103713989258 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.638153076171875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 12.78291130065918 	Normal loss : 0.0 
+Epoch :  1177
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.51194953918457 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.890897750854492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.770950317382812 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.37864875793457 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.715906143188477 	Normal loss : 0.0 
+Epoch :  1178
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.736644744873047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.145090103149414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.04486846923828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.730783462524414 	Normal loss : 0.0 
+Epoch :  1179
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.569278717041016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 40.39236831665039 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 45.120113372802734 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.796661376953125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.47673988342285 	Normal loss : 0.0 
+Epoch :  1180
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.276641845703125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.856271743774414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.206790924072266 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.08951187133789 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 40.936588287353516 	Normal loss : 0.0 
+Epoch :  1181
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.71171188354492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.488971710205078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.94976806640625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 38.23122024536133 	Normal loss : 0.0 
+Epoch :  1182
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.322580337524414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.77385711669922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.052318572998047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.50643539428711 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.277576446533203 	Normal loss : 0.0 
+Epoch :  1183
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.575788497924805 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.5319881439209 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.342470169067383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.238737106323242 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.447160720825195 	Normal loss : 0.0 
+Epoch :  1184
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.61296272277832 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.295684814453125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.781700134277344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.353055953979492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.39540481567383 	Normal loss : 0.0 
+Epoch :  1185
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.548587799072266 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.178075790405273 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.938352584838867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.67762565612793 	Normal loss : 0.0 
+Epoch :  1186
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.77996253967285 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.47198486328125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.22787094116211 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.585140228271484 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.09065818786621 	Normal loss : 0.0 
+Epoch :  1187
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.1012020111084 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.75403594970703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.288393020629883 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.69263458251953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.54590606689453 	Normal loss : 0.0 
+Epoch :  1188
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.346607208251953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.865468978881836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.136394500732422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.415889739990234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.928970336914062 	Normal loss : 0.0 
+Epoch :  1189
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.557355880737305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.8009033203125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.010238647460938 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.643661499023438 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 7.45414400100708 	Normal loss : 0.0 
+Epoch :  1190
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.673070907592773 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.223800659179688 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.46486473083496 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.032169342041016 	Normal loss : 0.0 
+Epoch :  1191
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.759063720703125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.791725158691406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.881486892700195 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.934326171875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.67466735839844 	Normal loss : 0.0 
+Epoch :  1192
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.999467849731445 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.08550262451172 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.82937240600586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.338655471801758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.48077964782715 	Normal loss : 0.0 
+Epoch :  1193
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.77481460571289 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.20976448059082 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.27362060546875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.68317985534668 	Normal loss : 0.0 
+Epoch :  1194
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.591182708740234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.180137634277344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.04171371459961 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.588117599487305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.380353927612305 	Normal loss : 0.0 
+Epoch :  1195
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.12852478027344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.606693267822266 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.62674331665039 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.46767044067383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.779035568237305 	Normal loss : 0.0 
+Epoch :  1196
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.1736946105957 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.959453582763672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.134511947631836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.400941848754883 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 21.863658905029297 	Normal loss : 0.0 
+Epoch :  1197
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.612890243530273 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.250221252441406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.64327621459961 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.893108367919922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.04450225830078 	Normal loss : 0.0 
+Epoch :  1198
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.200971603393555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.84917068481445 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.63959884643555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.76565170288086 	Normal loss : 0.0 
+Epoch :  1199
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.345556259155273 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.840877532958984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.87181854248047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.996780395507812 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.387699127197266 	Normal loss : 0.0 
+Epoch :  1200
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.658649444580078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.43538284301758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.650278091430664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.464378356933594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.416898727416992 	Normal loss : 0.0 
+Epoch :  1201
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.62099075317383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.05487823486328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.635040283203125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.58895492553711 	Normal loss : 0.0 
+Epoch :  1202
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.921667098999023 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.662883758544922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.145137786865234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.07479476928711 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.553287506103516 	Normal loss : 0.0 
+Epoch :  1203
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.7677001953125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.830087661743164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.821739196777344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.470678329467773 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.043792724609375 	Normal loss : 0.0 
+Epoch :  1204
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.60010528564453 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.52828025817871 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.69747543334961 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.929725646972656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.04212760925293 	Normal loss : 0.0 
+Epoch :  1205
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 40.79948806762695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.535301208496094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.817846298217773 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.269981384277344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.314889907836914 	Normal loss : 0.0 
+Epoch :  1206
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.965532302856445 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.389564514160156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.406002044677734 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.842647552490234 	Normal loss : 0.0 
+Epoch :  1207
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.233579635620117 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.58926010131836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.03841018676758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.11299133300781 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.427528381347656 	Normal loss : 0.0 
+Epoch :  1208
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.37065887451172 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.85373306274414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.570899963378906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.533050537109375 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.126319885253906 	Normal loss : 0.0 
+Epoch :  1209
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.042316436767578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.414339065551758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.270069122314453 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 22.30674171447754 	Normal loss : 0.0 
+Epoch :  1210
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.657575607299805 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.998254776000977 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.52322006225586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.62153244018555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.828779220581055 	Normal loss : 0.0 
+Epoch :  1211
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.58089256286621 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.758583068847656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.770334243774414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.517927169799805 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.43913459777832 	Normal loss : 0.0 
+Epoch :  1212
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.643030166625977 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 38.660945892333984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 38.15816116333008 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.86431884765625 	Normal loss : 0.0 
+Epoch :  1213
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 40.038368225097656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.34307098388672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 38.18149185180664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.919946670532227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.00469398498535 	Normal loss : 0.0 
+Epoch :  1214
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.641170501708984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.767959594726562 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.513275146484375 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.291851043701172 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.544498443603516 	Normal loss : 0.0 
+Epoch :  1215
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.486343383789062 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.976816177368164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.787630081176758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.45008659362793 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.645355224609375 	Normal loss : 0.0 
+Epoch :  1216
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.331815719604492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.612428665161133 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.34836196899414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.070446014404297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.08735466003418 	Normal loss : 0.0 
+Epoch :  1217
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.357330322265625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.26102638244629 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.230987548828125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.18476486206055 	Normal loss : 0.0 
+Epoch :  1218
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.34873962402344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.899595260620117 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.719640731811523 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.711931228637695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.836151123046875 	Normal loss : 0.0 
+Epoch :  1219
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.90275764465332 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.071874618530273 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.107542037963867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.08009910583496 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.07044219970703 	Normal loss : 0.0 
+Epoch :  1220
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.91794204711914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.896677017211914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.624481201171875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.25665283203125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 12.457877159118652 	Normal loss : 0.0 
+Epoch :  1221
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.805849075317383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.62018966674805 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.824676513671875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 38.49617004394531 	Normal loss : 0.0 
+Epoch :  1222
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.16560363769531 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.066370010375977 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.42505645751953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.66663360595703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.639963150024414 	Normal loss : 0.0 
+Epoch :  1223
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.36800765991211 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.507051467895508 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.575727462768555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.87571907043457 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.754308700561523 	Normal loss : 0.0 
+Epoch :  1224
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.735851287841797 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.609737396240234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.35788345336914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.755456924438477 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.567195892333984 	Normal loss : 0.0 
+Epoch :  1225
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.339561462402344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.3858528137207 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.702884674072266 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.12992477416992 	Normal loss : 0.0 
+Epoch :  1226
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.708410263061523 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.810169219970703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.61302375793457 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.092430114746094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.991086959838867 	Normal loss : 0.0 
+Epoch :  1227
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.175676345825195 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.87863540649414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.88003158569336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.95672607421875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.93079376220703 	Normal loss : 0.0 
+Epoch :  1228
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.61503601074219 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.61643981933594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.8081169128418 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.4240779876709 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.940969467163086 	Normal loss : 0.0 
+Epoch :  1229
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.644874572753906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.3652458190918 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.095809936523438 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.435997009277344 	Normal loss : 0.0 
+Epoch :  1230
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.68787956237793 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.48661804199219 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.672138214111328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.466032028198242 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.507484436035156 	Normal loss : 0.0 
+Epoch :  1231
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.580076217651367 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.651161193847656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.750944137573242 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.578306198120117 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.192447662353516 	Normal loss : 0.0 
+Epoch :  1232
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.58015060424805 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.352888107299805 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.103023529052734 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.074453353881836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.909860610961914 	Normal loss : 0.0 
+Epoch :  1233
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.31056594848633 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.91330337524414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.343780517578125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.691789627075195 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 12.954835891723633 	Normal loss : 0.0 
+Epoch :  1234
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.50370216369629 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.999481201171875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.05373764038086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.920551300048828 	Normal loss : 0.0 
+Epoch :  1235
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.206851959228516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.38091278076172 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.575511932373047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.17111587524414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.54568099975586 	Normal loss : 0.0 
+Epoch :  1236
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.600135803222656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.597064971923828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 40.11476135253906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.645015716552734 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.212066650390625 	Normal loss : 0.0 
+Epoch :  1237
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.893417358398438 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.26082229614258 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.7705135345459 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.53414535522461 	Normal loss : 0.0 
+Epoch :  1238
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.641685485839844 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.09187126159668 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.890241622924805 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.13983154296875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.29016876220703 	Normal loss : 0.0 
+Epoch :  1239
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.842880249023438 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.120580673217773 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.226097106933594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.62603759765625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.79330062866211 	Normal loss : 0.0 
+Epoch :  1240
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.02322769165039 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.31031608581543 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.734020233154297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.319869995117188 	Normal loss : 0.0 
+Epoch :  1241
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.27492904663086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.204418182373047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.090791702270508 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.919435501098633 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.479656219482422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.311756134033203 	Normal loss : 0.0 
+Epoch :  1242
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.31963539123535 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.93273162841797 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.1899471282959 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.0333194732666 	Normal loss : 0.0 
+Epoch :  1243
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.412076950073242 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.477434158325195 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.9073486328125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.215709686279297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.053802490234375 	Normal loss : 0.0 
+Epoch :  1244
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.53763771057129 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.526952743530273 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.969120025634766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 42.44301223754883 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.372753143310547 	Normal loss : 0.0 
+Epoch :  1245
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.78172302246094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.66764450073242 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.019441604614258 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.864519119262695 	Normal loss : 0.0 
+Epoch :  1246
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.88701629638672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.55058670043945 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.633934020996094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.990779876708984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.863990783691406 	Normal loss : 0.0 
+Epoch :  1247
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.345640182495117 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.24814796447754 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.9179630279541 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.910451889038086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.561893463134766 	Normal loss : 0.0 
+Epoch :  1248
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.37348556518555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.89545440673828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.049293518066406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.4410400390625 	Normal loss : 0.0 
+Epoch :  1249
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.996618270874023 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.03435707092285 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.85176658630371 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.36692428588867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.93202209472656 	Normal loss : 0.0 
+Epoch :  1250
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.1368465423584 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.808778762817383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.769071578979492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.81580352783203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.247770309448242 	Normal loss : 0.0 
+Epoch :  1251
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.782604217529297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.719602584838867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.17221450805664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.593202590942383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.314376831054688 	Normal loss : 0.0 
+Epoch :  1252
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.58957290649414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.162738800048828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.667346954345703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.288110733032227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.437589645385742 	Normal loss : 0.0 
+Epoch :  1253
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.73737716674805 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.54137420654297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.11370086669922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.01983642578125 	Normal loss : 0.0 
+Epoch :  1254
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.720088958740234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.237424850463867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.877422332763672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.735998153686523 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.8309211730957 	Normal loss : 0.0 
+Epoch :  1255
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.97633934020996 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.14724349975586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.023475646972656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.85997772216797 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.19936752319336 	Normal loss : 0.0 
+Epoch :  1256
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.624366760253906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 41.08245086669922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.260299682617188 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.747011184692383 	Normal loss : 0.0 
+Epoch :  1257
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.069852828979492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.842201232910156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.297819137573242 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.51601791381836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.4193000793457 	Normal loss : 0.0 
+Epoch :  1258
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.000244140625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.877811431884766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.64992904663086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.324501037597656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.681053161621094 	Normal loss : 0.0 
+Epoch :  1259
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.36743927001953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.15005874633789 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.838775634765625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.224863052368164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.91840171813965 	Normal loss : 0.0 
+Epoch :  1260
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.955636978149414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.31553840637207 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.19479751586914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.585386276245117 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.54452896118164 	Normal loss : 0.0 
+Epoch :  1261
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.055559158325195 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.086151123046875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.98797035217285 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.14585304260254 	Normal loss : 0.0 
+Epoch :  1262
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.54835510253906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.517391204833984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.0174503326416 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.26411247253418 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.903640747070312 	Normal loss : 0.0 
+Epoch :  1263
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.151884078979492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.664764404296875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.832624435424805 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.419933319091797 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.034250259399414 	Normal loss : 0.0 
+Epoch :  1264
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.38751983642578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.45745086669922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.40032958984375 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.264408111572266 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 12.151954650878906 	Normal loss : 0.0 
+Epoch :  1265
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.2620906829834 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.634593963623047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.32378578186035 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.045507431030273 	Normal loss : 0.0 
+Epoch :  1266
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.1565055847168 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.096237182617188 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.735925674438477 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.61029624938965 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.397253036499023 	Normal loss : 0.0 
+Epoch :  1267
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.444358825683594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.29424285888672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.603059768676758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.79070281982422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 38.54485321044922 	Normal loss : 0.0 
+Epoch :  1268
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.752513885498047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.64864158630371 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.801822662353516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.222253799438477 	Normal loss : 0.0 
+Epoch :  1269
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.596561431884766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.430622100830078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.95454216003418 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.516311645507812 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.478496551513672 	Normal loss : 0.0 
+Epoch :  1270
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.21517562866211 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.51640510559082 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.199172973632812 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.32432746887207 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.64183807373047 	Normal loss : 0.0 
+Epoch :  1271
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.533824920654297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.749414443969727 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.926347732543945 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.27252197265625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.45261001586914 	Normal loss : 0.0 
+Epoch :  1272
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.654939651489258 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.93694496154785 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.335474014282227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.435400009155273 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.108177185058594 	Normal loss : 0.0 
+Epoch :  1273
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.049436569213867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.11372756958008 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.597007751464844 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.752071380615234 	Normal loss : 0.0 
+Epoch :  1274
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.805437088012695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.406375885009766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.583805084228516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.057491302490234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.872997283935547 	Normal loss : 0.0 
+Epoch :  1275
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.54247283935547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.877113342285156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.865257263183594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.92696189880371 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.082773208618164 	Normal loss : 0.0 
+Epoch :  1276
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.55848503112793 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.152000427246094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.16701889038086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.299283981323242 	Normal loss : 0.0 
+Epoch :  1277
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.640174865722656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.74269676208496 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.977779388427734 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.02846908569336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.07573318481445 	Normal loss : 0.0 
+Epoch :  1278
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.420242309570312 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.20232391357422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.256961822509766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.28532600402832 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.3122444152832 	Normal loss : 0.0 
+Epoch :  1279
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.2941837310791 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.01932144165039 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.908918380737305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.551334381103516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.27226257324219 	Normal loss : 0.0 
+Epoch :  1280
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.391725540161133 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 40.62078857421875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.29393005371094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 44.12797927856445 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.906015396118164 	Normal loss : 0.0 
+Epoch :  1281
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.97028160095215 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.68181610107422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.238584518432617 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.19460678100586 	Normal loss : 0.0 
+Epoch :  1282
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.64972496032715 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.642656326293945 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.3277645111084 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.129711151123047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.559843063354492 	Normal loss : 0.0 
+Epoch :  1283
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.454343795776367 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.4659423828125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.56196594238281 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.332643508911133 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.09174346923828 	Normal loss : 0.0 
+Epoch :  1284
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.592336654663086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.498476028442383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.900997161865234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.302953720092773 	Normal loss : 0.0 
+Epoch :  1285
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.283599853515625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 39.55878829956055 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.4480037689209 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.630435943603516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.664562225341797 	Normal loss : 0.0 
+Epoch :  1286
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.634817123413086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.345394134521484 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.72295570373535 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.683740615844727 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.1639347076416 	Normal loss : 0.0 
+Epoch :  1287
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.50918197631836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.49435806274414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.765071868896484 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.902057647705078 	Normal loss : 0.0 
+Epoch :  1288
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.69513702392578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.77970314025879 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.790380477905273 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.828815460205078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.00408935546875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.887592315673828 	Normal loss : 0.0 
+Epoch :  1289
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.327457427978516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 38.86587905883789 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 21.776893615722656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.9528865814209 	Normal loss : 0.0 
+Epoch :  1290
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.60003089904785 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.044511795043945 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.608173370361328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.314571380615234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.82051467895508 	Normal loss : 0.0 
+Epoch :  1291
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.23176383972168 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.072961807250977 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.511011123657227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.40572166442871 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.846145629882812 	Normal loss : 0.0 
+Epoch :  1292
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.99610710144043 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.749507904052734 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.115509033203125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.3151912689209 	Normal loss : 0.0 
+Epoch :  1293
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.68691062927246 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.436946868896484 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.033946990966797 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.53270721435547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.757661819458008 	Normal loss : 0.0 
+Epoch :  1294
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.896583557128906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 22.80530548095703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.449827194213867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.37177848815918 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.283485412597656 	Normal loss : 0.0 
+Epoch :  1295
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.92849349975586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.9442081451416 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.72711181640625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.655879974365234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 11.645267486572266 	Normal loss : 0.0 
+Epoch :  1296
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.706024169921875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.679134368896484 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.94174575805664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.806961059570312 	Normal loss : 0.0 
+Epoch :  1297
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.362016677856445 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.24668884277344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.945478439331055 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.92066192626953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.30119705200195 	Normal loss : 0.0 
+Epoch :  1298
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.71060562133789 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.474822998046875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.63538932800293 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.594650268554688 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.422229766845703 	Normal loss : 0.0 
+Epoch :  1299
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.1179313659668 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.4158935546875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.773157119750977 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.950960159301758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.635900497436523 	Normal loss : 0.0 
+Epoch :  1300
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.411026000976562 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.081233978271484 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.743043899536133 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.978015899658203 	Normal loss : 0.0 
+Epoch :  1301
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.31879806518555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.801082611083984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.92321014404297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.901763916015625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.4106388092041 	Normal loss : 0.0 
+Epoch :  1302
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.249916076660156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.303068161010742 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.03681755065918 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.61754608154297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.98590660095215 	Normal loss : 0.0 
+Epoch :  1303
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.713176727294922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.70754623413086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.729982376098633 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.80791473388672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.300004959106445 	Normal loss : 0.0 
+Epoch :  1304
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.197040557861328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.91212844848633 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.780235290527344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.27557373046875 	Normal loss : 0.0 
+Epoch :  1305
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.39651107788086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.1055908203125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.453678131103516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.209381103515625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.109413146972656 	Normal loss : 0.0 
+Epoch :  1306
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.697975158691406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.614057540893555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.013381958007812 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.733131408691406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.972511291503906 	Normal loss : 0.0 
+Epoch :  1307
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.65803337097168 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.885772705078125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.528661727905273 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.52195930480957 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.247196197509766 	Normal loss : 0.0 
+Epoch :  1308
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.897785186767578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.053768157958984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.01850128173828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.888648986816406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 12.23292350769043 	Normal loss : 0.0 
+Epoch :  1309
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.321842193603516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.821592330932617 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.946733474731445 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.964576721191406 	Normal loss : 0.0 
+Epoch :  1310
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.314035415649414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.686437606811523 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.853952407836914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.486228942871094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.554521560668945 	Normal loss : 0.0 
+Epoch :  1311
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.448503494262695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.625770568847656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.685834884643555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.109619140625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.64876365661621 	Normal loss : 0.0 
+Epoch :  1312
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.830442428588867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.728534698486328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.58567810058594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.37715721130371 	Normal loss : 0.0 
+Epoch :  1313
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.246505737304688 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 39.56040573120117 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.856788635253906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.20559310913086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.1185417175293 	Normal loss : 0.0 
+Epoch :  1314
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.04829216003418 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.490083694458008 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.552824020385742 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.78152847290039 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.20331573486328 	Normal loss : 0.0 
+Epoch :  1315
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.736879348754883 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.73600769042969 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.659465789794922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.826818466186523 	Normal loss : 0.0 
+Epoch :  1316
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.593231201171875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.023109436035156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.030019760131836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.058486938476562 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.99526596069336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.81673812866211 	Normal loss : 0.0 
+Epoch :  1317
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.47907066345215 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.41004943847656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.898717880249023 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.55877113342285 	Normal loss : 0.0 
+Epoch :  1318
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.771196365356445 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.51255226135254 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.96043586730957 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.684490203857422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.48769187927246 	Normal loss : 0.0 
+Epoch :  1319
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.224201202392578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.948070526123047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.025798797607422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.504350662231445 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 39.33963394165039 	Normal loss : 0.0 
+Epoch :  1320
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.870319366455078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.82154655456543 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.69502067565918 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.82047462463379 	Normal loss : 0.0 
+Epoch :  1321
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.507953643798828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.592287063598633 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.584848403930664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.466453552246094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.465238571166992 	Normal loss : 0.0 
+Epoch :  1322
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.011268615722656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.22751808166504 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.326635360717773 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.60003089904785 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.36531639099121 	Normal loss : 0.0 
+Epoch :  1323
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.422992706298828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.566604614257812 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.710247039794922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.6702880859375 	Normal loss : 0.0 
+Epoch :  1324
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.425914764404297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.680845260620117 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.82070541381836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.250171661376953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.47386932373047 	Normal loss : 0.0 
+Epoch :  1325
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.88064956665039 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.14580535888672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.25319480895996 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.830617904663086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.514541625976562 	Normal loss : 0.0 
+Epoch :  1326
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.019676208496094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.065309524536133 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.00751495361328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.217561721801758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.14195442199707 	Normal loss : 0.0 
+Epoch :  1327
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.943225860595703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.37049865722656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.80432891845703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.738187789916992 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.488574981689453 	Normal loss : 0.0 
+Epoch :  1328
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.03845977783203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 22.071584701538086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.744674682617188 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.22735023498535 	Normal loss : 0.0 
+Epoch :  1329
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.0938720703125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 39.479209899902344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.709901809692383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.404582977294922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.192726135253906 	Normal loss : 0.0 
+Epoch :  1330
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.329328536987305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.254859924316406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.36613082885742 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.45059585571289 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.97374153137207 	Normal loss : 0.0 
+Epoch :  1331
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.2849063873291 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.662107467651367 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.182519912719727 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.17820930480957 	Normal loss : 0.0 
+Epoch :  1332
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.033212661743164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.364538192749023 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.88591766357422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.55376434326172 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.056549072265625 	Normal loss : 0.0 
+Epoch :  1333
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.295040130615234 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.643136978149414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.42107391357422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.939041137695312 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.556121826171875 	Normal loss : 0.0 
+Epoch :  1334
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.445192337036133 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.72852897644043 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.08558464050293 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.472766876220703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.497901916503906 	Normal loss : 0.0 
+Epoch :  1335
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.81413269042969 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.745250701904297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.184322357177734 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.196823120117188 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.27706527709961 	Normal loss : 0.0 
+Epoch :  1336
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.721521377563477 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.598602294921875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.89198112487793 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.95281982421875 	Normal loss : 0.0 
+Epoch :  1337
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.14702796936035 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.104045867919922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.25629425048828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.300037384033203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.160327911376953 	Normal loss : 0.0 
+Epoch :  1338
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.202341079711914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.7742862701416 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.515138626098633 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.745786666870117 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.18696975708008 	Normal loss : 0.0 
+Epoch :  1339
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.50901222229004 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.749778747558594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.13840675354004 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.012941360473633 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 14.084905624389648 	Normal loss : 0.0 
+Epoch :  1340
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.063785552978516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.631301879882812 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.97269058227539 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.662992477416992 	Normal loss : 0.0 
+Epoch :  1341
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.414533615112305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.70445442199707 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.925809860229492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.29366111755371 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.059978485107422 	Normal loss : 0.0 
+Epoch :  1342
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.513233184814453 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.338834762573242 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.208358764648438 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.929948806762695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.63559341430664 	Normal loss : 0.0 
+Epoch :  1343
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.97990608215332 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.5566463470459 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.699918746948242 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.8936824798584 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.444486618041992 	Normal loss : 0.0 
+Epoch :  1344
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.685091018676758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.642227172851562 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.286928176879883 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.627214431762695 	Normal loss : 0.0 
+Epoch :  1345
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.54448127746582 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.694992065429688 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.82895278930664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.37744140625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.96438980102539 	Normal loss : 0.0 
+Epoch :  1346
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.245576858520508 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.98573303222656 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.67042350769043 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.001792907714844 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.545459747314453 	Normal loss : 0.0 
+Epoch :  1347
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.225399017333984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.320959091186523 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.85000228881836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.077436447143555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.26499557495117 	Normal loss : 0.0 
+Epoch :  1348
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.82651138305664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.767160415649414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.902557373046875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.58791732788086 	Normal loss : 0.0 
+Epoch :  1349
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.076923370361328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.932886123657227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.728179931640625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.705530166625977 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.68000030517578 	Normal loss : 0.0 
+Epoch :  1350
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.41623878479004 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.914087295532227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.45857810974121 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.32813262939453 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.788015365600586 	Normal loss : 0.0 
+Epoch :  1351
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.429763793945312 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.623579025268555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.156024932861328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.235681533813477 	Normal loss : 0.0 
+Epoch :  1352
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.620208740234375 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.56397819519043 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.776140213012695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.887468338012695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.94602394104004 	Normal loss : 0.0 
+Epoch :  1353
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.568862915039062 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.62211036682129 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.138965606689453 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.512985229492188 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.39794158935547 	Normal loss : 0.0 
+Epoch :  1354
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.30376434326172 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.29764175415039 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.815847396850586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.574907302856445 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.71323585510254 	Normal loss : 0.0 
+Epoch :  1355
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.88309669494629 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.499919891357422 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.57825469970703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.652143478393555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.083003997802734 	Normal loss : 0.0 
+Epoch :  1356
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.092588424682617 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.437925338745117 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.71419906616211 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.972919464111328 	Normal loss : 0.0 
+Epoch :  1357
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.21288299560547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.11520004272461 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.46323585510254 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.68488883972168 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.35918617248535 	Normal loss : 0.0 
+Epoch :  1358
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.61446762084961 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.932106018066406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.338796615600586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.186647415161133 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.785690307617188 	Normal loss : 0.0 
+Epoch :  1359
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.2685489654541 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.32387924194336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.485624313354492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 35.86833572387695 	Normal loss : 0.0 
+Epoch :  1360
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.211915969848633 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.529024124145508 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.67804527282715 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.634681701660156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.699800491333008 	Normal loss : 0.0 
+Epoch :  1361
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.77867889404297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.282447814941406 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.716035842895508 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.924625396728516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.821163177490234 	Normal loss : 0.0 
+Epoch :  1362
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.369998931884766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.72339630126953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.19170570373535 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.603551864624023 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.133874893188477 	Normal loss : 0.0 
+Epoch :  1363
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.472347259521484 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.944992065429688 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.244842529296875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.351696014404297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.349803924560547 	Normal loss : 0.0 
+Epoch :  1364
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 21.866657257080078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.814897537231445 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.007095336914062 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.252275466918945 	Normal loss : 0.0 
+Epoch :  1365
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.198801040649414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.21697998046875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.944656372070312 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.26633071899414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.02507781982422 	Normal loss : 0.0 
+Epoch :  1366
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.48080062866211 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.258960723876953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.142982482910156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.455890655517578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.38585662841797 	Normal loss : 0.0 
+Epoch :  1367
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.022668838500977 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.084613800048828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.505268096923828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.3521728515625 	Normal loss : 0.0 
+Epoch :  1368
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.22947883605957 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.80279541015625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.959125518798828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.310962677001953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.721128463745117 	Normal loss : 0.0 
+Epoch :  1369
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.91832160949707 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.36163330078125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.9261417388916 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.30681037902832 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.642610549926758 	Normal loss : 0.0 
+Epoch :  1370
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.513574600219727 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.066186904907227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.04376983642578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.72577667236328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 10.292014122009277 	Normal loss : 0.0 
+Epoch :  1371
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.997127532958984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.50558090209961 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.42575454711914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.570711135864258 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.138357162475586 	Normal loss : 0.0 
+Epoch :  1372
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.10176086425781 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.906147003173828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.3443546295166 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.369646072387695 	Normal loss : 0.0 
+Epoch :  1373
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.899900436401367 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.071870803833008 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.61749839782715 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.730514526367188 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.91516876220703 	Normal loss : 0.0 
+Epoch :  1374
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.497058868408203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.14519691467285 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.088552474975586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.33898162841797 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.19936752319336 	Normal loss : 0.0 
+Epoch :  1375
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.609642028808594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.523883819580078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.628507614135742 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.547229766845703 	Normal loss : 0.0 
+Epoch :  1376
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.44208335876465 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.84561538696289 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.75848960876465 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.497146606445312 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.802934646606445 	Normal loss : 0.0 
+Epoch :  1377
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.37986183166504 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.450342178344727 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.558401107788086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.07491683959961 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.452333450317383 	Normal loss : 0.0 
+Epoch :  1378
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.707794189453125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.896203994750977 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.76222610473633 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.588245391845703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.577110290527344 	Normal loss : 0.0 
+Epoch :  1379
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.525800704956055 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.586570739746094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.426788330078125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.124624252319336 	Normal loss : 0.0 
+Epoch :  1380
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.543018341064453 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.881208419799805 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 22.80912208557129 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.786075592041016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.71976661682129 	Normal loss : 0.0 
+Epoch :  1381
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.826114654541016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 22.783811569213867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.675996780395508 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.55012512207031 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.912635803222656 	Normal loss : 0.0 
+Epoch :  1382
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.605836868286133 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.389413833618164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.748044967651367 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.919328689575195 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.87405014038086 	Normal loss : 0.0 
+Epoch :  1383
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.915508270263672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.82817268371582 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.724027633666992 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.195621490478516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 9.316776275634766 	Normal loss : 0.0 
+Epoch :  1384
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.45378494262695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.467798233032227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.075803756713867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.231792449951172 	Normal loss : 0.0 
+Epoch :  1385
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.265817642211914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.17152976989746 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 38.55166244506836 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.050308227539062 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.20871353149414 	Normal loss : 0.0 
+Epoch :  1386
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.34513282775879 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.059062957763672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.778657913208008 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.409818649291992 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.757780075073242 	Normal loss : 0.0 
+Epoch :  1387
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.267656326293945 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.427135467529297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.143299102783203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.205896377563477 	Normal loss : 0.0 
+Epoch :  1388
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.45180892944336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.666351318359375 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.109148025512695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.572751998901367 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.1962947845459 	Normal loss : 0.0 
+Epoch :  1389
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.760643005371094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.42844009399414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.080263137817383 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.592233657836914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.298730850219727 	Normal loss : 0.0 
+Epoch :  1390
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.5239200592041 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.341638565063477 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.72606658935547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.890106201171875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.49203872680664 	Normal loss : 0.0 
+Epoch :  1391
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.505313873291016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.09821891784668 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.384628295898438 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.612844467163086 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.903583526611328 	Normal loss : 0.0 
+Epoch :  1392
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.7144832611084 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 21.92510414123535 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.10759925842285 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.22669219970703 	Normal loss : 0.0 
+Epoch :  1393
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.13802146911621 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.25544548034668 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.363147735595703 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.001529693603516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.341949462890625 	Normal loss : 0.0 
+Epoch :  1394
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.468088150024414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.290903091430664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.195934295654297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 37.4813117980957 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.679025650024414 	Normal loss : 0.0 
+Epoch :  1395
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.154645919799805 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.556177139282227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.042707443237305 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.75839614868164 	Normal loss : 0.0 
+Epoch :  1396
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.647777557373047 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.030302047729492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.604257583618164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.2093563079834 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.784503936767578 	Normal loss : 0.0 
+Epoch :  1397
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 22.756481170654297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.475906372070312 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.7371768951416 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.868749618530273 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.10709571838379 	Normal loss : 0.0 
+Epoch :  1398
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.6756477355957 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.808879852294922 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.89425277709961 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.050765991210938 	Normal loss : 0.0 
+Epoch :  1399
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.279552459716797 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.34044647216797 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.453990936279297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.77730941772461 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.878549575805664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.030927658081055 	Normal loss : 0.0 
+Epoch :  1400
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.71030044555664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.7989501953125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.322635650634766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.644712448120117 	Normal loss : 0.0 
+Epoch :  1401
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.330795288085938 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.482868194580078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.535579681396484 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.619096755981445 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.697166442871094 	Normal loss : 0.0 
+Epoch :  1402
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.227813720703125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.382831573486328 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.36817741394043 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.338623046875 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.86385726928711 	Normal loss : 0.0 
+Epoch :  1403
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.656503677368164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.055721282958984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.170089721679688 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.504358291625977 	Normal loss : 0.0 
+Epoch :  1404
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.31951332092285 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.648807525634766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.046892166137695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.371400833129883 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.737796783447266 	Normal loss : 0.0 
+Epoch :  1405
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.410554885864258 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.446491241455078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.163965225219727 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.67975425720215 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 22.09366226196289 	Normal loss : 0.0 
+Epoch :  1406
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.70037269592285 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.314424514770508 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.932992935180664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 36.78740692138672 	Normal loss : 0.0 
+Epoch :  1407
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.728641510009766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.36494255065918 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.671958923339844 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.23170280456543 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.645952224731445 	Normal loss : 0.0 
+Epoch :  1408
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.19056510925293 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.5549373626709 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.186424255371094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.90917205810547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.58363914489746 	Normal loss : 0.0 
+Epoch :  1409
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.3394775390625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.96847152709961 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.336170196533203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.414188385009766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.67852783203125 	Normal loss : 0.0 
+Epoch :  1410
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.90965461730957 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.827247619628906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 19.9699764251709 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.77472686767578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.154390335083008 	Normal loss : 0.0 
+Epoch :  1411
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.598495483398438 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.879331588745117 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 34.60555648803711 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.516408920288086 	Normal loss : 0.0 
+Epoch :  1412
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.517539978027344 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.996192932128906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 20.702651977539062 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.577617645263672 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.731029510498047 	Normal loss : 0.0 
+Epoch :  1413
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.878026962280273 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.378141403198242 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.719379425048828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.409061431884766 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.35149574279785 	Normal loss : 0.0 
+Epoch :  1414
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.536060333251953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.68089485168457 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.852052688598633 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.883228302001953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 11.86107063293457 	Normal loss : 0.0 
+Epoch :  1415
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.821285247802734 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.14750099182129 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.497201919555664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.576383590698242 	Normal loss : 0.0 
+Epoch :  1416
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.99894905090332 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.44486427307129 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.378128051757812 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.49763298034668 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.49782943725586 	Normal loss : 0.0 
+Epoch :  1417
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.6220645904541 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.21373748779297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.07419204711914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.49060821533203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.512128829956055 	Normal loss : 0.0 
+Epoch :  1418
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.26078987121582 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.895885467529297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.328075408935547 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.26506233215332 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.594722747802734 	Normal loss : 0.0 
+Epoch :  1419
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.652429580688477 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.816463470458984 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.76515007019043 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.37665367126465 	Normal loss : 0.0 
+Epoch :  1420
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.162261962890625 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.258691787719727 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.717660903930664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.045059204101562 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.943931579589844 	Normal loss : 0.0 
+Epoch :  1421
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.591140747070312 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.06439208984375 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.674217224121094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.131248474121094 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.68889617919922 	Normal loss : 0.0 
+Epoch :  1422
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.64949607849121 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 22.830007553100586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.674419403076172 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.993440628051758 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.21759033203125 	Normal loss : 0.0 
+Epoch :  1423
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.972719192504883 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.229679107666016 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.950265884399414 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.751605987548828 	Normal loss : 0.0 
+Epoch :  1424
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.621612548828125 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.20805549621582 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.968421936035156 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.23900032043457 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.566930770874023 	Normal loss : 0.0 
+Epoch :  1425
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.188764572143555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.34585952758789 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.660694122314453 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.709402084350586 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.485612869262695 	Normal loss : 0.0 
+Epoch :  1426
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.190683364868164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.857799530029297 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.694364547729492 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 22.329729080200195 	Normal loss : 0.0 
+Epoch :  1427
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.93718147277832 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.710371017456055 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.617984771728516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.897226333618164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.41073226928711 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 8.583984375 	Normal loss : 0.0 
+Epoch :  1428
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.09690475463867 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.99008560180664 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.873403549194336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.213401794433594 	Normal loss : 0.0 
+Epoch :  1429
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.010330200195312 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.66550064086914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.250261306762695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 33.21870803833008 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.283977508544922 	Normal loss : 0.0 
+Epoch :  1430
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.532703399658203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.031503677368164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.3032169342041 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.960193634033203 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.8739070892334 	Normal loss : 0.0 
+Epoch :  1431
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.63338279724121 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.964017868041992 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.39820098876953 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.1011905670166 	Normal loss : 0.0 
+Epoch :  1432
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 31.98371124267578 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.424156188964844 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.37057876586914 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.0276985168457 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.82964515686035 	Normal loss : 0.0 
+Epoch :  1433
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.081439971923828 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.23167419433594 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.408002853393555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.7387809753418 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.796058654785156 	Normal loss : 0.0 
+Epoch :  1434
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.63898277282715 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 23.793312072753906 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.837663650512695 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.27347946166992 	Normal loss : 0.0 
+Epoch :  1435
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.526716232299805 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 25.517831802368164 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 32.332828521728516 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 24.80497169494629 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.023731231689453 	Normal loss : 0.0 
+Epoch :  1436
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.0798397064209 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.85268783569336 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.0727481842041 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 28.81501007080078 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.41905975341797 	Normal loss : 0.0 
+Epoch :  1437
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 29.203609466552734 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 26.722436904907227 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 27.396284103393555 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 22.56727409362793 	Normal loss : 0.0 
+Edge loss : 0.0 	Color loss : 0.0 	Champher loss : 30.365345001220703 	Normal loss : 0.0 
+Epoch :  1438

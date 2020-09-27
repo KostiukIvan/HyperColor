@@ -1,88 +1,101 @@
 import torch
 import torch.nn as nn
 import numpy as np
-
+from utils.util import CombinedLossType
 
 class CombinedLoss(nn.Module):
 
-    def __init__(self):
+    def __init__(self, config):
         super(CombinedLoss, self).__init__()
         self.use_cuda = torch.cuda.is_available()
+        self.count = 0
+        self.config = config
 
-    def forward(self, gts, preds, gts_normals, sphere_edges = None):
-        
-        if sphere_edges != None:
-            return self.forward_with_edges(gts, preds, gts_normals, sphere_edges)
+    def forward(self, gts, preds, gts_normals, sphere_edges = None, recon_type = []):
+        if self.use_cuda:
+            dtype = torch.cuda.LongTensor
+            ftype = torch.cuda.FloatTensor
+            #ftype = torch.cuda.DoubleTensor
         else:
-            return self.forward_with_nearest_neighbour(gts, preds, gts_normals)
+            dtype = torch.LongTensor
+            ftype = torch.float32
+            #ftype = torch.double
+
+        # data preparation
+        gts_points = gts[:, :, :3].type(ftype) # [2, 4096, 3]
+        preds_points = preds[:, :, :3].type(ftype) # [2, 4096, 3]
+        edge_loss = torch.tensor(0.0).type(ftype)
+        color_loss = torch.tensor(0.0).type(ftype)
+        champfer_loss = torch.tensor(0.0).type(ftype)
+        normal_loss = torch.tensor(0.0).type(ftype)
+        sphere_edges = sphere_edges.type(dtype)
+
+
+        # ============== edge loss ==============
+        if CombinedLossType.edges in recon_type:
+            edge_start = preds_points[:, sphere_edges[:,0], :]
+            edge_end = preds_points[:, sphere_edges[:,1], :]
+            edge = torch.sub(edge_start, edge_end)
+            edge_length = torch.sum(torch.abs(edge),2)
+            edge_loss = torch.sum(torch.mean(edge_length, dim=1)) * 300
+
+        # ============== color loss ==============
+        if CombinedLossType.normals in recon_type:
+            gts_colors = gts[:, :, 3:].type(ftype) # [2, 4096, 3]
+            preds_colors = preds[:, :, 3:].type(ftype) # [2, 4096, 3]
+
+            P = self.batch_pairwise_dist(gts_colors, preds_colors)
+            col_dist_first_to_second_0, col_idx_first_to_second_0 = torch.min(P, 1) 
+            col_dist_second_to_first_0, col_idx_second_to_first_0 = torch.min(P, 2)
+            color_loss = (torch.sum(col_dist_first_to_second_0) + torch.sum(col_dist_second_to_first_0))
+
+            
+
+        # ============ champfer loss ============
+        P = self.batch_pairwise_dist(gts_points, preds_points)
+        dist_first_to_second_0, idx_first_to_second_0 = torch.min(P, 1) 
+        dist_second_to_first_0, idx_second_to_first_0 = torch.min(P, 2)
+        champfer_loss_1 = torch.sum(torch.mean(dist_first_to_second_0, dim=1))
+        champfer_loss_2 = torch.sum(torch.mean(dist_second_to_first_0, dim=1)) * 0.55
+        champfer_loss = (champfer_loss_1 + champfer_loss_2) * 3000
+
+
+        # ============= normal loss =============
+        
+        if CombinedLossType.normals in recon_type:
+            bt_num_idx = torch.arange(0, P.size(0)).type(dtype)
+            edge = edge.type(dtype)
+            normal = torch.stack([gts_normals[b, torch.squeeze(idx_second_to_first_0[b, :]), : ] for b in bt_num_idx]) # change  idx_first_to_second_0 to idx_second_to_first_0
+            normal = normal[:, sphere_edges[:,0], : ] 
+            
+            edge = edge.type(ftype)
+            normal = normal.type(ftype)
+
+            cosine = torch.abs( torch.sum( torch.mul( self.unit(normal), self.unit(edge)), 2) )
+            #cosine = torch.abs(torch.sum(torch.matmul(self.unit(normal), self.unit(edge))))
+            normal_loss = torch.sum(torch.mean(cosine, dim=1)) * 0.5
+
+        
+        if self.count % 23 == 0:
+            print(f"Edge loss : {edge_loss} "
+                f"\tColor loss : {color_loss} "
+                f"\tChampher loss : {champfer_loss} "
+                f"\tNormal loss : {normal_loss} ")
+        
+        self.count += 1
+        if self.count > 1000:
+            self.count = 0
+
+        result = color_loss + edge_loss + champfer_loss + normal_loss
+        
+        return result.type(ftype)
+                
 
     def unit(self, tensor):
     	return torch.nn.functional.normalize(tensor, dim=1, p=2) # l_2 normalization
 
 
-    def forward_with_edges(self, gts, preds, gts_normals, sphere_edges):
-        process_colors = False
-        if preds.shape[2] > 3:
-            process_colors = True
-
-        if self.use_cuda:
-            dtype = torch.cuda.LongTensor
-            ftype = torch.cuda.FloatTensor
-            itype = torch.cuda.IntTensor
-        else:
-            dtype = torch.LongTensor
-            ftype = torch.float64
-            itype = torch.int32
-
-        
-        # data preparation
-        gts_points = gts[:, :, :3] # [2, 4096, 3]
-        if process_colors:
-            gts_colors = gts[:, :, 3:] # [2, 4096, 3]
-
-        preds_points = preds[:, :, :3] # [2, 4096, 3]
-        if process_colors:
-            preds_colors = preds[:, :, 3:] # [2, 4096, 3]
-        
-        color_loss = torch.tensor(0.0).type(ftype)
-        edge_loss = torch.tensor(0.0).type(ftype)
-        normal_loss = torch.tensor(0.0).type(ftype)
-        champfer_loss = torch.tensor(0.0).type(ftype)
-        sphere_edges = sphere_edges.type(dtype)
-
-        # ============== color loss ==============
-
-        # ============== edge loss ==============
-        edge_start = preds_points[:, sphere_edges[:,0], :]
-        edge_end = preds_points[:, sphere_edges[:,1], :]
-        edge = torch.sub(edge_start, edge_end)
-        edge_length = torch.sum(torch.sqrt(edge))
-        edge_loss = torch.mean(edge_length)*3000
-
-        # ============ champfer loss ============
-        P = self.batch_pairwise_dist(gts_points, preds_points)
-        bt_num_idx = torch.arange(0, P.size(0)).type(dtype)
-        dist_first_to_second_0, idx_first_to_second_0 = torch.min(P, 1) 
-        dist_second_to_first_0, idx_second_to_first_0 = torch.min(P, 2)
-
-        champfer_loss = torch.sum(dist_first_to_second_0) + torch.sum(dist_second_to_first_0)   
-
-        # ============= normal loss =============
-        edge = edge.type(dtype)
-        normal = torch.stack([gts_normals[b, torch.squeeze(idx_second_to_first_0[b, :]), : ] for b in bt_num_idx]) # change  idx_first_to_second_0 to idx_second_to_first_0
-        normal = normal[:, sphere_edges[:,0], : ] 
-
-        edge = edge.type(ftype)
-        normal = normal.type(ftype)
-        cosine = torch.abs(torch.sum(torch.matmul(self.unit(normal),torch.transpose(self.unit(edge), dim0 = 1, dim1 = 2))))
-        #cosine = torch.abs(torch.sum(torch.matmul(self.unit(normal), self.unit(edge))))
-        normal_loss = torch.mean(cosine) * 0.5
-        
-        result = color_loss + champfer_loss + normal_loss*10.0
-        
-        return result.type(dtype)
-                
-
+    # this function will be removed
     def forward_with_nearest_neighbour(self, gts, preds, gts_normals):
         process_colors = False
         if preds.shape[2] > 3:
