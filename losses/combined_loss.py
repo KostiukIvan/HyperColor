@@ -14,14 +14,16 @@ class CombinedLoss(nn.Module):
         self.config = config
     def forward(self, gts_X, pred_X, gts_normals, S_mesh = None, change_loss_func = False):
 
-        mesh = Meshes(verts=[b for b in pred_X], \
-                        faces=list(map(lambda x: x[1] ,(map(lambda x: x.get_mesh_verts_faces(0), S_mesh))))) # x[1] = face
+        if change_loss_func:
+            mesh = Meshes(verts=[b for b in pred_X], \
+                            faces=list(map(lambda x: x[1] ,(map(lambda x: x.get_mesh_verts_faces(0), S_mesh))))) # x[1] = face
 
+            points = Pointclouds(points = [g for g in gts_X], normals = [g_n for g_n in gts_normals])
 
-        points = Pointclouds(points = [g for g in gts_X], normals = [g_n for g_n in gts_normals])
-        loss = point_mesh_edge_distance(mesh, points)
-
-        return loss
+            return point_mesh_edge_distance(mesh, points)
+        else:
+            loss, _ = chamfer_distance(gts_X, pred_X)
+            return loss
 
     def forward_(self, gts_X, pred_X, gts_normals, S_mesh = None, change_loss_func = False):
         if self.use_cuda:

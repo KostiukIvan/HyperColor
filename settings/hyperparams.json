@@ -1,7 +1,7 @@
 {
     "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results",
-    "clean_results_dir": false,
-    "clean_weights_dir": false,
+    "clean_results_dir": true,
+    "clean_weights_dir": true,
 
     "cuda": true,
     "gpu": 0,
@@ -19,7 +19,7 @@
     "num_workers": 8,
     "n_points": 2048,
 
-    "max_epochs": 1500,
+    "max_epochs": 2000,
     "batch_size": 32,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
@@ -51,7 +51,7 @@
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 1000,
+                "after_epoch": 500,
                 "champher": true,
                 "colors": true,
                 "edges": true,
