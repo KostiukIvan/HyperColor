@@ -17,10 +17,11 @@ import torch.utils.data
 from torch.utils.data import DataLoader
 from models import aae
 from utils.pcutil import plot_3d_point_cloud
-from utils.util import find_latest_epoch, prepare_results_dir, cuda_setup, setup_logging, set_seed
+from utils.util import find_latest_epoch, prepare_results_dir, cuda_setup, setup_logging, set_seed, genetate_mesh
 from utils.points import generate_points
-from utils.sphere import Sphere
 from utils.util import CombinedLossType
+from pytorch3d.utils import ico_sphere
+from pytorch3d.ops import sample_points_from_meshes
 
 
 cudnn.benchmark = True
@@ -195,10 +196,6 @@ def main(config):
         normalization_type = config['target_network_input']['normalization']['type']
         assert normalization_type == 'progressive', 'Invalid normalization type'
 
-    #if config['target_network_input']['use_sphere_with_edges']:
-    S_edges = Sphere(config).get_sphere_edges()
-    S_edges = S_edges.to(device, dtype=torch.int32)
-
     target_network_input = None
     for epoch in range(starting_epoch, config['max_epochs'] + 1):
         start_epoch_time = datetime.now()
@@ -281,35 +278,37 @@ def main(config):
             # hyper network training
             target_networks_weights = hyper_network(codes)
             X_rec = torch.zeros(X.shape).to(device)
+            S_mesh = []
             for j, target_network_weights in enumerate(target_networks_weights):
                 target_network = aae.TargetNetwork(config, target_network_weights).to(device)
 
-                if config['target_network_input']['static_sphere']['enable'] and epoch >= config['target_network_input']['static_sphere']['after_epoch']:
-                    target_network_input = Sphere(config).get_sphere_coord() # using static sphere
+                if config['target_network_input']['normalization']['enable'] and \
+                    config['target_network_input']['normalization']['epoch'] < epoch:
+                    sphere_mesh = ico_sphere(level=3).to(device)
+                    S_mesh.append(sphere_mesh)
+                    target_network_input = sample_points_from_meshes(sphere_mesh, config['n_points'])
+                    target_network_input = torch.squeeze(target_network_input)
 
                 elif not config['target_network_input']['constant'] or target_network_input is None:
                     target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], X.shape[1]))
 
                 X_rec[j] = torch.transpose(target_network(target_network_input.to(device).type(ftype)), 0, 1)
+                
 
             if pointnet:
                 loss_reconstruction = config['reconstruction_coef'] * \
                                       reconstruction_loss(torch.transpose(X, 1, 2).contiguous(),
                                                           torch.transpose(X_rec, 1, 2).contiguous(),
                                                           batch_size=X.shape[0]).mean()
-            elif config['reconstruction_loss'].lower() == 'combined': # champher loss + edge loss + normal loss
-                reconstruction_type = []
-                reconstruction_type.append(CombinedLossType.champher)
-                #reconstruction_type.append(CombinedLossType.colors)
-                #if config['target_network_input']['static_sphere']['enable'] and epoch >= config['target_network_input']['static_sphere']['after_epoch']:
-                    #reconstruction_type.append(CombinedLossType.edges)
-                    #reconstruction_type.append(CombinedLossType.normals)
+            elif config['reconstruction_loss'].lower() == 'combined': 
+                change_loss_func = False
+                if config['target_network_input']['loss']['change_to']['enable'] and \
+                    epoch > config['target_network_input']['loss']['change_to']['after_epoch'] :
+                    change_loss_func = True
 
-                loss_reconstruction = torch.mean(config['reconstruction_coef'] * 
-                                            reconstruction_loss(X.permute(0, 2, 1) + 0.5,
+                loss_reconstruction = reconstruction_loss(X.permute(0, 2, 1) + 0.5,
                                                             X_rec.permute(0, 2, 1) + 0.5,
-                                                            X_normals, S_edges,
-                                                            reconstruction_type))
+                                                            X_normals, S_mesh, change_loss_func)
 
             else: # champher loss
                 loss_reconstruction = torch.mean(

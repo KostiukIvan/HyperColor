@@ -7,7 +7,7 @@ from time import sleep
 import random
 import numpy as np
 from enum import Enum
-
+import open3d as o3d
 import torch
 
 
@@ -102,6 +102,33 @@ def get_distribution_dir(config):
             normed_str = 'normed_progressive_to_epoch_%d' % norm_max_epoch
 
     return '%s%s' % ('uniform', '_' + normed_str if normed_str else '')
+
+
+def genetate_mesh(X_sphere):
+    pcd = o3d.geometry.PointCloud()
+    pcd.points = o3d.utility.Vector3dVector(X_sphere[:,:3])
+    # pcd.colors = o3d.utility.Vector3dVector(point_cloud[:,3:6]/255)
+    pcd.normals = o3d.utility.Vector3dVector(torch.zeros(X_sphere[:,:3].shape))
+
+    distances = pcd.compute_nearest_neighbor_distance()
+    avg_dist = np.mean(distances)
+    radius = 3 * avg_dist
+
+    bpa_mesh = o3d.geometry.TriangleMesh.create_from_point_cloud_ball_pivoting(pcd,o3d.utility.DoubleVector([radius, radius * 2]))
+
+    dec_mesh = bpa_mesh#.simplify_quadric_decimation(2048)
+    dec_mesh.remove_degenerate_triangles()
+    dec_mesh.remove_duplicated_triangles()
+    #dec_mesh.remove_duplicated_vertices()
+    dec_mesh.remove_non_manifold_edges()
+
+    #XX_new = np.asarray(dec_mesh.vertices)
+
+    T_new = np.asarray(dec_mesh.triangles) 
+
+
+    #input("STOP")
+    return T_new
 
 
 

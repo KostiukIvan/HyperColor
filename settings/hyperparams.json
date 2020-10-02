@@ -40,16 +40,24 @@
     "epsilon": 0.001,
 
     "target_network_input": {
-        "constant": true,
-        "static_sphere": {
-            "enable" : true,
-            "after_epoch" : 0,
-            "sphere_points_path" : "./datasets/sphere/sphere_verts_2048.txt",
-            "sphere_edges_path" : "./datasets/sphere/sphere_edges_2048.txt",
-            "shake":{
+        "constant": false,
+        "loss": {
+            "default": {
+                "champher": true,
+                "colors": false,
+                "edges": false,
+                "normals": false
+            },
+            "__comment":"Only with combined loss",
+            "change_to": {
                 "enable": true,
-                "delta" : 0.03
+                "after_epoch": 1000,
+                "champher": true,
+                "colors": true,
+                "edges": true,
+                "normals": true
             }
+            
         },
        
         "normalization": {
