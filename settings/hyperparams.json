@@ -1,7 +1,7 @@
 {
     "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results",
-    "clean_results_dir": false,
-    "clean_weights_dir": false,
+    "clean_results_dir": true,
+    "clean_weights_dir": true,
 
     "cuda": true,
     "gpu": 0,
@@ -55,7 +55,8 @@
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 500,
+                "after_epoch": 700,
+
                 "chamfer_distance": true,
                 "mesh_edge_loss": true,
                 "mesh_laplacian_smoothing": true,

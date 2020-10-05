@@ -64,7 +64,7 @@ class CombinedLoss(nn.Module):
 
 
 
-    def forward_with_spec_losses(self, gts_X, pred_X, gts_normals, S_mesh = None, losses = []):
+    def forward_with_spec_losses(self, gts_X, pred_X, gts_normals, S_mesh, losses = []):
         if self.use_cuda:
             dtype = torch.cuda.LongTensor
             ftype = torch.cuda.FloatTensor
@@ -85,8 +85,12 @@ class CombinedLoss(nn.Module):
             champher_loss, _ = chamfer_distance(gts_points, preds_points)
             loss += champher_loss*2000
 
-        if ([CombinedLossType.mesh_edge_loss, CombinedLossType.mesh_laplacian_smoothing, CombinedLossType.mesh_normal_consistency, 
-                CombinedLossType.point_mesh_edge_distance, CombinedLossType.point_mesh_face_distance ] or losses) != []:
+        losses_with_meshes = [CombinedLossType.mesh_edge_loss, CombinedLossType.mesh_laplacian_smoothing, CombinedLossType.mesh_normal_consistency, 
+                CombinedLossType.point_mesh_edge_distance, CombinedLossType.point_mesh_face_distance ] 
+
+        if any([x in losses for x in losses_with_meshes]):
+
+            print("ERRRRROR")
 
             pred_meshes = Meshes(verts=[b for b in preds_points], \
                             faces=list(map(lambda x: x[1], (map(lambda x: x.get_mesh_verts_faces(0), S_mesh))))) # x[1] = face

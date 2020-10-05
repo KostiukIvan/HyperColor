@@ -284,6 +284,7 @@ def main(config):
 
                 if config['target_network_input']['loss']['change_to']['enable'] and \
                     epoch > config['target_network_input']['loss']['change_to']['after_epoch'] :
+                    
                     sphere_mesh = ico_sphere(level=3).to(device)
                     S_mesh.append(sphere_mesh)
                     target_network_input = sample_points_from_meshes(sphere_mesh, config['n_points'])
