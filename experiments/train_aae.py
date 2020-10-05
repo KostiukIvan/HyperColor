@@ -282,8 +282,8 @@ def main(config):
             for j, target_network_weights in enumerate(target_networks_weights):
                 target_network = aae.TargetNetwork(config, target_network_weights).to(device)
 
-                if config['target_network_input']['normalization']['enable'] and \
-                    config['target_network_input']['normalization']['epoch'] < epoch:
+                if config['target_network_input']['loss']['change_to']['enable'] and \
+                    epoch > config['target_network_input']['loss']['change_to']['after_epoch'] :
                     sphere_mesh = ico_sphere(level=3).to(device)
                     S_mesh.append(sphere_mesh)
                     target_network_input = sample_points_from_meshes(sphere_mesh, config['n_points'])
@@ -309,6 +309,7 @@ def main(config):
                 loss_reconstruction = reconstruction_loss(X.permute(0, 2, 1) + 0.5,
                                                             X_rec.permute(0, 2, 1) + 0.5,
                                                             X_normals, S_mesh, change_loss_func)
+                
 
             else: # champher loss
                 loss_reconstruction = torch.mean(
@@ -356,6 +357,8 @@ def main(config):
             f'Time: {datetime.now() - start_epoch_time}'
         )
 
+        print(f"RECON LOSS:  {total_loss_reconstruction / i:.4f}")
+        
         if pointnet:
             log.info(f'Loss_Regularization: {total_loss_regularization / i:.4f}')
 
@@ -364,6 +367,8 @@ def main(config):
         losses_eg.append(total_loss_all)
         losses_d.append(total_loss_discriminator)
 
+
+
         #
         # Save intermediate results
         #
@@ -371,7 +376,6 @@ def main(config):
         X = X.cpu().numpy()
         X_rec = X_rec.detach().cpu().numpy()
         target_network_input = target_network_input.detach().cpu().numpy()
-
 
         for k in range(min(1, X_rec.shape[0])):
             fig = plot_3d_point_cloud(target_network_input[:,0], target_network_input[:,1], target_network_input[:,2], in_u_sphere=True, show=False,

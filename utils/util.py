@@ -133,7 +133,10 @@ def genetate_mesh(X_sphere):
 
 
 class CombinedLossType(Enum):
-    champher = 1
-    colors = 2
-    edges = 3
-    normals = 4
+    chamfer_distance = 1
+    mesh_edge_loss = 2
+    mesh_laplacian_smoothing = 3
+    mesh_normal_consistency = 4
+    point_mesh_edge_distance = 5
+    point_mesh_face_distance = 6
+    colors = 7

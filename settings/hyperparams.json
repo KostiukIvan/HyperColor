@@ -1,7 +1,7 @@
 {
     "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results",
-    "clean_results_dir": true,
-    "clean_weights_dir": true,
+    "clean_results_dir": false,
+    "clean_weights_dir": false,
 
     "cuda": true,
     "gpu": 0,
@@ -43,19 +43,26 @@
         "constant": false,
         "loss": {
             "default": {
-                "champher": true,
-                "colors": false,
-                "edges": false,
-                "normals": false
+                
+                "chamfer_distance": true,
+                "mesh_edge_loss": false,
+                "mesh_laplacian_smoothing": false,
+                "mesh_normal_consistency": false,
+                "point_mesh_edge_distance": false,
+                "point_mesh_face_distance": false,
+                "colors": false
             },
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
                 "after_epoch": 500,
-                "champher": true,
-                "colors": true,
-                "edges": true,
-                "normals": true
+                "chamfer_distance": true,
+                "mesh_edge_loss": true,
+                "mesh_laplacian_smoothing": true,
+                "mesh_normal_consistency": true,
+                "point_mesh_edge_distance": true,
+                "point_mesh_face_distance": true,
+                "colors": false
             }
             
         },
