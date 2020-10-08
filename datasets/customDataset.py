@@ -92,9 +92,10 @@ class CustomDataset(Dataset):
             #if len(df.index) < 40_000:
                 #df = df.reindex(range(40_000), fill_value = 0) #add missing rows filled with zeros
                 
-            remove_n = len(df.index) - self.config['n_points']
-            drop_indices = np.random.choice(df.index, remove_n, replace=False)
-            df = df.drop(drop_indices)
+            if len(df.index) > self.config['n_points']:
+                remove_n = len(df.index) - self.config['n_points']
+                drop_indices = np.random.choice(df.index, remove_n, replace=False)
+                df = df.drop(drop_indices)
             result[part] = df.to_numpy()
         
         return result

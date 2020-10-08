@@ -17,10 +17,10 @@
     "shuffle": true,
     "transforms": ["rotate"],
     "num_workers": 8,
-    "n_points": 2048,
+    "n_points": 4096,
 
     "max_epochs": 2000,
-    "batch_size": 32,
+    "batch_size": 64,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
     "z_size": 2048,
@@ -43,27 +43,26 @@
         "constant": false,
         "loss": {
             "default": {
-                
                 "chamfer_distance": true,
                 "mesh_edge_loss": false,
                 "mesh_laplacian_smoothing": false,
                 "mesh_normal_consistency": false,
                 "point_mesh_edge_distance": false,
                 "point_mesh_face_distance": false,
-                "colors": false
+                "colors": true
             },
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 700,
+                "after_epoch": 300,
 
                 "chamfer_distance": true,
-                "mesh_edge_loss": true,
-                "mesh_laplacian_smoothing": true,
-                "mesh_normal_consistency": true,
+                "mesh_edge_loss": false,
+                "mesh_laplacian_smoothing": false,
+                "mesh_normal_consistency": false,
                 "point_mesh_edge_distance": true,
-                "point_mesh_face_distance": true,
-                "colors": false
+                "point_mesh_face_distance": false,
+                "colors": true
             }
             
         },
@@ -71,7 +70,7 @@
         "normalization": {
             "enable": true,
             "type": "progressive",
-            "epoch": 500
+            "epoch": 100
         }
     },
 

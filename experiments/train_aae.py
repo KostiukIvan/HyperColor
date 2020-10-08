@@ -213,8 +213,15 @@ def main(config):
         for i, point_data in enumerate(points_dataloader, 1):
 
             if dataset_name == "custom":
-                #X = torch.cat((point_data['points'], point_data['colors']), dim=2)
-                X = point_data['points']
+                if ( config['target_network_input']['loss']['change_to']['enable'] and \
+                        epoch > config['target_network_input']['loss']['change_to']['after_epoch'] and \
+                        config['target_network_input']['loss']['change_to']['colors'] ) or \
+                        config['target_network_input']['loss']['default']['colors']:
+
+                    X = torch.cat((point_data['points'], point_data['colors']), dim=2)
+                else:
+                    X = point_data['points']
+                
                 X = X.to(device).type(ftype)
                 X_normals = point_data['normals'].to(device).type(ftype)
 
@@ -225,10 +232,9 @@ def main(config):
             #log.info("XXXXX: %s" % str(X.shape))
 
             # Change dim [BATCH, N_POINTS, N_DIM] -> [BATCH, N_DIM, N_POINTS]
-            if X.size(-1) == 3:
+            if X.size(-1) == 3 or X.size(-1) == 6 or X.size(-1) == 7:
                 X.transpose_(X.dim() - 2, X.dim() - 1)
-            elif X.size(-1) == 6:
-                X.transpose_(X.dim() - 2, X.dim() - 1)
+ 
 
 
             if pointnet:
@@ -384,12 +390,12 @@ def main(config):
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_sphere.png'))
             plt.close(fig)
 
-            fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], in_u_sphere=True, show=False,
+            fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], C=X_rec[k][3:6].transpose(), in_u_sphere=True, show=False,
                                       title=str(epoch))
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_reconstructed.png'))
             plt.close(fig)
 
-            fig = plot_3d_point_cloud(X[k][0], X[k][1], X[k][2], in_u_sphere=True, show=False)
+            fig = plot_3d_point_cloud(X[k][0], X[k][1], X[k][2], C=X[k][3:6].transpose(), in_u_sphere=True, show=False)
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_real.png'))
             plt.close(fig)
 
