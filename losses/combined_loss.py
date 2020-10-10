@@ -82,14 +82,13 @@ class CombinedLoss(nn.Module):
         loss = torch.tensor(0.0).type(ftype)
 
         if CombinedLossType.colors in losses:
-            gts_colors = gts_X[:, :, 3:6].type(ftype) # [2, 4096, 3]
-            preds_colors = pred_X[:, :, 3:6].type(ftype) # [2, 4096, 3]
-            colors_loss, _ = chamfer_distance(gts_colors, preds_colors)
-            loss += colors_loss * 1000
+            #gts_colors = gts_X[:, :, 3:6].type(ftype) # [2, 4096, 3]
+            #preds_colors = pred_X[:, :, 3:6].type(ftype) # [2, 4096, 3]
+            colors_loss, _ = chamfer_distance(gts_X, pred_X)
+            loss += colors_loss * 2000
 
-
-
-        if CombinedLossType.chamfer_distance in losses:
+        #if CombinedLossType.chamfer_distance in losses:
+        else:
             champher_loss, _ = chamfer_distance(gts_points, preds_points)
             loss += champher_loss * 2000
 
@@ -103,7 +102,7 @@ class CombinedLoss(nn.Module):
             pred_meshes = Meshes(verts=[b for b in preds_points], \
                             faces=list(map(lambda x: x[1], (map(lambda x: x.get_mesh_verts_faces(0), S_mesh))))) # x[1] = face
                             
-            gts_point_clouds = Pointclouds(points = [g for g in gts_X], normals = [g_n for g_n in gts_normals])
+            gts_point_clouds = Pointclouds(points = [g for g in gts_points], normals = [g_n for g_n in gts_normals])
 
             if CombinedLossType.mesh_edge_loss in losses:
                 loss += mesh_edge_loss(pred_meshes)

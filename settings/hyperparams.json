@@ -19,11 +19,11 @@
     "num_workers": 8,
     "n_points": 4096,
 
-    "max_epochs": 2000,
+    "max_epochs": 1000,
     "batch_size": 64,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
-    "z_size": 2048,
+    "z_size": 4096,
     "pointnet": false,
     "feature_regularization_coef": 0.001,
     "wasserstein": true,
@@ -54,7 +54,7 @@
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 300,
+                "after_epoch": 4000,
 
                 "chamfer_distance": true,
                 "mesh_edge_loss": false,
@@ -70,7 +70,7 @@
         "normalization": {
             "enable": true,
             "type": "progressive",
-            "epoch": 100
+            "epoch": 1000
         }
     },
 

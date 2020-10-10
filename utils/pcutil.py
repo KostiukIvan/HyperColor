@@ -168,3 +168,6 @@ def transform_point_clouds(X, only_z_rotation=False, deflection=1.0):
         r_rotation[2, 2] = 1
     X = X.dot(r_rotation).astype(np.float32)
     return X
+
+def plot_3d_trian_surface(x, y, z):
+    pass
