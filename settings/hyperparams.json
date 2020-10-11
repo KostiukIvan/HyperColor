@@ -19,8 +19,8 @@
     "num_workers": 8,
     "n_points": 4096,
 
-    "max_epochs": 1000,
-    "batch_size": 64,
+    "max_epochs": 500,
+    "batch_size": 32,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
     "z_size": 4096,
@@ -49,7 +49,8 @@
                 "mesh_normal_consistency": false,
                 "point_mesh_edge_distance": false,
                 "point_mesh_face_distance": false,
-                "colors": true
+                "colors": true,
+                "colors_alpha": 1
             },
             "__comment":"Only with combined loss",
             "change_to": {
@@ -62,7 +63,8 @@
                 "mesh_normal_consistency": false,
                 "point_mesh_edge_distance": true,
                 "point_mesh_face_distance": false,
-                "colors": true
+                "colors": true,
+                "colors_alpha": 1
             }
             
         },
@@ -70,7 +72,7 @@
         "normalization": {
             "enable": true,
             "type": "progressive",
-            "epoch": 1000
+            "epoch": 500
         }
     },
 
@@ -92,7 +94,7 @@
             "use_bias": true,
             "relu_slope": 0.2,
             "freeze_layers_learning": false,
-            "layer_out_channels": [32]
+            "layer_out_channels": [32, 32]
         }
     },
     "optimizer": {

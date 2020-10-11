@@ -12,6 +12,7 @@ class CombinedLoss(nn.Module):
         self.use_cuda = torch.cuda.is_available()
         self.count = 0
         self.config = config
+        self.colors_alpha = 1
 
         
     def forward(self, gts_X, pred_X, gts_normals, S_mesh = None, change_loss_func = False):
@@ -38,6 +39,7 @@ class CombinedLoss(nn.Module):
 
             if self.config['target_network_input']['loss']['change_to']['colors']:
                 losses.append(CombinedLossType.colors)
+                self.colors_alpha = self.config['target_network_input']['loss']['change_to']['colors_alpha']
         else:
             if self.config['target_network_input']['loss']['default']['chamfer_distance']:
                 losses.append(CombinedLossType.chamfer_distance)
@@ -59,6 +61,7 @@ class CombinedLoss(nn.Module):
 
             if self.config['target_network_input']['loss']['default']['colors']:
                 losses.append(CombinedLossType.colors)
+                self.colors_alpha = self.config['target_network_input']['loss']['default']['colors_alpha']
 
         return self.forward_with_spec_losses(gts_X, pred_X, gts_normals, S_mesh, losses)
 
@@ -82,9 +85,13 @@ class CombinedLoss(nn.Module):
         loss = torch.tensor(0.0).type(ftype)
 
         if CombinedLossType.colors in losses:
-            #gts_colors = gts_X[:, :, 3:6].type(ftype) # [2, 4096, 3]
-            #preds_colors = pred_X[:, :, 3:6].type(ftype) # [2, 4096, 3]
-            colors_loss, _ = chamfer_distance(gts_X, pred_X)
+            gts_colors = gts_X#[:, :, 3:6].type(ftype) # [2, 4096, 3]
+            preds_colors = pred_X#[:, :, 3:6].type(ftype) # [2, 4096, 3]
+            if self.config['target_network_input']['loss']['default']['colors_alpha'] != 1:
+                preds_colors = torch.cat([preds_colors[:,:,:3], \
+                                            preds_colors[:,:,3:6] * self.colors_alpha], dim=2)
+           
+            colors_loss, _ = chamfer_distance(gts_colors, preds_colors)
             loss += colors_loss * 2000
 
         #if CombinedLossType.chamfer_distance in losses:

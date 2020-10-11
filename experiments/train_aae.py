@@ -19,7 +19,6 @@ from models import aae
 from utils.pcutil import plot_3d_point_cloud
 from utils.util import find_latest_epoch, prepare_results_dir, cuda_setup, setup_logging, set_seed, genetate_mesh
 from utils.points import generate_points 
-from utils.colors import generate_colors 
 from utils.util import CombinedLossType
 from pytorch3d.utils import ico_sphere
 from pytorch3d.ops import sample_points_from_meshes
@@ -300,13 +299,8 @@ def main(config):
                 elif not config['target_network_input']['constant'] or target_network_input is None:
                     target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
 
-                if X.shape[1] > 3: # generate point clouds for colors
-                    target_network_input_colors = generate_colors(config=config, epoch=epoch, size=(X.shape[2], 3), normalize_points = False).to(device)
-                    target_network_input = torch.cat([target_network_input, target_network_input_colors], dim=1)
-
                 X_rec[j] = torch.transpose(target_network(target_network_input.to(device).type(ftype)), 0, 1)
                 
-
             if pointnet:
                 loss_reconstruction = config['reconstruction_coef'] * \
                                       reconstruction_loss(torch.transpose(X, 1, 2).contiguous(),
@@ -390,7 +384,7 @@ def main(config):
         target_network_input = target_network_input.detach().cpu().numpy()
 
         for k in range(min(1, X_rec.shape[0])):
-            fig = plot_3d_point_cloud(target_network_input[:,0], target_network_input[:,1], target_network_input[:,2], C=target_network_input[:,3:6], in_u_sphere=True, show=False,
+            fig = plot_3d_point_cloud(target_network_input[:,0], target_network_input[:,1], target_network_input[:,2], in_u_sphere=True, show=False,
                                       title=str(epoch))
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_sphere.png'))
             plt.close(fig)
