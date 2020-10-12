@@ -297,33 +297,13 @@ def main(config):
                     epoch > config['target_network_input']['loss']['change_to']['after_epoch'] :
                     
                     target_network_input, faces = meshes.get_random_object()
-                    
+
                     target_network_input = torch.from_numpy(target_network_input).to(device)
                     S_mesh.append(torch.from_numpy(faces).to(device))
-
 
                 elif not config['target_network_input']['constant'] or target_network_input is None:
                     
                     target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
-
-                    
-                    #for k in range(0, 1000):
-                    #    print(k)
-                    #    arget_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
-                    #    shpere = target_network_input.detach().cpu().numpy()#
-
-                    #    mesh = genetate_mesh(shpere).astype('int')
-                        
-                    #    s_path = join(results_dir, 'sphere_mesh', f'sphere_{k}_4096.txt')
-                    #    m_path = join(results_dir, 'sphere_mesh', f'mesh_{k}_4096.txt')
-                        
-                    #    np.savetxt(s_path, shpere)
-                    #    np.savetxt(m_path, mesh)
-                    #    print("Saved!!!")
-                    
-                    #input("STOP")
-
-
 
 
                 X_rec[j] = torch.transpose(target_network(target_network_input.to(device).type(ftype)), 0, 1)
@@ -417,13 +397,13 @@ def main(config):
             plt.close(fig)
 
             #, C=X_rec[k][3:6].transpose()
-            fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], in_u_sphere=True, show=False,
+            fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], C=X_rec[k][3:6].transpose(), in_u_sphere=True, show=False,
                                       title=str(epoch))
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_reconstructed.png'))
             plt.close(fig)
 
             # C=X[k][3:6].transpose(), 
-            fig = plot_3d_point_cloud(X[k][0], X[k][1], X[k][2],in_u_sphere=True, show=False)
+            fig = plot_3d_point_cloud(X[k][0], X[k][1], X[k][2], C=X[k][3:6].transpose(),in_u_sphere=True, show=False)
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_real.png'))
             plt.close(fig)
 
