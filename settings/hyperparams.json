@@ -1,7 +1,7 @@
 {
     "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results",
-    "clean_results_dir": true,
-    "clean_weights_dir": true,
+    "clean_results_dir": false,
+    "clean_weights_dir": false,
 
     "cuda": true,
     "gpu": 0,
@@ -17,9 +17,9 @@
     "shuffle": true,
     "transforms": ["rotate"],
     "num_workers": 8,
-    "n_points": 4096,
+    "n_points": 2048,
 
-    "max_epochs": 500,
+    "max_epochs": 1000,
     "batch_size": 32,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
@@ -48,14 +48,14 @@
                 "mesh_laplacian_smoothing": false,
                 "mesh_normal_consistency": false,
                 "point_mesh_edge_distance": false,
-                "point_mesh_face_distance": false,
+                "point_mesh_face_distance": false,  
                 "colors": true,
                 "colors_alpha": 1
             },
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 4000,
+                "after_epoch": 0,
 
                 "chamfer_distance": true,
                 "mesh_edge_loss": false,
@@ -72,7 +72,7 @@
         "normalization": {
             "enable": true,
             "type": "progressive",
-            "epoch": 500
+            "epoch": 2
         }
     },
 
@@ -94,7 +94,7 @@
             "use_bias": true,
             "relu_slope": 0.2,
             "freeze_layers_learning": false,
-            "layer_out_channels": [32, 32]
+            "layer_out_channels": [32]
         }
     },
     "optimizer": {

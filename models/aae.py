@@ -28,7 +28,6 @@ class HyperNetwork(nn.Module):
 
             nn.Linear(in_features=1024, out_features=4096, bias=self.use_bias),
         )
-
         self.output = [
             nn.Linear(4096, (target_network_out_ch[x - 1] + target_network_use_bias) * target_network_out_ch[x],
                       bias=True).to(device)

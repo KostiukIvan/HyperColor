@@ -84,20 +84,20 @@ class CombinedLoss(nn.Module):
 
         loss = torch.tensor(0.0).type(ftype)
 
-        if CombinedLossType.colors in losses:
-            gts_colors = gts_X#[:, :, 3:6].type(ftype) # [2, 4096, 3]
-            preds_colors = pred_X#[:, :, 3:6].type(ftype) # [2, 4096, 3]
-            if self.config['target_network_input']['loss']['default']['colors_alpha'] != 1:
-                preds_colors = torch.cat([preds_colors[:,:,:3], \
-                                            preds_colors[:,:,3:6] * self.colors_alpha], dim=2)
-           
-            colors_loss, _ = chamfer_distance(gts_colors, preds_colors)
-            loss += colors_loss * 2000
+        #if CombinedLossType.colors in losses:
+        #    gts_colors = gts_X#[:, :, 3:6].type(ftype) # [2, 4096, 3]
+        #    preds_colors = pred_X#[:, :, 3:6].type(ftype) # [2, 4096, 3]
+        #    if self.config['target_network_input']['loss']['default']['colors_alpha'] != 1:
+        #        preds_colors = torch.cat([preds_colors[:,:,:3], \
+        #                                    preds_colors[:,:,3:6] * self.colors_alpha], dim=2)
+        #   
+        #    colors_loss, _ = chamfer_distance(gts_colors, preds_colors)
+        #    loss += colors_loss * 2000
 
         #if CombinedLossType.chamfer_distance in losses:
-        else:
-            champher_loss, _ = chamfer_distance(gts_points, preds_points)
-            loss += champher_loss * 2000
+        #else:
+        champher_loss, _ = chamfer_distance(gts_points, preds_points)
+        loss += champher_loss * 2000
 
 
 
@@ -107,7 +107,8 @@ class CombinedLoss(nn.Module):
         if any([x in losses for x in losses_with_meshes]):
 
             pred_meshes = Meshes(verts=[b for b in preds_points], \
-                            faces=list(map(lambda x: x[1], (map(lambda x: x.get_mesh_verts_faces(0), S_mesh))))) # x[1] = face
+                            faces=[face for face in S_mesh]) # x[1] = face
+                            #faces=list(map(lambda x: x[1], (map(lambda x: x.get_mesh_verts_faces(0), S_mesh))))) # x[1] = face
                             
             gts_point_clouds = Pointclouds(points = [g for g in gts_points], normals = [g_n for g_n in gts_normals])
 

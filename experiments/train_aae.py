@@ -80,6 +80,7 @@ def main(config):
     weights_path = join(results_dir, 'weights')
     metrics_path = join(results_dir, 'metrics')
 
+    print("dataset")
     #
     # Dataset
     #
@@ -114,7 +115,7 @@ def main(config):
 
     pointnet = config.get('pointnet', False)
 
-    
+
     #
     # Models
     #
@@ -127,12 +128,10 @@ def main(config):
     else:
         encoder = aae.Encoder(config).to(device).type(ftype)
         encoder.apply(weights_init)
-
     discriminator = aae.Discriminator(config).to(device).type(ftype)
 
     hyper_network.apply(weights_init)
     discriminator.apply(weights_init)
-
     if config['reconstruction_loss'].lower() == 'chamfer':
         if pointnet:
             from utils.metrics import chamfer_distance
@@ -152,6 +151,7 @@ def main(config):
         raise ValueError(f'Invalid reconstruction loss. Accepted `chamfer` or '
                          f'`earth_mover` or `custom`,  got: {config["reconstruction_loss"]}')
 
+    print("Optimazer")
     #
     # Optimizers
     #
@@ -288,16 +288,21 @@ def main(config):
             for j, target_network_weights in enumerate(target_networks_weights):
                 target_network = aae.TargetNetwork(config, target_network_weights).to(device)
 
+               
+                if not config['target_network_input']['constant'] or target_network_input is None:
+                    target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
+
                 if config['target_network_input']['loss']['change_to']['enable'] and \
                     epoch > config['target_network_input']['loss']['change_to']['after_epoch'] :
-                    
-                    sphere_mesh = ico_sphere(level=3).to(device)
-                    S_mesh.append(sphere_mesh)
-                    target_network_input = sample_points_from_meshes(sphere_mesh, config['n_points']).to(device)
-                    target_network_input = torch.squeeze(target_network_input)
 
-                elif not config['target_network_input']['constant'] or target_network_input is None:
-                    target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
+                    shpere = target_network_input.detach().cpu().numpy()
+
+                    mesh = genetate_mesh(shpere)
+                    S_mesh.append(torch.from_numpy(mesh).to(device))
+
+
+
+
 
                 X_rec[j] = torch.transpose(target_network(target_network_input.to(device).type(ftype)), 0, 1)
                 
@@ -389,12 +394,14 @@ def main(config):
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_sphere.png'))
             plt.close(fig)
 
-            fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], C=X_rec[k][3:6].transpose(), in_u_sphere=True, show=False,
+            #, C=X_rec[k][3:6].transpose()
+            fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], in_u_sphere=True, show=False,
                                       title=str(epoch))
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_reconstructed.png'))
             plt.close(fig)
 
-            fig = plot_3d_point_cloud(X[k][0], X[k][1], X[k][2], C=X[k][3:6].transpose(), in_u_sphere=True, show=False)
+            # C=X[k][3:6].transpose(), 
+            fig = plot_3d_point_cloud(X[k][0], X[k][1], X[k][2],in_u_sphere=True, show=False)
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_real.png'))
             plt.close(fig)
 
