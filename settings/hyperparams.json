@@ -13,11 +13,12 @@
     "dataset": "custom",
     "data_dir": "/mnt/users/ikostiuk/home/3d_point_cloud/dataset/custom",
     "classes": ["airplane"],
+    "meshs_of_sphere_dir": "/home/ikostiuk/3d_point_cloud/dataset/sphere_mesh",
     
     "shuffle": true,
     "transforms": ["rotate"],
     "num_workers": 8,
-    "n_points": 2048,
+    "n_points": 4096,
 
     "max_epochs": 1000,
     "batch_size": 32,

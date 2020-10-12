@@ -127,7 +127,6 @@ def genetate_mesh(X_sphere):
     T_new = np.asarray(dec_mesh.triangles) 
 
 
-    #input("STOP")
     return T_new
 
 

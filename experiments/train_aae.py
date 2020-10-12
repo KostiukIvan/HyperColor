@@ -22,6 +22,7 @@ from utils.points import generate_points
 from utils.util import CombinedLossType
 from pytorch3d.utils import ico_sphere
 from pytorch3d.ops import sample_points_from_meshes
+from datasets.meshsDataset import Mesh
 
 
 cudnn.benchmark = True
@@ -80,7 +81,7 @@ def main(config):
     weights_path = join(results_dir, 'weights')
     metrics_path = join(results_dir, 'metrics')
 
-    print("dataset")
+
     #
     # Dataset
     #
@@ -99,6 +100,10 @@ def main(config):
         from datasets.customDataset import CustomDataset
         dataset = CustomDataset(root_dir=config['data_dir'],
                                 classes=config['classes'], config=config)
+
+        # Load spheres and faces
+        meshes = Mesh(config["meshs_of_sphere_dir"], config["n_points"])
+        
 
     else:
         raise ValueError(f'Invalid dataset name. Expected `shapenet` or '
@@ -151,7 +156,6 @@ def main(config):
         raise ValueError(f'Invalid reconstruction loss. Accepted `chamfer` or '
                          f'`earth_mover` or `custom`,  got: {config["reconstruction_loss"]}')
 
-    print("Optimazer")
     #
     # Optimizers
     #
@@ -288,18 +292,36 @@ def main(config):
             for j, target_network_weights in enumerate(target_networks_weights):
                 target_network = aae.TargetNetwork(config, target_network_weights).to(device)
 
-               
-                if not config['target_network_input']['constant'] or target_network_input is None:
-                    target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
 
                 if config['target_network_input']['loss']['change_to']['enable'] and \
                     epoch > config['target_network_input']['loss']['change_to']['after_epoch'] :
+                    
+                    target_network_input, faces = meshes.get_random_object()
+                    
+                    target_network_input = torch.from_numpy(target_network_input).to(device)
+                    S_mesh.append(torch.from_numpy(faces).to(device))
 
-                    shpere = target_network_input.detach().cpu().numpy()
 
-                    mesh = genetate_mesh(shpere)
-                    S_mesh.append(torch.from_numpy(mesh).to(device))
+                elif not config['target_network_input']['constant'] or target_network_input is None:
+                    
+                    target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
 
+                    
+                    #for k in range(0, 1000):
+                    #    print(k)
+                    #    arget_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
+                    #    shpere = target_network_input.detach().cpu().numpy()#
+
+                    #    mesh = genetate_mesh(shpere).astype('int')
+                        
+                    #    s_path = join(results_dir, 'sphere_mesh', f'sphere_{k}_4096.txt')
+                    #    m_path = join(results_dir, 'sphere_mesh', f'mesh_{k}_4096.txt')
+                        
+                    #    np.savetxt(s_path, shpere)
+                    #    np.savetxt(m_path, mesh)
+                    #    print("Saved!!!")
+                    
+                    #input("STOP")
 
 
 
