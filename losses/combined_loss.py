@@ -84,20 +84,26 @@ class CombinedLoss(nn.Module):
 
         loss = torch.tensor(0.0).type(ftype)
 
-        if CombinedLossType.colors in losses:
-            gts_colors = gts_X#[:, :, 3:6].type(ftype) # [2, 4096, 3]
-            preds_colors = pred_X#[:, :, 3:6].type(ftype) # [2, 4096, 3]
+        """if CombinedLossType.colors in losses:
+            gts_colors = gts_X[:, :, 3:6].type(ftype) # [2, 4096, 3]
+            preds_colors = pred_X[:, :, 3:6].type(ftype) # [2, 4096, 3]
             if self.config['target_network_input']['loss']['default']['colors_alpha'] != 1:
                 preds_colors = torch.cat([preds_colors[:,:,:3], \
                                             preds_colors[:,:,3:6] * self.colors_alpha], dim=2)
            
             colors_loss, _ = chamfer_distance(gts_colors, preds_colors)
-            loss += colors_loss * 2000
+            loss += colors_loss
+        """
 
-        #if CombinedLossType.chamfer_distance in losses:
-        else:
+        if CombinedLossType.chamfer_distance in losses:
             champher_loss, _ = chamfer_distance(gts_points, preds_points)
-            loss += champher_loss * 2000
+            '''P = self.batch_pairwise_dist(gts_points, preds_points)
+            mins, _ = torch.min(P, 1)
+            loss_1 = torch.sum(mins)
+            mins, _ = torch.min(P, 2)
+            loss_2 = torch.sum(mins)
+            champher_loss = loss_1 + loss_2'''
+            loss += champher_loss * 3000    
 
 
 

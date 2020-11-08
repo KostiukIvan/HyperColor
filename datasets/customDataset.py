@@ -9,7 +9,8 @@ import numpy as np
 from torch.utils.data import Dataset
 
 synth_id_to_category = {
-    '02958343': 'car', '02747177': 'lamp', '02691156': 'airplane'
+    '02958343': 'car', '02747177': 'lamp', '02691156': 'airplane', '02773838':'cos_1', '02818832':'cos_2',
+     '02843684':'house', '02808440':'cos_4', '02828884':'chairs', '02871439':'cos_6'
 }
 
 category_to_synth_id = {v: k for k, v in synth_id_to_category.items()}

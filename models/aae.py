@@ -10,7 +10,7 @@ class HyperNetwork(nn.Module):
         self.use_bias = config['model']['HN']['use_bias']
         self.relu_slope = config['model']['HN']['relu_slope']
         # target network layers out channels
-        target_network_out_ch = [3] + config['model']['TN']['layer_out_channels'] + [6]
+        target_network_out_ch = [6] + config['model']['TN']['layer_out_channels'] + [6]
         target_network_use_bias = int(config['model']['TN']['use_bias'])
 
         self.model = nn.Sequential(
@@ -51,8 +51,8 @@ class TargetNetwork(nn.Module):
         # target network layers out channels
         out_ch = config['model']['TN']['layer_out_channels']
 
-        layer_data, split_index = self._get_layer_data(start_index=0, end_index=out_ch[0] * 3,
-                                                       shape=(out_ch[0], 3), weights=weights)
+        layer_data, split_index = self._get_layer_data(start_index=0, end_index=out_ch[0] * 6,
+                                                       shape=(out_ch[0], 6), weights=weights)
         self.layers = {"1": layer_data}
 
         for x in range(1, len(out_ch)):

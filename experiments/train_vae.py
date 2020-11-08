@@ -18,6 +18,7 @@ from models import aae
 from utils.pcutil import plot_3d_point_cloud
 from utils.util import find_latest_epoch, prepare_results_dir, cuda_setup, setup_logging, set_seed
 from utils.points import generate_points
+from datasets.meshsDataset import Mesh
 
 cudnn.benchmark = True
 
@@ -72,6 +73,16 @@ def main(config):
         from datasets.photogrammetry import PhotogrammetryDataset
         dataset = PhotogrammetryDataset(root_dir=config['data_dir'],
                                  classes=config['classes'], config=config)
+
+    elif dataset_name == "custom":
+        # import pdb; pdb.set_trace()
+        from datasets.customDataset import CustomDataset
+        dataset = CustomDataset(root_dir=config['data_dir'],
+                                classes=config['classes'], config=config)
+
+        # Load spheres and faces
+        meshes = Mesh(config["meshs_of_sphere_dir"], config["n_points"])
+
     else:
         raise ValueError(f'Invalid dataset name. Expected `shapenet` or '
                          f'`faust`. Got: `{dataset_name}`')
@@ -102,6 +113,11 @@ def main(config):
         # reconstruction_loss = earth_mover_distance
         from losses.earth_mover_distance import EMD
         reconstruction_loss = EMD().to(device)
+
+    elif config['reconstruction_loss'].lower() == 'combined':
+        from losses.combined_loss import CombinedLoss
+        reconstruction_loss = CombinedLoss(config).to(device)
+
     else:
         raise ValueError(f'Invalid reconstruction loss. Accepted `chamfer` or '
                          f'`earth_mover`, got: {config["reconstruction_loss"]}')
@@ -150,32 +166,62 @@ def main(config):
         total_loss_kld = 0.0
         for i, point_data in enumerate(points_dataloader, 1):
 
-            X, _ = point_data
-            X = X.to(device, dtype=torch.float)
+            if dataset_name == "custom":
+                """if ( config['target_network_input']['loss']['change_to']['enable'] and \
+                    epoch > config['target_network_input']['loss']['change_to']['after_epoch'] and \
+                        config['target_network_input']['loss']['change_to']['colors'] ) or \
+                        config['target_network_input']['loss']['default']['colors']:
+
+                    X = torch.cat((point_data['points'], point_data['colors']), dim=2)
+                else:
+                    X = point_data['points']"""
+                X = torch.cat((point_data['points'], point_data['colors']), dim=2)
+                X = X.to(device, dtype=torch.float)
+                X_normals = point_data['normals'].to(device, dtype=torch.float)
+
+            else: 
+                X, _ = point_data
+                X = X.to(device, dtype=torch.float)
 
             # Change dim [BATCH, N_POINTS, N_DIM] -> [BATCH, N_DIM, N_POINTS]
-            if X.size(-1) == 3:
-                X.transpose_(X.dim() - 2, X.dim() - 1)
-
-            if X.size(-1) == 7:
+            if X.size(-1) == 3 or X.size(-1) == 6 or X.size(-1) == 7:
                 X.transpose_(X.dim() - 2, X.dim() - 1)
             
             codes, mu, logvar = encoder(X)
             target_networks_weights = hyper_network(codes)
 
             X_rec = torch.zeros(X.shape).to(device)
+            S_mesh = []
             for j, target_network_weights in enumerate(target_networks_weights):
                 target_network = aae.TargetNetwork(config, target_network_weights).to(device)
 
-                if not config['target_network_input']['constant'] or target_network_input is None:
-                    target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], X.shape[1]))
+                if config['target_network_input']['loss']['change_to']['enable'] and \
+                    epoch > config['target_network_input']['loss']['change_to']['after_epoch'] :
+                    target_network_input, faces = meshes.get_random_object()
+                    target_network_input = torch.from_numpy(target_network_input).to(device)
+                    S_mesh.append(torch.from_numpy(faces).to(device))
 
-                X_rec[j] = torch.transpose(target_network(target_network_input.to(device)), 0, 1)
+                elif not config['target_network_input']['constant'] or target_network_input is None:     
+                    target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
 
-            loss_r = torch.mean(
-                config['reconstruction_coef'] *
-                reconstruction_loss(X.permute(0, 2, 1) + 0.5,
-                                    X_rec.permute(0, 2, 1) + 0.5))
+                target_network_input = torch.cat([target_network_input, target_network_input], dim=1)
+                X_rec[j] = torch.transpose(target_network(target_network_input.to(device, dtype=torch.float)), 0, 1)
+
+            if config['reconstruction_loss'].lower() == 'combined': 
+                change_loss_func = False
+                if config['target_network_input']['loss']['change_to']['enable'] and \
+                    epoch > config['target_network_input']['loss']['change_to']['after_epoch'] :
+                    change_loss_func = True
+
+                loss_r = reconstruction_loss(X.permute(0, 2, 1) + 0.5,
+                                                            X_rec.permute(0, 2, 1) + 0.5,
+                                                            X_normals, S_mesh, change_loss_func)
+                
+            else:
+                loss_r = torch.mean(
+                    config['reconstruction_coef'] *
+                    reconstruction_loss(X.permute(0, 2, 1) + 0.5,
+                                        X_rec.permute(0, 2, 1) + 0.5))
 
             loss_kld = 0.5 * (torch.exp(logvar) + torch.pow(mu, 2) - 1 - logvar).sum()
 

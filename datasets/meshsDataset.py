@@ -39,7 +39,7 @@ class Mesh:
             self.list_of_meshes.append((point_cloud,faces))
 
         if len(self.list_of_meshes) == 1000:
-            print("All meshes are loaded!!!")
+            print("All meshes loaded!!!")
         else:
             print(f"ERROR: Model loaded {len(self.list_of_meshes)} meshes")
             

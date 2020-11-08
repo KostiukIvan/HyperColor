@@ -217,15 +217,15 @@ def main(config):
         for i, point_data in enumerate(points_dataloader, 1):
 
             if dataset_name == "custom":
-                if ( config['target_network_input']['loss']['change_to']['enable'] and \
-                        epoch > config['target_network_input']['loss']['change_to']['after_epoch'] and \
+                """if ( config['target_network_input']['loss']['change_to']['enable'] and \
+                    epoch > config['target_network_input']['loss']['change_to']['after_epoch'] and \
                         config['target_network_input']['loss']['change_to']['colors'] ) or \
                         config['target_network_input']['loss']['default']['colors']:
 
                     X = torch.cat((point_data['points'], point_data['colors']), dim=2)
                 else:
-                    X = point_data['points']
-                
+                    X = point_data['points']"""
+                X = torch.cat((point_data['points'], point_data['colors']), dim=2)
                 X = X.to(device).type(ftype)
                 X_normals = point_data['normals'].to(device).type(ftype)
 
@@ -305,7 +305,9 @@ def main(config):
                     
                     target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
 
-
+                # duplicating dim for colors generation
+                target_network_input = torch.cat([target_network_input, target_network_input], dim=1)
+                
                 X_rec[j] = torch.transpose(target_network(target_network_input.to(device).type(ftype)), 0, 1)
                 
             if pointnet:
@@ -390,22 +392,23 @@ def main(config):
         X_rec = X_rec.detach().cpu().numpy()
         target_network_input = target_network_input.detach().cpu().numpy()
 
-        for k in range(min(1, X_rec.shape[0])):
-            fig = plot_3d_point_cloud(target_network_input[:,0], target_network_input[:,1], target_network_input[:,2], in_u_sphere=True, show=False,
-                                      title=str(epoch))
-            fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_sphere.png'))
-            plt.close(fig)
+        if epoch % config['save_frequency'] == 0:
+            for k in range(min(1, X_rec.shape[0])):
+                fig = plot_3d_point_cloud(target_network_input[:,0], target_network_input[:,1], target_network_input[:,2], in_u_sphere=True, show=False,
+                                            title=str(epoch))
+                fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_sphere.png'))
+                plt.close(fig)
 
-            #, C=X_rec[k][3:6].transpose()
-            fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], C=X_rec[k][3:6].transpose(), in_u_sphere=True, show=False,
-                                      title=str(epoch))
-            fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_reconstructed.png'))
-            plt.close(fig)
+                #, C=X_rec[k][3:6].transpose()
+                fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], C=X_rec[k][3:6].transpose(), in_u_sphere=True, show=False,
+                                            title=str(epoch))
+                fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_reconstructed.png'))
+                plt.close(fig)
 
-            # C=X[k][3:6].transpose(), 
-            fig = plot_3d_point_cloud(X[k][0], X[k][1], X[k][2], C=X[k][3:6].transpose(),in_u_sphere=True, show=False)
-            fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_real.png'))
-            plt.close(fig)
+                # C=X[k][3:6].transpose(), 
+                fig = plot_3d_point_cloud(X[k][0], X[k][1], X[k][2], C=X[k][3:6].transpose(),in_u_sphere=True, show=False)
+                fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_real.png'))
+                plt.close(fig)
 
         if config['clean_weights_dir']:
             log.debug('Cleaning weights path: %s' % weights_path)
