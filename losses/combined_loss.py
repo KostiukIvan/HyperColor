@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import numpy as np
+import sys
 from pytorch3d.structures import Meshes, Pointclouds
 from pytorch3d.loss import chamfer_distance, mesh_edge_loss, mesh_laplacian_smoothing, mesh_normal_consistency, point_mesh_edge_distance, point_mesh_face_distance
 from utils.util import CombinedLossType
@@ -13,10 +14,13 @@ class CombinedLoss(nn.Module):
         self.count = 0
         self.config = config
         self.colors_alpha = 1
+        #self.log = log
 
         
     def forward(self, gts_X, pred_X, gts_normals, S_mesh = None, change_loss_func = False):
         losses = []
+        #print("Forward")
+        #self.log("Forward" )
 
         if change_loss_func:
             if self.config['target_network_input']['loss']['change_to']['chamfer_distance']:
@@ -68,6 +72,7 @@ class CombinedLoss(nn.Module):
 
 
     def forward_with_spec_losses(self, gts_X, pred_X, gts_normals, S_mesh, losses = []):
+        #print("forward_with_spec_losses")
         if self.use_cuda:
             dtype = torch.cuda.LongTensor
             ftype = torch.cuda.FloatTensor
@@ -79,32 +84,36 @@ class CombinedLoss(nn.Module):
             print("You didn't choose any loss function!!!")
             return torch.tensor(0.0).type(ftype)
 
-        gts_points = gts_X[:, :, :3].type(ftype) # [2, 4096, 3]
-        preds_points = pred_X[:, :, :3].type(ftype) # [2, 4096, 3]
+        gts_points = gts_X[:, :, :3].type(ftype) + 0.5 # [2, 4096, 3]
+        preds_points = pred_X[:, :, :3].type(ftype) + 0.5 # [2, 4096, 3]
+
+        gts_colors = gts_X[:, :, 3:6].type(ftype) # [2, 4096, 3]
+        preds_colors = pred_X[:, :, 3:6].type(ftype) # [2, 4096, 3]
 
         loss = torch.tensor(0.0).type(ftype)
-
-        """if CombinedLossType.colors in losses:
-            gts_colors = gts_X[:, :, 3:6].type(ftype) # [2, 4096, 3]
-            preds_colors = pred_X[:, :, 3:6].type(ftype) # [2, 4096, 3]
-            if self.config['target_network_input']['loss']['default']['colors_alpha'] != 1:
-                preds_colors = torch.cat([preds_colors[:,:,:3], \
-                                            preds_colors[:,:,3:6] * self.colors_alpha], dim=2)
-           
-            colors_loss, _ = chamfer_distance(gts_colors, preds_colors)
-            loss += colors_loss
-        """
-
+        if CombinedLossType.colors in losses:
+            gts_colors_1 = gts_X[:, :, 3:4].type(ftype) + 1.0 # [2, 4096, 3]
+            preds_colors_1 = pred_X[:, :, 3:4].type(ftype) + 1.0 # [2, 4096, 3]
+            
+            gts_colors_2 = gts_X[:, :, 4:5].type(ftype) + 1.0 # [2, 4096, 3]
+            preds_colors_2 = pred_X[:, :, 4:5].type(ftype) + 1.0 # [2, 4096, 3]
+            
+            gts_colors_3 = gts_X[:, :, 5:6].type(ftype) + 1.0 # [2, 4096, 3]
+            preds_colors_3 = pred_X[:, :, 5:6].type(ftype) + 1.0 # [2, 4096, 3]
+            '''
+            # colors_loss_1, _ = chamfer_distance(gts_colors_1, preds_colors_1, point_reduction = "sum")
+            # colors_loss_2, _ = chamfer_distance(gts_colors_2, preds_colors_2, point_reduction = "sum")
+            # colors_loss_3, _ = chamfer_distance(gts_colors_3, preds_colors_3, point_reduction = "sum")
+            '''
+            colors_loss_1 = torch.nn.MSELoss(gts_colors_1, preds_colors_1)
+            colors_loss_2 = torch.nn.MSELoss(gts_colors_2, preds_colors_2)
+            colors_loss_3 = torch.nn.MSELoss(gts_colors_3, preds_colors_3)
+            loss +=  (colors_loss_1 + colors_loss_2 + colors_loss_3) * 100
+            
+        
         if CombinedLossType.chamfer_distance in losses:
             champher_loss, _ = chamfer_distance(gts_points, preds_points)
-            '''P = self.batch_pairwise_dist(gts_points, preds_points)
-            mins, _ = torch.min(P, 1)
-            loss_1 = torch.sum(mins)
-            mins, _ = torch.min(P, 2)
-            loss_2 = torch.sum(mins)
-            champher_loss = loss_1 + loss_2'''
-            loss += champher_loss * 3000    
-
+            loss +=  champher_loss * 900
 
 
         losses_with_meshes = [CombinedLossType.mesh_edge_loss, CombinedLossType.mesh_laplacian_smoothing, CombinedLossType.mesh_normal_consistency, 
@@ -112,8 +121,7 @@ class CombinedLoss(nn.Module):
 
         if any([x in losses for x in losses_with_meshes]):
 
-            pred_meshes = Meshes(verts=[b for b in preds_points], \
-                            faces=[face for face in S_mesh]) # x[1] = face
+            pred_meshes = Meshes(verts=[b for b in preds_points], faces=[face for face in S_mesh]) # x[1] = face
                             #faces=list(map(lambda x: x[1], (map(lambda x: x.get_mesh_verts_faces(0), S_mesh))))) # x[1] = face
                             
             gts_point_clouds = Pointclouds(points = [g for g in gts_points], normals = [g_n for g_n in gts_normals])
@@ -128,7 +136,7 @@ class CombinedLoss(nn.Module):
                 loss += mesh_normal_consistency(pred_meshes)
 
             if CombinedLossType.point_mesh_edge_distance in losses:
-                loss += point_mesh_edge_distance(pred_meshes, gts_point_clouds) 
+                loss += point_mesh_edge_distance(pred_meshes, gts_point_clouds) * 100
 
             if CombinedLossType.point_mesh_face_distance in losses:
                 loss += point_mesh_face_distance(pred_meshes, gts_point_clouds) 

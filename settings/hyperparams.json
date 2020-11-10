@@ -1,7 +1,7 @@
 {
     "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results",
-    "clean_results_dir": true,
-    "clean_weights_dir": true,
+    "clean_results_dir": false,
+    "clean_weights_dir": false,
 
     "cuda": true,
     "gpu": 0,
@@ -20,7 +20,7 @@
     "num_workers": 8,
     "n_points": 4096,
 
-    "max_epochs": 1000,
+    "max_epochs": 4000,
     "batch_size": 64,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
@@ -48,15 +48,15 @@
                 "mesh_edge_loss": false,
                 "mesh_laplacian_smoothing": false,
                 "mesh_normal_consistency": false,
-                "point_mesh_edge_distance": false,
+                "point_mesh_edge_distance": true,
                 "point_mesh_face_distance": false,  
                 "colors": false,
                 "colors_alpha": 1
             },
             "__comment":"Only with combined loss",
             "change_to": {
-                "enable": false,
-                "after_epoch": 1000,
+                "enable": true,
+                "after_epoch": 2500,
 
                 "chamfer_distance": true,
                 "mesh_edge_loss": false,
@@ -64,7 +64,7 @@
                 "mesh_normal_consistency": false,
                 "point_mesh_edge_distance": true,
                 "point_mesh_face_distance": false,
-                "colors": false,
+                "colors": true,
                 "colors_alpha": 1
             }
             

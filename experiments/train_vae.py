@@ -158,6 +158,25 @@ def main(config):
     for epoch in range(starting_epoch, config['max_epochs'] + 1):
         start_epoch_time = datetime.now()
         log.debug("Epoch: %s" % epoch)
+
+        use_shpere = False
+        if config['target_network_input']['loss']['default']['mesh_edge_loss'] or \
+            config['target_network_input']['loss']['default']['mesh_laplacian_smoothing'] or \
+            config['target_network_input']['loss']['default']['mesh_normal_consistency'] or \
+            config['target_network_input']['loss']['default']['point_mesh_face_distance'] or \
+            config['target_network_input']['loss']['default']['point_mesh_edge_distance'] or \
+            ( 
+                (   config['target_network_input']['loss']['change_to']['mesh_edge_loss'] or \
+                    config['target_network_input']['loss']['change_to']['mesh_laplacian_smoothing'] or \
+                    config['target_network_input']['loss']['change_to']['mesh_normal_consistency'] or \
+                    config['target_network_input']['loss']['change_to']['point_mesh_face_distance'] or \
+                    config['target_network_input']['loss']['change_to']['point_mesh_edge_distance'] ) and \
+                ( config['target_network_input']['loss']['change_to']['enable'] and \
+                epoch > config['target_network_input']['loss']['change_to']['after_epoch'] ) 
+            ):
+            use_shpere = True
+
+
         hyper_network.train()
         encoder.train()
 
@@ -167,14 +186,6 @@ def main(config):
         for i, point_data in enumerate(points_dataloader, 1):
 
             if dataset_name == "custom":
-                """if ( config['target_network_input']['loss']['change_to']['enable'] and \
-                    epoch > config['target_network_input']['loss']['change_to']['after_epoch'] and \
-                        config['target_network_input']['loss']['change_to']['colors'] ) or \
-                        config['target_network_input']['loss']['default']['colors']:
-
-                    X = torch.cat((point_data['points'], point_data['colors']), dim=2)
-                else:
-                    X = point_data['points']"""
                 X = torch.cat((point_data['points'], point_data['colors']), dim=2)
                 X = X.to(device, dtype=torch.float)
                 X_normals = point_data['normals'].to(device, dtype=torch.float)
@@ -195,8 +206,7 @@ def main(config):
             for j, target_network_weights in enumerate(target_networks_weights):
                 target_network = aae.TargetNetwork(config, target_network_weights).to(device)
 
-                if config['target_network_input']['loss']['change_to']['enable'] and \
-                    epoch > config['target_network_input']['loss']['change_to']['after_epoch'] :
+                if use_shpere :
                     target_network_input, faces = meshes.get_random_object()
                     target_network_input = torch.from_numpy(target_network_input).to(device)
                     S_mesh.append(torch.from_numpy(faces).to(device))
@@ -255,7 +265,7 @@ def main(config):
         X = X.cpu().numpy()
         X_rec = X_rec.detach().cpu().numpy()
 
-        for k in range(min(5, X_rec.shape[0])):
+        for k in range(min(1, X_rec.shape[0])):
             fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], C = X_rec[k][3:6].transpose(), in_u_sphere=True, show=False,
                                       title=str(epoch))
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_reconstructed.png'))
