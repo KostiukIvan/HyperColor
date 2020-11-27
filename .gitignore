@@ -1,5 +1,0 @@
-# datasets data
-3d_point_cloud/dataset/*
-
-#python cache
-*.pyc
