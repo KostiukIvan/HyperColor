@@ -19,6 +19,7 @@ from utils.pcutil import plot_3d_point_cloud
 from utils.util import find_latest_epoch, prepare_results_dir, cuda_setup, setup_logging, set_seed
 from utils.points import generate_points
 from datasets.meshsDataset import Mesh
+from sklearn.neighbors import KNeighborsClassifier
 
 cudnn.benchmark = True
 
@@ -219,7 +220,12 @@ def main(config):
                     points = torch.transpose(target_network_points(target_network_input.to(device, dtype=torch.float)), 0, 1)
                     colors = torch.transpose(target_network_colors(target_network_input.to(device, dtype=torch.float)), 0, 1)
 
-                    X_rec[j] = torch.cat([points, colors], dim=0) # [B,6,N]
+                    points_kneighbors = points
+                    clf = KNeighborsClassifier(2)
+                    clf.fit(X[j][:3].cpu().numpy(), np.ones(len(X[j][:3])))
+                    nearest_points = clf.kneighbors(points_kneighbors.detach().cpu().numpy(), return_distance=False)
+                    points_nearest_points = points[nearest_points[:, 1:].reshape(-1)]
+                    X_rec[j] = torch.cat([points_nearest_points, colors], dim=0) # [B,6,N]
 
             else:
                 target_networks_weights_points = hyper_network_points(codes)
