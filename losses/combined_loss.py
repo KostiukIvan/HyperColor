@@ -27,6 +27,7 @@ class CombinedLoss(nn.Module):
 
         loss = torch.tensor(0.0).type(ftype)
         if train_colors: # [2, 4096, 6]
+            '''
             champher_loss, _ = chamfer_distance(gts_X, pred_X)
             loss +=  champher_loss * 900
             '''
@@ -35,8 +36,8 @@ class CombinedLoss(nn.Module):
 
             MSE = torch.nn.MSELoss()
             colors_loss = MSE(gts_colors, preds_colors)
-            loss +=  colors_loss * 100
-            '''
+            loss +=  colors_loss 
+
         else: # [2, 4096, 3]
             gts_points = gts_X[:, :, :3].type(ftype) # [2, 4096, 3]
             preds_points = pred_X[:, :, :3].type(ftype) # [2, 4096, 3]
