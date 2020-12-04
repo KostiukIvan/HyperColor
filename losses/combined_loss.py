@@ -33,8 +33,8 @@ class CombinedLoss(nn.Module):
             '''
             # gts_colors = gts_X[:, :, 3:6].type(ftype) # [2, 4096, 3]
             # preds_colors = pred_X[:, :, 3:6].type(ftype) # [2, 4096, 3]
-            origin_colors= pred_X[:, :, 3:6].type(ftype)
-            pred_colors = pred_X[:, :, :3].type(ftype)
+            origin_colors= pred_X[:, :, 6:9].type(ftype)
+            pred_colors = pred_X[:, :, 3:6].type(ftype)
 
             MSE = torch.nn.MSELoss()
             colors_loss = MSE(origin_colors, pred_colors)

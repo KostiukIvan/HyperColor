@@ -208,7 +208,7 @@ def main(config):
                 target_networks_weights_colors = hyper_network_colors(codes)
                 target_networks_weights_points = hyper_network_points(codes)
                 
-                X_rec = torch.zeros(X.shape).to(device)
+                X_rec = torch.zeros(torch.cat([X, X[:,:3,:]], dim=1).shape).to(device) # [b, 9, 4096]
                 for j, target_network_weights in enumerate(zip(target_networks_weights_points, target_networks_weights_colors)):
 
                     target_network_points = aae.TargetNetwork(config, target_network_weights[0]).to(device)
@@ -228,8 +228,9 @@ def main(config):
                     
                     origin_colors = torch.transpose(origin_colors, 0, 1) # [3, 4096]
                     pred_colors = torch.transpose(pred_colors, 0, 1) # [3, 4096]
+                    pred_points = torch.transpose(pred_points, 0, 1) # [3, 4096]
 
-                    X_rec[j] = torch.cat([pred_colors, origin_colors], dim=0) # [B,6,N]
+                    X_rec[j] = torch.cat([pred_points, pred_colors, origin_colors], dim=0) # [B,6,N]
 
             else:
                 target_networks_weights_points = hyper_network_points(codes)
