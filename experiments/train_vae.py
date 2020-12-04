@@ -217,24 +217,19 @@ def main(config):
                     if not config['target_network_input']['constant'] or target_network_input is None:     
                         target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
 
-                    points = target_network_points(target_network_input.to(device, dtype=torch.float)) # [4096, 3]
-                    colors = target_network_colors(target_network_input.to(device, dtype=torch.float)) # [4096, 3]
-                    #points = torch.transpose(points, 0, 1) # [3, 4096]
-                    #colors = torch.transpose(colors, 0, 1) # [3, 4096]
+                    pred_points = target_network_points(target_network_input.to(device, dtype=torch.float)) # [4096, 3]
+                    pred_colors = target_network_colors(target_network_input.to(device, dtype=torch.float)) # [4096, 3]
 
-                    points_kneighbors = points
+                    points_kneighbors = pred_points
                     clf = KNeighborsClassifier(1)
-
                     clf.fit(torch.transpose(X[j][:3], 0 , 1).cpu().numpy(), np.ones(len(torch.transpose(X[j][:3], 0 , 1))))
-
                     nearest_points = clf.kneighbors(points_kneighbors.detach().cpu().numpy(), return_distance=False)
+                    origin_colors = torch.transpose(X[j][3:6], 0, 1)[nearest_points].squeeze()
+                    
+                    origin_colors = torch.transpose(origin_colors, 0, 1) # [3, 4096]
+                    pred_colors = torch.transpose(pred_colors, 0, 1) # [3, 4096]
 
-                    colors_nearest_points = colors[nearest_points].squeeze()
-
-                    points = torch.transpose(points, 0, 1) # [3, 4096]
-                    colors = torch.transpose(colors_nearest_points, 0, 1) # [3, 4096]
-
-                    X_rec[j] = torch.cat([points, colors], dim=0) # [B,6,N]
+                    X_rec[j] = torch.cat([pred_colors, origin_colors], dim=0) # [B,6,N]
 
             else:
                 target_networks_weights_points = hyper_network_points(codes)
