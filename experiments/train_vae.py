@@ -245,8 +245,8 @@ def main(config):
 
         
             if config['reconstruction_loss'].lower() == 'combined': 
-                loss_r = reconstruction_loss(X.permute(0, 2, 1) + 0.5,
-                                            X_rec.permute(0, 2, 1) + 0.5,
+                loss_r = reconstruction_loss(X.permute(0, 2, 1),
+                                            X_rec.permute(0, 2, 1),
                                             train_colors)
                 
             else:
@@ -303,8 +303,8 @@ def main(config):
             C = None
             C_rec = None
             if train_colors:
-                C_rec = colors.lab2rgb(X_rec[k][3:6].transpose())
-                C = colors.lab2rgb(X[k][3:6].transpose())
+                C_rec = colors.lab2xyz(X_rec[k][3:6].transpose())
+                C = X[k][3:6].transpose()
 
             fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], C = C_rec, in_u_sphere=True, show=False,
                                       title=str(epoch))

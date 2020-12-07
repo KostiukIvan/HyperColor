@@ -7,7 +7,7 @@ from zipfile import ZipFile
 import pandas as pd
 import numpy as np
 from torch.utils.data import Dataset
-import skimage.color as colors
+
 
 synth_id_to_category = {
     '02958343': 'car', '02747177': 'lamp', '02691156': 'airplane', '02773838':'cos_1', '02818832':'cos_2',
@@ -103,12 +103,7 @@ class CustomDataset(Dataset):
                     drop_indices = np.random.choice(df.index, remove_n, replace=False)
                 df = df.drop(drop_indices)
 
-            if part == 'colors':
-                df = colors.rgb2lab(df)
-                result[part] = df
-            else:
-                result[part] = df.to_numpy()
-    
+            result[part] = df.to_numpy()
         return result
 
     def _get_names(self) -> pd.DataFrame:

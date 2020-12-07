@@ -1,5 +1,5 @@
 {
-    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results",
+    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_s",
     "clean_results_dir": false,
     "clean_weights_dir": false,
 
@@ -56,7 +56,7 @@
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 1000,
+                "after_epoch": 700,
 
                 "chamfer_distance": false,
                 "mesh_edge_loss": false,
