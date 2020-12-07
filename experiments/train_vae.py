@@ -20,6 +20,7 @@ from utils.util import find_latest_epoch, prepare_results_dir, cuda_setup, setup
 from utils.points import generate_points
 from datasets.meshsDataset import Mesh
 from sklearn.neighbors import KNeighborsClassifier
+import skimage.color as colors
 
 cudnn.benchmark = True
 
@@ -300,14 +301,17 @@ def main(config):
 
         for k in range(min(1, X_rec.shape[0])):
             C = None
+            C_rec = None
             if train_colors:
-                C = X_rec[k][3:6].transpose()
-            fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], C = C, in_u_sphere=True, show=False,
+                C_rec = colors.lab2rgb(X_rec[k][3:6].transpose())
+                C = colors.lab2rgb(X[k][3:6].transpose())
+
+            fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], C = C_rec, in_u_sphere=True, show=False,
                                       title=str(epoch))
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_reconstructed.png'))
             plt.close(fig)
 
-            fig = plot_3d_point_cloud(X[k][0], X[k][1], X[k][2], C = X[k][3:6].transpose(), in_u_sphere=True, show=False)
+            fig = plot_3d_point_cloud(X[k][0], X[k][1], X[k][2], C = C, in_u_sphere=True, show=False)
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_real.png'))
             plt.close(fig)
             

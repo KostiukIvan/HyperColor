@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import numpy as np
 import sys
+import pytorch_colors as colors
 from pytorch3d.structures import Meshes, Pointclouds
 from pytorch3d.loss import chamfer_distance, mesh_edge_loss, mesh_laplacian_smoothing, mesh_normal_consistency, point_mesh_edge_distance, point_mesh_face_distance
 from utils.util import CombinedLossType

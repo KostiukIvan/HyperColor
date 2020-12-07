@@ -7,6 +7,7 @@ from zipfile import ZipFile
 import pandas as pd
 import numpy as np
 from torch.utils.data import Dataset
+import skimage.color as colors
 
 synth_id_to_category = {
     '02958343': 'car', '02747177': 'lamp', '02691156': 'airplane', '02773838':'cos_1', '02818832':'cos_2',
@@ -77,12 +78,14 @@ class CustomDataset(Dataset):
         if self.transform:
             sample = self.transform(sample)
 
+
         return sample
 
     def load_object(self, directory: str, prefix: str) -> dict: # dict<str, np.ndarray>
         suffixes = ['_mesh_data.txt', '_color_data.txt', '_normals_data.txt']
         parts = ['points', 'colors', 'normals']
         result = dict()
+        drop_indices = None
 
         for suffix, part in zip(suffixes, parts):
             filename = prefix + suffix
@@ -90,15 +93,22 @@ class CustomDataset(Dataset):
             df = pd.read_csv(path,sep=' ', header=None, engine='c', )
             if part == 'colors':
                 df = df.iloc[:, :-1] # drop the last column
+
             #if len(df.index) < 40_000:
                 #df = df.reindex(range(40_000), fill_value = 0) #add missing rows filled with zeros
                 
             if len(df.index) > self.config['n_points']:
                 remove_n = len(df.index) - self.config['n_points']
-                drop_indices = np.random.choice(df.index, remove_n, replace=False)
+                if drop_indices is None:
+                    drop_indices = np.random.choice(df.index, remove_n, replace=False)
                 df = df.drop(drop_indices)
-            result[part] = df.to_numpy()
-        
+
+            if part == 'colors':
+                df = colors.rgb2lab(df)
+                result[part] = df
+            else:
+                result[part] = df.to_numpy()
+    
         return result
 
     def _get_names(self) -> pd.DataFrame:
