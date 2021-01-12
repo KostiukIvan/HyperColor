@@ -303,7 +303,7 @@ def main(config):
             C = None
             C_rec = None
             if train_colors:
-                C_rec = colors.lab2xyz(X_rec[k][3:6].transpose())
+                C_rec = X_rec[k][3:6].transpose()
                 C = X[k][3:6].transpose()
 
             fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], C = C_rec, in_u_sphere=True, show=False,

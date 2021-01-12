@@ -1,5 +1,5 @@
 {
-    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_s",
+    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results",
     "clean_results_dir": false,
     "clean_weights_dir": false,
 
@@ -20,7 +20,7 @@
     "num_workers": 8,
     "n_points": 4096,
 
-    "max_epochs": 3000,
+    "max_epochs": 6000,
     "batch_size": 32,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
