@@ -1,7 +1,7 @@
 {
     "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results",
-    "clean_results_dir": false,
-    "clean_weights_dir": false,
+    "clean_results_dir": true,
+    "clean_weights_dir": true,
 
     "cuda": true,
     "gpu": 0,
@@ -11,7 +11,7 @@
     "metrics": [],
 
     "dataset": "custom",
-    "data_dir": "/mnt/users/ikostiuk/home/3d_point_cloud/dataset/custom",
+    "data_dir": "/mnt/users/ikostiuk/local/ShapePointNet",
     "classes": ["airplane"],
     "meshs_of_sphere_dir": "/home/ikostiuk/3d_point_cloud/dataset/sphere_mesh",
     
@@ -20,7 +20,7 @@
     "num_workers": 8,
     "n_points": 4096,
 
-    "max_epochs": 6000,
+    "max_epochs": 5000,
     "batch_size": 32,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
@@ -56,7 +56,7 @@
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 700,
+                "after_epoch": 5000,
 
                 "chamfer_distance": false,
                 "mesh_edge_loss": false,
@@ -73,7 +73,7 @@
         "normalization": {
             "enable": true,
             "type": "progressive",
-            "epoch": 500
+            "epoch": 2000
         }
     },
 

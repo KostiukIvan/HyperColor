@@ -193,7 +193,7 @@ def main(config):
             if dataset_name == "custom":
                 X = torch.cat((point_data['points'], point_data['colors']), dim=2)
                 X = X.to(device, dtype=torch.float)
-                X_normals = point_data['normals'].to(device, dtype=torch.float)
+                #X_normals = point_data['normals'].to(device, dtype=torch.float)
 
             else: 
                 X, _ = point_data
