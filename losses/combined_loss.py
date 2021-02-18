@@ -42,7 +42,7 @@ class CombinedLoss(nn.Module):
             gts_points = gts_X[:, :, :3].type(ftype) + 0.5  # [2, 4096, 3]
             preds_points = pred_X[:, :, :3].type(ftype) + 0.5  # [2, 4096, 3]
             champher_loss, _ = chamfer_distance(gts_points, preds_points)
-            loss +=  champher_loss * 900
+            loss +=  champher_loss
 
         return loss
 

@@ -101,13 +101,17 @@ def main(config):
     #
     # Models
     #
-    hyper_network_points = aae.HyperNetwork(config, device).to(device)
-    hyper_network_colors = aae.HyperNetwork(config, device).to(device)
-    encoder = aae.Encoder(config).to(device)
+    hyper_network_p = aae.PointsHyperNetwork(config, device).to(device)
+    hyper_network_cp = aae.ColorsAndPointsHyperNetwork(config, device).to(device)
 
-    hyper_network_points.apply(weights_init)
-    hyper_network_colors.apply(weights_init)
-    encoder.apply(weights_init)
+    encoder_p = aae.PointsEncoder(config).to(device)
+    encoder_cp = aae.ColorsAndPointsEncoder(config).to(device)
+
+    hyper_network_p.apply(weights_init)
+    hyper_network_cp.apply(weights_init)
+
+    encoder_p.apply(weights_init)
+    encoder_cp.apply(weights_init)
 
     if config['reconstruction_loss'].lower() == 'chamfer':
         from losses.champfer_loss import ChamferLoss
@@ -117,11 +121,9 @@ def main(config):
         # reconstruction_loss = earth_mover_distance
         from losses.earth_mover_distance import EMD
         reconstruction_loss = EMD().to(device)
-
     elif config['reconstruction_loss'].lower() == 'combined':
         from losses.combined_loss import CombinedLoss
         reconstruction_loss = CombinedLoss(config).to(device)
-
     else:
         raise ValueError(f'Invalid reconstruction loss. Accepted `chamfer` or '
                          f'`earth_mover`, got: {config["reconstruction_loss"]}')
@@ -129,29 +131,31 @@ def main(config):
     #
     # Optimizers
     #
-    e_hn_optimizer_points = getattr(optim, config['optimizer']['E_HN']['type'])
-    e_hn_optimizer_points = e_hn_optimizer_points(chain(encoder.parameters(), hyper_network_points.parameters()),
+    e_hn_optimizer_p = getattr(optim, config['optimizer']['E_HN']['type'])
+    e_hn_optimizer_p = e_hn_optimizer_p(chain(encoder_p.parameters(), hyper_network_p.parameters()),
                                     **config['optimizer']['E_HN']['hyperparams'])
 
-    e_hn_optimizer_colors = getattr(optim, config['optimizer']['E_HN']['type'])
-    e_hn_optimizer_colors = e_hn_optimizer_colors(chain(hyper_network_colors.parameters()),
+    e_hn_optimizer_cp = getattr(optim, config['optimizer']['E_HN']['type'])
+    e_hn_optimizer_cp = e_hn_optimizer_cp(chain(encoder_cp.parameters(), hyper_network_cp.parameters()),
                                     **config['optimizer']['E_HN']['hyperparams'])
 
     log.info("Starting epoch: %s" % starting_epoch)
     if starting_epoch > 1:
         log.info("Loading weights...")
-        hyper_network_points.load_state_dict(torch.load(
-            join(weights_path, f'{starting_epoch - 1:05}_GP.pth')))
-        hyper_network_colors.load_state_dict(torch.load(
-            join(weights_path, f'{starting_epoch - 1:05}_GC.pth')))
+        hyper_network_p.load_state_dict(torch.load(
+            join(weights_path, f'{starting_epoch - 1:05}_G_P.pth')))
+        hyper_network_cp.load_state_dict(torch.load(
+            join(weights_path, f'{starting_epoch - 1:05}_G_CP.pth')))
 
-        encoder.load_state_dict(torch.load(
-            join(weights_path, f'{starting_epoch - 1:05}_E.pth')))
+        encoder_p.load_state_dict(torch.load(
+            join(weights_path, f'{starting_epoch - 1:05}_E_P.pth')))
+        encoder_cp.load_state_dict(torch.load(
+            join(weights_path, f'{starting_epoch - 1:05}_E_CP.pth')))
 
-        e_hn_optimizer_points.load_state_dict(torch.load(
+        e_hn_optimizer_p.load_state_dict(torch.load(
             join(weights_path, f'{starting_epoch - 1:05}_EGoP.pth')))
-        e_hn_optimizer_colors.load_state_dict(torch.load(
-            join(weights_path, f'{starting_epoch - 1:05}_EGoC.pth')))
+        e_hn_optimizer_cp.load_state_dict(torch.load(
+            join(weights_path, f'{starting_epoch - 1:05}_EGoCP.pth')))
 
         log.info("Loading losses...")
         losses_e = np.load(join(metrics_path, f'{starting_epoch - 1:05}_E.npy')).tolist()
@@ -177,13 +181,18 @@ def main(config):
             train_colors = True
 
         if train_colors:
-            hyper_network_colors.train()
-            hyper_network_points.eval()
-            encoder.eval()
+            hyper_network_p.train()
+            encoder_p.train()
+
+            hyper_network_cp.eval()
+            encoder_cp.eval()
         else:
-            hyper_network_points.train()
-            encoder.train()
-            hyper_network_colors.eval()
+            hyper_network_cp.train()
+            encoder_cp.train()
+
+            hyper_network_p.eval()
+            encoder_p.eval()
+
 
         total_loss_all = 0.0
         total_loss_r = 0.0
@@ -202,24 +211,28 @@ def main(config):
             # Change dim [BATCH, N_POINTS, N_DIM] -> [BATCH, N_DIM, N_POINTS]
             if X.size(-1) == 3 or X.size(-1) == 6 or X.size(-1) == 7:
                 X.transpose_(X.dim() - 2, X.dim() - 1)
-            
-            codes, mu, logvar = encoder(X)
+
+            codes_p, mu_p, logvar_p = None, None, None
+            codes_cp, mu_cp, logvar_cp = None, None, None
 
             if train_colors:
-                target_networks_weights_colors = hyper_network_colors(codes)
-                target_networks_weights_points = hyper_network_points(codes)
+                codes_p, mu_p, logvar_p = encoder_p(X)
+                codes_cp, mu_cp, logvar_cp = encoder_cp(X)
+
+                target_networks_weights_p = hyper_network_p(codes_p)
+                target_networks_weights_cp = hyper_network_cp(torch.cat([codes_p, codes_cp], dim=1))
                 
                 X_rec = torch.zeros(torch.cat([X, X[:,:3,:]], dim=1).shape).to(device) # [b, 9, 4096]
-                for j, target_network_weights in enumerate(zip(target_networks_weights_points, target_networks_weights_colors)):
+                for j, target_network_weights in enumerate(zip(target_networks_weights_p, target_networks_weights_cp)):
 
-                    target_network_points = aae.TargetNetwork(config, target_network_weights[0]).to(device)
-                    target_network_colors = aae.TargetNetwork(config, target_network_weights[1]).to(device)
+                    target_network_p = aae.TargetNetwork(config, target_network_weights[0]).to(device)
+                    target_network_cp = aae.TargetNetwork(config, target_network_weights[1]).to(device)
 
                     if not config['target_network_input']['constant'] or target_network_input is None:     
                         target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
 
-                    pred_points = target_network_points(target_network_input.to(device, dtype=torch.float)) # [4096, 3]
-                    pred_colors = target_network_colors(target_network_input.to(device, dtype=torch.float)) # [4096, 3]
+                    pred_points = target_network_p(target_network_input.to(device, dtype=torch.float)) # [4096, 3]
+                    pred_colors = target_network_cp(target_network_input.to(device, dtype=torch.float)) # [4096, 3]
 
                     points_kneighbors = pred_points
                     clf = KNeighborsClassifier(1)
@@ -234,14 +247,15 @@ def main(config):
                     X_rec[j] = torch.cat([pred_points, pred_colors, origin_colors], dim=0) # [B,6,N]
 
             else:
-                target_networks_weights_points = hyper_network_points(codes)
+                codes_p, mu_p, logvar_p = encoder_p(X)
+                target_networks_weights_p = hyper_network_p(codes_p)
                 X_rec = torch.zeros(X[:,:3,:].shape).to(device)
-                for j, target_network_weights_points in enumerate(target_networks_weights_points):
-                    target_network_points = aae.TargetNetwork(config, target_network_weights_points).to(device)
+                for j, target_network_weights_p in enumerate(target_networks_weights_p):
+                    target_network_p = aae.TargetNetwork(config, target_network_weights_p).to(device)
 
                     if not config['target_network_input']['constant'] or target_network_input is None:     
                         target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
-                    X_rec[j] = torch.transpose(target_network_points(target_network_input.to(device, dtype=torch.float)), 0, 1)
+                    X_rec[j] = torch.transpose(target_network_p(target_network_input.to(device, dtype=torch.float)), 0, 1)
 
         
             if config['reconstruction_loss'].lower() == 'combined': 
@@ -255,27 +269,30 @@ def main(config):
                     reconstruction_loss(X.permute(0, 2, 1) + 0.5,
                                         X_rec.permute(0, 2, 1) + 0.5))
             if train_colors:
-                loss_all = loss_r
+                loss_kld = 0.5 * (torch.exp(logvar_cp) + torch.pow(mu_cp, 2) - 1 - logvar_cp).sum()
+                loss_all = loss_r + loss_kld
 
-                e_hn_optimizer_colors.zero_grad()
-                hyper_network_colors.zero_grad()
+                e_hn_optimizer_cp.zero_grad()
+                hyper_network_cp.zero_grad()
+                encoder_cp.zero_grad()
 
                 loss_all.backward()
-                e_hn_optimizer_colors.step()
+                e_hn_optimizer_cp.step()
 
                 total_loss_r += loss_r.item()
+                total_loss_kld += loss_kld.item()
                 total_loss_all += loss_all.item()
 
             else:
-                loss_kld = 0.5 * (torch.exp(logvar) + torch.pow(mu, 2) - 1 - logvar).sum()
+                loss_kld = 0.5 * (torch.exp(logvar_p) + torch.pow(mu_p, 2) - 1 - logvar_p).sum()
                 loss_all = loss_r + loss_kld
 
-                e_hn_optimizer_points.zero_grad()
-                encoder.zero_grad()
-                hyper_network_points.zero_grad()
+                e_hn_optimizer_p.zero_grad()
+                encoder_p.zero_grad()
+                hyper_network_p.zero_grad()
 
                 loss_all.backward()
-                e_hn_optimizer_points.step()
+                e_hn_optimizer_p.step()
 
                 total_loss_r += loss_r.item()
                 total_loss_kld += loss_kld.item()
@@ -323,11 +340,12 @@ def main(config):
         if epoch % config['save_frequency'] == 0:
             log.debug('Saving data...')
 
-            torch.save(hyper_network_points.state_dict(), join(weights_path, f'{epoch:05}_GP.pth'))
-            torch.save(hyper_network_colors.state_dict(), join(weights_path, f'{epoch:05}_GC.pth'))
-            torch.save(encoder.state_dict(), join(weights_path, f'{epoch:05}_E.pth'))
-            torch.save(e_hn_optimizer_points.state_dict(), join(weights_path, f'{epoch:05}_EGoP.pth'))
-            torch.save(e_hn_optimizer_colors.state_dict(), join(weights_path, f'{epoch:05}_EGoC.pth'))
+            torch.save(hyper_network_p.state_dict(), join(weights_path, f'{epoch:05}_G_P.pth'))
+            torch.save(hyper_network_cp.state_dict(), join(weights_path, f'{epoch:05}_G_CP.pth'))
+            torch.save(encoder_p.state_dict(), join(weights_path, f'{epoch:05}_E_P.pth'))
+            torch.save(encoder_cp.state_dict(), join(weights_path, f'{epoch:05}_E_CP.pth'))
+            torch.save(e_hn_optimizer_p.state_dict(), join(weights_path, f'{epoch:05}_EGoP.pth'))
+            torch.save(e_hn_optimizer_cp.state_dict(), join(weights_path, f'{epoch:05}_EGoC.pth'))
 
             np.save(join(metrics_path, f'{epoch:05}_E'), np.array(losses_e))
             np.save(join(metrics_path, f'{epoch:05}_KLD'), np.array(losses_kld))

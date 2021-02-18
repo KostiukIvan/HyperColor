@@ -21,10 +21,10 @@
     "n_points": 4096,
 
     "max_epochs": 5000,
-    "batch_size": 32,
+    "batch_size": 64,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
-    "z_size": 4096,
+    "z_size": 2048,
     "pointnet": false,
     "feature_regularization_coef": 0.001,
     "wasserstein": true,
@@ -44,34 +44,17 @@
         "constant": false,
         "loss": {
             "default": {
-                "chamfer_distance": true,
-                "mesh_edge_loss": false,
-                "mesh_laplacian_smoothing": false,
-                "mesh_normal_consistency": false,
-                "point_mesh_edge_distance": false,
-                "point_mesh_face_distance": false,  
-                "colors": false,
-                "colors_alpha": 0.05
+                "chamfer_distance": true
             },
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 5000,
-
-                "chamfer_distance": false,
-                "mesh_edge_loss": false,
-                "mesh_laplacian_smoothing": false,
-                "mesh_normal_consistency": false,
-                "point_mesh_edge_distance": false,
-                "point_mesh_face_distance": false,
-                "colors": false,
-                "colors_alpha": 0.05
+                "after_epoch": 5001
             }
-            
         },
-       
+
         "normalization": {
-            "enable": true,
+            "enable": false,
             "type": "progressive",
             "epoch": 2000
         }
@@ -83,11 +66,19 @@
             "use_bias": true,
             "relu_slope": 0.2
         },
-        "HN": {
+        "P_HN": {
             "use_bias": true,
             "relu_slope": 0.2
         },
-        "E": {
+        "CP_HN": {
+            "use_bias": true,
+            "relu_slope": 0.2
+        },
+        "P_E": {
+            "use_bias": true,
+            "relu_slope": 0.2
+        },
+        "CP_E": {
             "use_bias": true,
             "relu_slope": 0.2
         },

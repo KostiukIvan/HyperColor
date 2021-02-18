@@ -2,13 +2,53 @@ import torch
 import torch.nn as nn
 
 
-class HyperNetwork(nn.Module):
+class PointsHyperNetwork(nn.Module):
     def __init__(self, config, device):
         super().__init__()
 
         self.z_size = config['z_size']
-        self.use_bias = config['model']['HN']['use_bias']
-        self.relu_slope = config['model']['HN']['relu_slope']
+        self.use_bias = config['model']['P_HN']['use_bias']
+        self.relu_slope = config['model']['P_HN']['relu_slope']
+        # target network layers out channels
+        target_network_out_ch = [3] + config['model']['TN']['layer_out_channels'] + [3]
+        target_network_use_bias = int(config['model']['TN']['use_bias'])
+
+        self.model = nn.Sequential(
+            nn.Linear(in_features=self.z_size, out_features=64, bias=self.use_bias),
+            nn.ReLU(inplace=True),
+
+            nn.Linear(in_features=64, out_features=128, bias=self.use_bias),
+            nn.ReLU(inplace=True),
+
+            nn.Linear(in_features=128, out_features=512, bias=self.use_bias),
+            nn.ReLU(inplace=True),
+
+            nn.Linear(in_features=512, out_features=1024, bias=self.use_bias),
+            nn.ReLU(inplace=True),
+
+            nn.Linear(in_features=1024, out_features=4096, bias=self.use_bias),
+        )
+        self.output = [
+            nn.Linear(4096, (target_network_out_ch[x - 1] + target_network_use_bias) * target_network_out_ch[x],
+                      bias=True).to(device)
+            for x in range(1, len(target_network_out_ch))
+        ]
+
+        if not config['model']['TN']['freeze_layers_learning']:
+            self.output = nn.ModuleList(self.output)
+
+    def forward(self, x):
+        output = self.model(x)
+        return torch.cat([target_network_layer(output) for target_network_layer in self.output], 1)
+
+
+class ColorsAndPointsHyperNetwork(nn.Module):
+    def __init__(self, config, device):
+        super().__init__()
+
+        self.z_size = config['z_size'] * 2
+        self.use_bias = config['model']['CP_HN']['use_bias']
+        self.relu_slope = config['model']['CP_HN']['relu_slope']
         # target network layers out channels
         target_network_out_ch = [3] + config['model']['TN']['layer_out_channels'] + [3]
         target_network_use_bias = int(config['model']['TN']['use_bias'])
@@ -87,13 +127,13 @@ class TargetNetwork(nn.Module):
         return layer_data, end_index
 
 
-class Encoder(nn.Module):
+class PointsEncoder(nn.Module):
     def __init__(self, config):
         super().__init__()
 
         self.z_size = config['z_size']
-        self.use_bias = config['model']['E']['use_bias']
-        self.relu_slope = config['model']['E']['relu_slope']
+        self.use_bias = config['model']['P_E']['use_bias']
+        self.relu_slope = config['model']['P_E']['relu_slope']
         self.conv = nn.Sequential(
             nn.Conv1d(in_channels=6, out_channels=64, kernel_size=1, bias=self.use_bias),
             nn.ReLU(inplace=True),
@@ -131,6 +171,54 @@ class Encoder(nn.Module):
         logvar = self.std_layer(logit)
         z = self.reparameterize(mu, logvar)
         return z, mu, torch.exp(logvar)
+
+
+
+class ColorsAndPointsEncoder(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+
+        self.z_size = config['z_size']
+        self.use_bias = config['model']['CP_E']['use_bias']
+        self.relu_slope = config['model']['CP_E']['relu_slope']
+        self.conv = nn.Sequential(
+            nn.Conv1d(in_channels=6, out_channels=64, kernel_size=1, bias=self.use_bias),
+            nn.ReLU(inplace=True),
+
+            nn.Conv1d(in_channels=64, out_channels=128, kernel_size=1, bias=self.use_bias),
+            nn.ReLU(inplace=True),
+
+            nn.Conv1d(in_channels=128, out_channels=256, kernel_size=1, bias=self.use_bias),
+            nn.ReLU(inplace=True),
+
+            nn.Conv1d(in_channels=256, out_channels=512, kernel_size=1, bias=self.use_bias),
+            nn.ReLU(inplace=True),
+
+            nn.Conv1d(in_channels=512, out_channels=512, kernel_size=1, bias=self.use_bias),
+        )
+
+        self.fc = nn.Sequential(
+            nn.Linear(512, 512, bias=True),
+            nn.ReLU(inplace=True)
+        )
+
+        self.mu_layer = nn.Linear(512, self.z_size, bias=True)
+        self.std_layer = nn.Linear(512, self.z_size, bias=True)
+
+    def reparameterize(self, mu, logvar):
+        std = torch.exp(logvar)
+        eps = torch.randn_like(std)
+        return eps.mul(std).add_(mu)
+
+    def forward(self, x):
+        output = self.conv(x)
+        output2 = output.max(dim=2)[0]
+        logit = self.fc(output2)
+        mu = self.mu_layer(logit)
+        logvar = self.std_layer(logit)
+        z = self.reparameterize(mu, logvar)
+        return z, mu, torch.exp(logvar)
+
 
 
 class Discriminator(nn.Module):
