@@ -46,7 +46,7 @@ class ColorsAndPointsHyperNetwork(nn.Module):
     def __init__(self, config, device):
         super().__init__()
 
-        self.z_size = config['z_size'] * 2
+        self.z_size = config['z_size'] * 3 // 2
         self.use_bias = config['model']['CP_HN']['use_bias']
         self.relu_slope = config['model']['CP_HN']['relu_slope']
         # target network layers out channels
@@ -135,7 +135,7 @@ class PointsEncoder(nn.Module):
         self.use_bias = config['model']['P_E']['use_bias']
         self.relu_slope = config['model']['P_E']['relu_slope']
         self.conv = nn.Sequential(
-            nn.Conv1d(in_channels=6, out_channels=64, kernel_size=1, bias=self.use_bias),
+            nn.Conv1d(in_channels=3, out_channels=64, kernel_size=1, bias=self.use_bias),
             nn.ReLU(inplace=True),
 
             nn.Conv1d(in_channels=64, out_channels=128, kernel_size=1, bias=self.use_bias),
@@ -178,11 +178,11 @@ class ColorsAndPointsEncoder(nn.Module):
     def __init__(self, config):
         super().__init__()
 
-        self.z_size = config['z_size']
+        self.z_size = config['z_size'] // 2
         self.use_bias = config['model']['CP_E']['use_bias']
         self.relu_slope = config['model']['CP_E']['relu_slope']
         self.conv = nn.Sequential(
-            nn.Conv1d(in_channels=6, out_channels=64, kernel_size=1, bias=self.use_bias),
+            nn.Conv1d(in_channels=3, out_channels=64, kernel_size=1, bias=self.use_bias),
             nn.ReLU(inplace=True),
 
             nn.Conv1d(in_channels=64, out_channels=128, kernel_size=1, bias=self.use_bias),

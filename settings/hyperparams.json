@@ -1,5 +1,5 @@
 {
-    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results",
+    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_d",
     "clean_results_dir": true,
     "clean_weights_dir": true,
 
@@ -21,10 +21,10 @@
     "n_points": 4096,
 
     "max_epochs": 5000,
-    "batch_size": 64,
+    "batch_size": 32,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
-    "z_size": 2048,
+    "z_size": 4096,
     "pointnet": false,
     "feature_regularization_coef": 0.001,
     "wasserstein": true,
@@ -49,14 +49,14 @@
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 5001
+                "after_epoch": 2
             }
         },
 
         "normalization": {
-            "enable": false,
+            "enable": true,
             "type": "progressive",
-            "epoch": 2000
+            "epoch": 1000
         }
     },
 

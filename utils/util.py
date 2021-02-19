@@ -51,7 +51,7 @@ def prepare_results_dir(config, arch, experiment, dirs_to_create=('weights', 'sa
 
 def find_latest_epoch(dirpath):
     # Files with weights are in format ddddd_{D,E,G}.pth
-    epoch_regex = re.compile(r'^(?P<n_epoch>\d+)_[DEG]\.pth$')
+    epoch_regex = re.compile(r'^(?P<n_epoch>\d+)_[DEG]_[CP]\.pth$')
     epochs_completed = []
     if exists(join(dirpath, 'weights')):
         dirpath = join(dirpath, 'weights')

@@ -155,7 +155,7 @@ def main(config):
         e_hn_optimizer_p.load_state_dict(torch.load(
             join(weights_path, f'{starting_epoch - 1:05}_EGoP.pth')))
         e_hn_optimizer_cp.load_state_dict(torch.load(
-            join(weights_path, f'{starting_epoch - 1:05}_EGoCP.pth')))
+            join(weights_path, f'{starting_epoch - 1:05}_EGoC.pth')))
 
         log.info("Loading losses...")
         losses_e = np.load(join(metrics_path, f'{starting_epoch - 1:05}_E.npy')).tolist()
@@ -214,10 +214,11 @@ def main(config):
 
             codes_p, mu_p, logvar_p = None, None, None
             codes_cp, mu_cp, logvar_cp = None, None, None
+            codes_comb = None
 
             if train_colors:
-                codes_p, mu_p, logvar_p = encoder_p(X)
-                codes_cp, mu_cp, logvar_cp = encoder_cp(X)
+                codes_p, mu_p, logvar_p = encoder_p(X[:,:3,:])
+                codes_cp, mu_cp, logvar_cp = encoder_cp(X[:,3:,:])
 
                 target_networks_weights_p = hyper_network_p(codes_p)
                 target_networks_weights_cp = hyper_network_cp(torch.cat([codes_p, codes_cp], dim=1))
@@ -247,7 +248,7 @@ def main(config):
                     X_rec[j] = torch.cat([pred_points, pred_colors, origin_colors], dim=0) # [B,6,N]
 
             else:
-                codes_p, mu_p, logvar_p = encoder_p(X)
+                codes_p, mu_p, logvar_p = encoder_p(X[:,:3,:])
                 target_networks_weights_p = hyper_network_p(codes_p)
                 X_rec = torch.zeros(X[:,:3,:].shape).to(device)
                 for j, target_network_weights_p in enumerate(target_networks_weights_p):
