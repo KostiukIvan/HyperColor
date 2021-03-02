@@ -1,7 +1,7 @@
 {
-    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_d",
-    "clean_results_dir": true,
-    "clean_weights_dir": true,
+    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_a",
+    "clean_results_dir": false,
+    "clean_weights_dir": false,
 
     "cuda": true,
     "gpu": 0,
@@ -12,7 +12,7 @@
 
     "dataset": "custom",
     "data_dir": "/mnt/users/ikostiuk/local/ShapePointNet",
-    "classes": ["airplane"],
+    "classes": ["chair"],
     "meshs_of_sphere_dir": "/home/ikostiuk/3d_point_cloud/dataset/sphere_mesh",
     
     "shuffle": true,
@@ -20,7 +20,7 @@
     "num_workers": 8,
     "n_points": 4096,
 
-    "max_epochs": 5000,
+    "max_epochs": 7000,
     "batch_size": 32,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
@@ -37,7 +37,7 @@
     "normal_std": 0.2,
 
     "seed": 2018,
-    "save_frequency": 1,
+    "save_frequency": 100,
     "epsilon": 0.001,
 
     "target_network_input": {
@@ -49,14 +49,14 @@
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 2
+                "after_epoch": 4000
             }
         },
 
         "normalization": {
             "enable": true,
             "type": "progressive",
-            "epoch": 1000
+            "epoch": 2000
         }
     },
 

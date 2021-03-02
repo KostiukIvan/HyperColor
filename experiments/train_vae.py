@@ -144,23 +144,27 @@ def main(config):
         log.info("Loading weights...")
         hyper_network_p.load_state_dict(torch.load(
             join(weights_path, f'{starting_epoch - 1:05}_G_P.pth')))
-        hyper_network_cp.load_state_dict(torch.load(
-            join(weights_path, f'{starting_epoch - 1:05}_G_CP.pth')))
+        #hyper_network_cp.load_state_dict(torch.load(
+        #    join(weights_path, f'{starting_epoch - 1:05}_G_CP.pth')))
 
         encoder_p.load_state_dict(torch.load(
             join(weights_path, f'{starting_epoch - 1:05}_E_P.pth')))
-        encoder_cp.load_state_dict(torch.load(
-            join(weights_path, f'{starting_epoch - 1:05}_E_CP.pth')))
+        #encoder_cp.load_state_dict(torch.load(
+        #    join(weights_path, f'{starting_epoch - 1:05}_E_CP.pth')))
 
         e_hn_optimizer_p.load_state_dict(torch.load(
             join(weights_path, f'{starting_epoch - 1:05}_EGoP.pth')))
-        e_hn_optimizer_cp.load_state_dict(torch.load(
-            join(weights_path, f'{starting_epoch - 1:05}_EGoC.pth')))
+        #e_hn_optimizer_cp.load_state_dict(torch.load(
+        #    join(weights_path, f'{starting_epoch - 1:05}_EGoC.pth')))
 
         log.info("Loading losses...")
-        losses_e = np.load(join(metrics_path, f'{starting_epoch - 1:05}_E.npy')).tolist()
-        losses_kld = np.load(join(metrics_path, f'{starting_epoch - 1:05}_KLD.npy')).tolist()
-        losses_eg = np.load(join(metrics_path, f'{starting_epoch - 1:05}_EG.npy')).tolist()
+        #losses_e = np.load(join(metrics_path, f'{starting_epoch - 1:05}_E.npy')).tolist()
+        #losses_kld = np.load(join(metrics_path, f'{starting_epoch - 1:05}_KLD.npy')).tolist()
+        #losses_eg = np.load(join(metrics_path, f'{starting_epoch - 1:05}_EG.npy')).tolist()
+        losses_e = []
+        losses_kld = []
+        losses_eg = []
+
     else:
         log.info("First epoch")
         losses_e = []
@@ -218,10 +222,11 @@ def main(config):
 
             if train_colors:
                 codes_p, mu_p, logvar_p = encoder_p(X[:,:3,:])
-                codes_cp, mu_cp, logvar_cp = encoder_cp(X[:,3:,:])
+                X_mod = torch.cat([X[:,:3,:] + (torch.rand_like(X[:,:3,:]) - 0.5) * 0.01, X[:,3:,:]], dim=1)
+                codes_cp, mu_cp, logvar_cp = encoder_cp(X_mod)
 
                 target_networks_weights_p = hyper_network_p(codes_p)
-                target_networks_weights_cp = hyper_network_cp(torch.cat([codes_p, codes_cp], dim=1))
+                target_networks_weights_cp = hyper_network_cp(codes_cp)
                 
                 X_rec = torch.zeros(torch.cat([X, X[:,:3,:]], dim=1).shape).to(device) # [b, 9, 4096]
                 for j, target_network_weights in enumerate(zip(target_networks_weights_p, target_networks_weights_cp)):

@@ -1,5 +1,5 @@
 {
-    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results",
+    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_a",
     "arch": "vae",
     "clean_results_dir": false,
 
@@ -8,7 +8,7 @@
 
     "reconstruction_loss": "combined",
     "dataset": "custom",
-    "data_dir": "/mnt/users/ikostiuk/home/3d_point_cloud/dataset/custom",
+    "data_dir": "/mnt/users/ikostiuk/local/ShapePointNet",
 
     "classes": ["airplane"],
     "reconstruction_coef": 0.05,
@@ -26,12 +26,45 @@
         "jsd_how_many_last_epochs": -1
     },
 
+    "target_network_input": {
+        "constant": false,
+        "loss": {
+            "default": {
+                "chamfer_distance": true
+            },
+            "__comment":"Only with combined loss",
+            "change_to": {
+                "enable": true,
+                "after_epoch": 6000
+            }
+        },
+
+        "normalization": {
+            "enable": true,
+            "type": "progressive",
+            "epoch": 500
+        }
+    },
+
     "model": {
-        "HN": {
+        "D": {
+            "dropout": 0.5,
             "use_bias": true,
             "relu_slope": 0.2
         },
-        "E": {
+        "P_HN": {
+            "use_bias": true,
+            "relu_slope": 0.2
+        },
+        "CP_HN": {
+            "use_bias": true,
+            "relu_slope": 0.2
+        },
+        "P_E": {
+            "use_bias": true,
+            "relu_slope": 0.2
+        },
+        "CP_E": {
             "use_bias": true,
             "relu_slope": 0.2
         },
@@ -42,15 +75,6 @@
             "layer_out_channels": [32]
         }
     },
-
-    "target_network_input": {
-        "normalization": {
-            "enable": true,
-            "type": "progressive",
-            "epoch": 500
-        }
-    },
-
     "experiments": {
 
         "interpolation": {
@@ -68,7 +92,7 @@
 
         "reconstruction": {
             "execute": true,
-            "amount": 30
+            "amount": 50
         },
 
         "sphere": {
@@ -81,8 +105,8 @@
         },
 
         "sphere_triangles": {
-            "execute": false,
-            "amount": 10,
+            "execute": true,
+            "amount": 50,
             "method": "edge",
             "depth": 2,
             "start": 0.5,

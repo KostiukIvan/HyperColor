@@ -10,7 +10,7 @@ from torch.utils.data import Dataset
 
 
 synth_id_to_category = {
-    '02691156': 'airplane'
+    '02691156': 'airplane', '03001627': 'chair'
 }
 
 category_to_synth_id = {v: k for k, v in synth_id_to_category.items()}
