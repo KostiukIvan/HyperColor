@@ -20,7 +20,7 @@
     "num_workers": 8,
     "n_points": 4096,
 
-    "max_epochs": 7000,
+    "max_epochs": 8000,
     "batch_size": 32,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,

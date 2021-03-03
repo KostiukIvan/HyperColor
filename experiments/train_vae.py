@@ -222,8 +222,7 @@ def main(config):
 
             if train_colors:
                 codes_p, mu_p, logvar_p = encoder_p(X[:,:3,:])
-                X_mod = torch.cat([X[:,:3,:] + (torch.rand_like(X[:,:3,:]) - 0.5) * 0.01, X[:,3:,:]], dim=1)
-                codes_cp, mu_cp, logvar_cp = encoder_cp(X_mod)
+                codes_cp, mu_cp, logvar_cp = encoder_cp(X[:,:6,:])
 
                 target_networks_weights_p = hyper_network_p(codes_p)
                 target_networks_weights_cp = hyper_network_cp(codes_cp)
@@ -326,7 +325,7 @@ def main(config):
             C = None
             C_rec = None
             if train_colors:
-                C_rec = X_rec[k][3:6].transpose()
+                C_rec = colors.lab2xyz(X_rec[k][3:6].transpose())
                 C = X[k][3:6].transpose()
 
             fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], C = C_rec, in_u_sphere=True, show=False,

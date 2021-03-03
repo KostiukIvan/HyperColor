@@ -108,7 +108,7 @@
             "execute": true,
             "amount": 50,
             "method": "edge",
-            "depth": 2,
+            "depth": 4,
             "start": 0.5,
             "end": 1.5,
             "transitions": 21
