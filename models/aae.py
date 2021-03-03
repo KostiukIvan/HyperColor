@@ -106,7 +106,7 @@ class TargetNetwork(nn.Module):
                                                        shape=(3, out_ch[-1]), weights=weights)
 
         self.output = layer_data
-        self.activation = torch.nn.Sigmoid()
+        self.activation = torch.nn.ReLU()
         assert split_index == len(weights)
 
 

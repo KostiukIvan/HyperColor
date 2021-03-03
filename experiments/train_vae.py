@@ -206,7 +206,6 @@ def main(config):
             if dataset_name == "custom":
                 X = torch.cat((point_data['points'], point_data['colors']), dim=2)
                 X = X.to(device, dtype=torch.float)
-                #X_normals = point_data['normals'].to(device, dtype=torch.float)
 
             else: 
                 X, _ = point_data
@@ -328,7 +327,7 @@ def main(config):
                 C_rec = colors.lab2xyz(X_rec[k][3:6].transpose())
                 C = X[k][3:6].transpose()
 
-            fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], C = C_rec, in_u_sphere=True, show=False,
+            fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][2], X_rec[k][1], C = C_rec, in_u_sphere=True, show=False,
                                       title=str(epoch))
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_reconstructed.png'))
             plt.close(fig)

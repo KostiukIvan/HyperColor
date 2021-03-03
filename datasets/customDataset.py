@@ -93,9 +93,9 @@ class CustomDataset(Dataset):
             if part == 'colors':
                 df = df.iloc[:, :-1] # drop the last column
 
-            #if len(df.index) < 40_000:
-                #df = df.reindex(range(40_000), fill_value = 0) #add missing rows filled with zeros
-                
+            if part == 'points':
+                df = df.reindex(columns=[0,2,1])
+
             if len(df.index) > self.config['n_points']:
                 remove_n = len(df.index) - self.config['n_points']
                 if drop_indices is None:

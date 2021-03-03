@@ -1,7 +1,7 @@
 {
     "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_a",
-    "clean_results_dir": false,
-    "clean_weights_dir": false,
+    "clean_results_dir": true,
+    "clean_weights_dir": true,
 
     "cuda": true,
     "gpu": 0,
@@ -12,19 +12,20 @@
 
     "dataset": "custom",
     "data_dir": "/mnt/users/ikostiuk/local/ShapePointNet",
-    "classes": ["chair"],
+    "classes": ["airplane"],
     "meshs_of_sphere_dir": "/home/ikostiuk/3d_point_cloud/dataset/sphere_mesh",
     
     "shuffle": true,
     "transforms": ["rotate"],
     "num_workers": 8,
-    "n_points": 4096,
+    "n_points": 2048,
+    "CNN_points": 8192,
 
-    "max_epochs": 8000,
+    "max_epochs": 4000,
     "batch_size": 32,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
-    "z_size": 4096,
+    "z_size": 2048,
     "pointnet": false,
     "feature_regularization_coef": 0.001,
     "wasserstein": true,

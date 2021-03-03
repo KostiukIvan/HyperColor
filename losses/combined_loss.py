@@ -36,13 +36,13 @@ class CombinedLoss(nn.Module):
 
             MSE = torch.nn.MSELoss()
             colors_loss = MSE(origin_colors, pred_colors)
-            loss +=  colors_loss 
+            loss += colors_loss * 300
 
         else: # [2, 4096, 3]
             gts_points = gts_X[:, :, :3].type(ftype) + 0.5  # [2, 4096, 3]
             preds_points = pred_X[:, :, :3].type(ftype) + 0.5  # [2, 4096, 3]
             champher_loss, _ = chamfer_distance(gts_points, preds_points)
-            loss +=  champher_loss * 2000
+            loss +=  champher_loss * 3000
 
         return loss
 
