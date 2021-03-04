@@ -332,7 +332,7 @@ def main(config):
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_reconstructed.png'))
             plt.close(fig)
 
-            fig = plot_3d_point_cloud(X[k][0], X[k][1], X[k][2], C = C, in_u_sphere=True, show=False)
+            fig = plot_3d_point_cloud(X[k][0], X[k][2], X[k][1], C = C, in_u_sphere=True, show=False)
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_real.png'))
             plt.close(fig)
             

@@ -13,10 +13,7 @@ class CombinedLoss(nn.Module):
     def __init__(self, config):
         super(CombinedLoss, self).__init__()
         self.use_cuda = torch.cuda.is_available()
-        self.count = 0
         self.config = config
-        self.colors_alpha = 1
-        #self.log = log
 
         
     def forward(self, gts_X, pred_X, train_colors):
