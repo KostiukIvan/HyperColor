@@ -1,5 +1,5 @@
 {
-    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_a",
+    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_c",
     "arch": "vae",
     "clean_results_dir": false,
 
@@ -14,8 +14,8 @@
     "reconstruction_coef": 0.05,
 
     "seed": 2018,
-    "z_size": 4096,
-    "n_points": 4096,
+    "z_size": 2048,
+    "n_points": 2048,
 
     "metrics": {
         "distribution": "normal",
@@ -35,14 +35,14 @@
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 6000
+                "after_epoch": 2000
             }
         },
 
         "normalization": {
             "enable": true,
             "type": "progressive",
-            "epoch": 500
+            "epoch": 1000
         }
     },
 
@@ -72,7 +72,7 @@
             "use_bias": true,
             "relu_slope": 0.2,
             "freeze_layers_learning": false,
-            "layer_out_channels": [32]
+            "layer_out_channels": [32, 64, 128, 64]
         }
     },
     "experiments": {

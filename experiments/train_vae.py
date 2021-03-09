@@ -230,7 +230,7 @@ def main(config):
                 for j, target_network_weights in enumerate(zip(target_networks_weights_p, target_networks_weights_cp)):
 
                     target_network_p = aae.TargetNetwork(config, target_network_weights[0]).to(device)
-                    target_network_cp = aae.TargetNetwork(config, target_network_weights[1]).to(device)
+                    target_network_cp = aae.ColorsAndPointsTargetNetwork(config, target_network_weights[1]).to(device)
 
                     if not config['target_network_input']['constant'] or target_network_input is None:     
                         target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)

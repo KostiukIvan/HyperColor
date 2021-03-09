@@ -1,7 +1,7 @@
 {
-    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_a",
-    "clean_results_dir": true,
-    "clean_weights_dir": true,
+    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_c",
+    "clean_results_dir": false,
+    "clean_weights_dir": false,
 
     "cuda": true,
     "gpu": 0,
@@ -50,14 +50,14 @@
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 4000
+                "after_epoch": 2000
             }
         },
 
         "normalization": {
             "enable": true,
             "type": "progressive",
-            "epoch": 2000
+            "epoch": 1000
         }
     },
 

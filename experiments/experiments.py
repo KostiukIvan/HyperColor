@@ -144,7 +144,7 @@ def main(config):
             for j, target_network_weights in enumerate(zip(target_networks_weights_p, target_networks_weights_cp)):
 
                 target_network_p = aae.TargetNetwork(config, target_network_weights[0]).to(device)
-                target_network_cp = aae.TargetNetwork(config, target_network_weights[1]).to(device)
+                target_network_cp = aae.ColorsAndPointsTargetNetwork(config, target_network_weights[1]).to(device)
 
                 if not config['target_network_input']['constant'] or target_network_input is None:     
                     target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
@@ -315,7 +315,7 @@ def reconstruction(encoder_p, encoder_cp, hyper_network_points, hyper_network_co
 
     for k in range(amount):
         target_network_points = aae.TargetNetwork(config, weights_points_rec[k])
-        target_network_colors = aae.TargetNetwork(config, weights_colors_rec[k])
+        target_network_colors = aae.ColorsAndPointsTargetNetwork(config, weights_colors_rec[k])
 
         target_network_input = generate_points(config=config, epoch=epoch, size=(x.shape[2], 3)).to(device)
 
@@ -392,7 +392,7 @@ def sphere_triangles(encoder_p, encoder_cp, hyper_network_points, hyper_network_
 
     for k in range(amount):
         target_network_points = aae.TargetNetwork(config, weights_points_rec[k])
-        target_network_colors = aae.TargetNetwork(config, weights_colors_rec[k])
+        target_network_colors = aae.ColorsAndPointsTargetNetwork(config, weights_colors_rec[k])
 
         target_network_input, triangulation = generate(method, depth)
         
@@ -418,6 +418,7 @@ def sphere_triangles(encoder_p, encoder_cp, hyper_network_points, hyper_network_
             target_network_input_coefficient = target_network_input * coefficient
             x_sphere = torch.transpose(target_network_points(target_network_input_coefficient.to(device)), 0, 1).cpu().numpy()
             x_sphere_color = torch.transpose(target_network_colors(target_network_input_coefficient.to(device)), 0, 1).cpu().numpy()
+            x_sphere_color = colors.lab2xyz(x_sphere_color.transpose()).transpose()
 
             np.save(join(results_dir, 'sphere_triangles', f'{k}_point_cloud_coefficient_{coefficient}'),
                     np.array(target_network_input_coefficient))

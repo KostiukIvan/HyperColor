@@ -33,7 +33,7 @@ class CombinedLoss(nn.Module):
 
             MSE = torch.nn.MSELoss()
             colors_loss = MSE(origin_colors, pred_colors)
-            loss += colors_loss * 300
+            loss += colors_loss * 3
 
         else: # [2, 4096, 3]
             gts_points = gts_X[:, :, :3].type(ftype) + 0.5  # [2, 4096, 3]
