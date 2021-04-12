@@ -144,18 +144,18 @@ def main(config):
         log.info("Loading weights...")
         hyper_network_p.load_state_dict(torch.load(
             join(weights_path, f'{starting_epoch - 1:05}_G_P.pth')))
-        #hyper_network_cp.load_state_dict(torch.load(
-        #    join(weights_path, f'{starting_epoch - 1:05}_G_CP.pth')))
+        hyper_network_cp.load_state_dict(torch.load(
+            join(weights_path, f'{starting_epoch - 1:05}_G_CP.pth')))
 
         encoder_p.load_state_dict(torch.load(
             join(weights_path, f'{starting_epoch - 1:05}_E_P.pth')))
-        #encoder_cp.load_state_dict(torch.load(
-        #    join(weights_path, f'{starting_epoch - 1:05}_E_CP.pth')))
+        encoder_cp.load_state_dict(torch.load(
+            join(weights_path, f'{starting_epoch - 1:05}_E_CP.pth')))
 
         e_hn_optimizer_p.load_state_dict(torch.load(
             join(weights_path, f'{starting_epoch - 1:05}_EGoP.pth')))
-        #e_hn_optimizer_cp.load_state_dict(torch.load(
-        #    join(weights_path, f'{starting_epoch - 1:05}_EGoC.pth')))
+        e_hn_optimizer_cp.load_state_dict(torch.load(
+            join(weights_path, f'{starting_epoch - 1:05}_EGoC.pth')))
 
         log.info("Loading losses...")
         #losses_e = np.load(join(metrics_path, f'{starting_epoch - 1:05}_E.npy')).tolist()

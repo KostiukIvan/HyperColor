@@ -1,5 +1,5 @@
 {
-    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_c",
+    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_airplane",
     "arch": "vae",
     "clean_results_dir": false,
 
@@ -15,7 +15,7 @@
 
     "seed": 2018,
     "z_size": 2048,
-    "n_points": 2048,
+    "n_points": 4096,
 
     "metrics": {
         "distribution": "normal",
@@ -35,12 +35,12 @@
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 2000
+                "after_epoch": 4000
             }
         },
 
         "normalization": {
-            "enable": true,
+            "enable": false,
             "type": "progressive",
             "epoch": 1000
         }
@@ -92,7 +92,7 @@
 
         "reconstruction": {
             "execute": true,
-            "amount": 50
+            "amount": 20
         },
 
         "sphere": {
@@ -108,7 +108,7 @@
             "execute": true,
             "amount": 50,
             "method": "edge",
-            "depth": 4,
+            "depth": 7,
             "start": 0.5,
             "end": 1.5,
             "transitions": 21

@@ -1,5 +1,5 @@
 {
-    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_c",
+    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_airplane_15000",
     "clean_results_dir": false,
     "clean_weights_dir": false,
 
@@ -17,11 +17,10 @@
     
     "shuffle": true,
     "transforms": ["rotate"],
-    "num_workers": 8,
-    "n_points": 2048,
-    "CNN_points": 8192,
+    "num_workers": 14,
+    "n_points": 15000,
 
-    "max_epochs": 4000,
+    "max_epochs": 5000,
     "batch_size": 32,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
@@ -50,14 +49,14 @@
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 2000
+                "after_epoch": 3000
             }
         },
 
         "normalization": {
-            "enable": true,
+            "enable": false,
             "type": "progressive",
-            "epoch": 1000
+            "epoch": 1
         }
     },
 
@@ -103,7 +102,7 @@
         "E_HN": {
             "type": "Adam",
             "hyperparams": {
-                "lr": 0.0001,
+                "lr": 0.00005,
                 "weight_decay": 0,
                 "betas": [0.9, 0.999],
                 "amsgrad": false

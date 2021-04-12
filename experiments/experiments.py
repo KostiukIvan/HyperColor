@@ -423,6 +423,7 @@ def sphere_triangles(encoder_p, encoder_cp, hyper_network_points, hyper_network_
             np.save(join(results_dir, 'sphere_triangles', f'{k}_point_cloud_coefficient_{coefficient}'),
                     np.array(target_network_input_coefficient))
             np.save(join(results_dir, 'sphere_triangles', f'{k}_reconstruction_coefficient_{coefficient}'), x_sphere)
+            np.save(join(results_dir, 'sphere_triangles', f'{k}_reconstruction_coefficient_for_colors_{coefficient}'), x_sphere_color)
 
             fig = plot_3d_point_cloud(x_sphere[0], x_sphere[1], x_sphere[2], C=x_sphere_color.transpose(), in_u_sphere=True, show=False)
             fig.savefig(join(results_dir, 'sphere_triangles', f'{k}_{coefficient}_reconstructed.png'))

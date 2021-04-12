@@ -96,11 +96,11 @@ class CustomDataset(Dataset):
             if part == 'points':
                 df = df.reindex(columns=[0,2,1])
 
-            if len(df.index) > self.config['n_points']:
-                remove_n = len(df.index) - self.config['n_points']
-                if drop_indices is None:
-                    drop_indices = np.random.choice(df.index, remove_n, replace=False)
-                df = df.drop(drop_indices)
+            #if len(df.index) > self.config['n_points']:
+            #    remove_n = len(df.index) - self.config['n_points']
+            #    if drop_indices is None:
+            #        drop_indices = np.random.choice(df.index, remove_n, replace=False)
+            #    df = df.drop(drop_indices)
 
             result[part] = df.to_numpy()
         return result
