@@ -69,7 +69,7 @@ def main(config):
     log.info("Selected {} classes. Loaded {} samples.".format(
         'all' if not config['classes'] else ','.join(config['classes']), len(dataset)))
 
-    points_dataloader = DataLoader(dataset, batch_size=64, shuffle=True, num_workers=8, drop_last=True,
+    points_dataloader = DataLoader(dataset, batch_size=16, shuffle=True, num_workers=12, drop_last=True,
                                    pin_memory=True)
 
     #
@@ -120,7 +120,9 @@ def main(config):
     x = []
 
     with torch.no_grad():
-        for i, point_data in enumerate(points_dataloader, 1):
+        for i, point_data in enumerate(points_dataloader, 0):
+            if i > 10:
+                break
             if dataset_name == "custom":
                 X = torch.cat((point_data['points'], point_data['colors']), dim=2)
                 X = X.to(device, dtype=torch.float)
@@ -223,8 +225,9 @@ def main(config):
                              epoch)
 
         if config['experiments']['sphere_triangles_interpolation']['execute']:
-            sphere_triangles_interpolation(encoder, hyper_network_points, device, x, results_dir,
-                                           config['experiments']['sphere_triangles_interpolation']['amount'],
+            sphere_triangles_interpolation(encoder_p, encoder_cp, hyper_network_p, hyper_network_cp, device, x, results_dir,
+                                           config['experiments']['sphere_triangles_interpolation']['objects_amount'],
+                                           config['experiments']['sphere_triangles_interpolation']['colors_amount'],
                                            config['experiments']['sphere_triangles_interpolation']['method'],
                                            config['experiments']['sphere_triangles_interpolation']['depth'],
                                            config['experiments']['sphere_triangles_interpolation']['coefficient'],
@@ -236,9 +239,13 @@ def main(config):
                                        config['experiments']['different_number_of_points']['image_points'])
 
         if config['experiments']['fixed']['execute']:
-            fixed(hyper_network_pfoints, device, results_dir, epoch, config['experiments']['fixed']['amount'],
-                  config['z_size'], config['experiments']['fixed']['mean'],
-                  config['experiments']['fixed']['std'], (x.shape[1], x.shape[2]),
+            fixed(hyper_network_p, hyper_network_cp, device, results_dir, epoch, config['experiments']['fixed']['amount'],
+                  config['z_size'], 
+                  config['experiments']['fixed']['points']['mean'],
+                  config['experiments']['fixed']['points']['std'], 
+                  config['experiments']['fixed']['colors']['mean'],
+                  config['experiments']['fixed']['colors']['std'], 
+                  (x.shape[1], x.shape[2]),
                   config['experiments']['fixed']['triangulation']['execute'],
                   config['experiments']['fixed']['triangulation']['method'],
                   config['experiments']['fixed']['triangulation']['depth'])
@@ -308,34 +315,38 @@ def reconstruction(encoder_p, encoder_cp, hyper_network_points, hyper_network_co
     
     z_a, _, _ = encoder_p(x[:,:3,:])
     z_b, _, _ = encoder_cp(x)
+    print(torch.mean(z_a.mean(dim=1)))
+    print(torch.mean(z_a.std(dim=1)))
+    print(torch.mean(z_b.mean(dim=1)))
+    print(torch.mean(z_b.std(dim=1)))
     weights_points_rec = hyper_network_points(z_a)
     weights_colors_rec = hyper_network_colors(z_b)
     x = x.cpu().numpy()
 
+    for p in range(amount):
+        for c in range(amount):
+            target_network_points = aae.TargetNetwork(config, weights_points_rec[p])
+            target_network_colors = aae.ColorsAndPointsTargetNetwork(config, weights_colors_rec[c])
 
-    for k in range(amount):
-        target_network_points = aae.TargetNetwork(config, weights_points_rec[k])
-        target_network_colors = aae.ColorsAndPointsTargetNetwork(config, weights_colors_rec[k])
+            target_network_input = generate_points(config=config, epoch=epoch, size=(x.shape[2], 3)).to(device)
 
-        target_network_input = generate_points(config=config, epoch=epoch, size=(x.shape[2], 3)).to(device)
+            x_points_rec = torch.transpose(target_network_points(target_network_input.to(device)), 0, 1).cpu().numpy()
+            x_colors_rec = torch.transpose(target_network_colors(target_network_input.to(device)), 0, 1).cpu().numpy()
+            x_colors_rec = colors.lab2xyz(x_colors_rec.transpose()).transpose()
 
-        x_points_rec = torch.transpose(target_network_points(target_network_input.to(device)), 0, 1).cpu().numpy()
-        x_colors_rec = torch.transpose(target_network_colors(target_network_input.to(device)), 0, 1).cpu().numpy()
-        x_colors_rec = colors.lab2xyz(x_colors_rec.transpose()).transpose()
-
-        np.save(join(results_dir, 'reconstruction', f'{k}_target_network_input'), np.array(target_network_input.detach().cpu().numpy()))
-        np.save(join(results_dir, 'reconstruction', f'{k}_real'), np.array(x[k]))
-        np.save(join(results_dir, 'reconstruction', f'{k}_reconstructed_points'), np.array(x_points_rec))
-        np.save(join(results_dir, 'reconstruction', f'{k}_reconstructed_colors'), np.array(x_colors_rec))
+            np.save(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_target_network_input'), np.array(target_network_input.detach().cpu().numpy()))
+            np.save(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_real'), np.array(x[p]))
+            np.save(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_reconstructed_points'), np.array(x_points_rec))
+            np.save(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_reconstructed_colors'), np.array(x_colors_rec))
 
 
-        fig = plot_3d_point_cloud(x_points_rec[0], x_points_rec[1], x_points_rec[2], C=x_colors_rec.transpose(), in_u_sphere=True, show=False)
-        fig.savefig(join(results_dir, 'reconstruction', f'{k}_reconstructed.png'))
-        plt.close(fig)
+            fig = plot_3d_point_cloud(x_points_rec[0], x_points_rec[1], x_points_rec[2], C=x_colors_rec.transpose(), in_u_sphere=True, show=False)
+            fig.savefig(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_reconstructed.png'))
+            plt.close(fig)
 
-        fig = plot_3d_point_cloud(x[k][0], x[k][1], x[k][2], C=x[k][3:6].transpose(), in_u_sphere=True, show=False)
-        fig.savefig(join(results_dir, 'reconstruction', f'{k}_real.png'))
-        plt.close(fig)
+            fig = plot_3d_point_cloud(x[p][0], x[p][1], x[p][2], C=x[c][3:6].transpose(), in_u_sphere=True, show=False)
+            fig.savefig(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_real.png'))
+            plt.close(fig)
 
 
 def sphere(encoder, hyper_network, device, x, results_dir, epoch, amount=10, image_points=10240, start=2.0, end=4.0,
@@ -390,95 +401,113 @@ def sphere_triangles(encoder_p, encoder_cp, hyper_network_points, hyper_network_
     weights_colors_rec = hyper_network_colors(z_b)
     x = x.cpu().numpy()
 
-    for k in range(amount):
-        target_network_points = aae.TargetNetwork(config, weights_points_rec[k])
-        target_network_colors = aae.ColorsAndPointsTargetNetwork(config, weights_colors_rec[k])
+    for p in range(amount):
+        for c in range(amount):
+            target_network_points = aae.TargetNetwork(config, weights_points_rec[p])
+            target_network_colors = aae.ColorsAndPointsTargetNetwork(config, weights_colors_rec[c])
 
-        target_network_input, triangulation = generate(method, depth)
-        
-        x_points_rec = torch.transpose(target_network_points(target_network_input.to(device)), 0, 1).cpu().numpy()
-        x_colors_rec = torch.transpose(target_network_colors(target_network_input.to(device)), 0, 1).cpu().numpy()
-        x_colors_rec = colors.lab2xyz(x_colors_rec.transpose()).transpose()
-        
-        np.save(join(results_dir, 'sphere_triangles', f'{k}_real'), np.array(x[k]))
-        np.save(join(results_dir, 'sphere_triangles', f'{k}_point_cloud'), np.array(target_network_input.cpu().numpy()))
-        np.save(join(results_dir, 'reconstruction', f'{k}_reconstructed_points'), np.array(x_points_rec))
-        np.save(join(results_dir, 'reconstruction', f'{k}_reconstructed_colors'), np.array(x_colors_rec))
+            target_network_input, triangulation = generate(method, depth)
+            
+            x_points_rec = torch.transpose(target_network_points(target_network_input.to(device)), 0, 1).cpu().numpy()
+            x_colors_rec = torch.transpose(target_network_colors(target_network_input.to(device)), 0, 1).cpu().numpy()
+            x_colors_rec = colors.lab2xyz(x_colors_rec.transpose()).transpose()
+            
+            np.save(join(results_dir, 'sphere_triangles', f'p_{p}_c_{c}_real'), np.array(x[p]))
+            np.save(join(results_dir, 'sphere_triangles', f'p_{p}_c_{c}_point_cloud'), np.array(target_network_input.cpu().numpy()))
+            np.save(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_reconstructed_points'), np.array(x_points_rec))
+            np.save(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_reconstructed_colors'), np.array(x_colors_rec))
 
-        with open(join(results_dir, 'sphere_triangles', f'{k}_triangulation.pickle'), 'wb') as triangulation_file:
-            pickle.dump(triangulation, triangulation_file)
+            with open(join(results_dir, 'sphere_triangles', f'p_{p}_c_{c}_triangulation.pickle'), 'wb') as triangulation_file:
+                pickle.dump(triangulation, triangulation_file)
 
-        fig = plot_3d_point_cloud(x_points_rec[0], x_points_rec[1], x_points_rec[2], C=x_colors_rec.transpose(), in_u_sphere=True, show=False)
-        fig.savefig(join(results_dir, 'sphere_triangles', f'{k}_reconstructed.png'))
-        plt.close(fig)
-
-        for coefficient in np.linspace(start, end, num=transitions):
-            coefficient = round(coefficient, 3)
-
-            target_network_input_coefficient = target_network_input * coefficient
-            x_sphere = torch.transpose(target_network_points(target_network_input_coefficient.to(device)), 0, 1).cpu().numpy()
-            x_sphere_color = torch.transpose(target_network_colors(target_network_input_coefficient.to(device)), 0, 1).cpu().numpy()
-            x_sphere_color = colors.lab2xyz(x_sphere_color.transpose()).transpose()
-
-            np.save(join(results_dir, 'sphere_triangles', f'{k}_point_cloud_coefficient_{coefficient}'),
-                    np.array(target_network_input_coefficient))
-            np.save(join(results_dir, 'sphere_triangles', f'{k}_reconstruction_coefficient_{coefficient}'), x_sphere)
-            np.save(join(results_dir, 'sphere_triangles', f'{k}_reconstruction_coefficient_for_colors_{coefficient}'), x_sphere_color)
-
-            fig = plot_3d_point_cloud(x_sphere[0], x_sphere[1], x_sphere[2], C=x_sphere_color.transpose(), in_u_sphere=True, show=False)
-            fig.savefig(join(results_dir, 'sphere_triangles', f'{k}_{coefficient}_reconstructed.png'))
+            fig = plot_3d_point_cloud(x_points_rec[0], x_points_rec[1], x_points_rec[2], C=x_colors_rec.transpose(), in_u_sphere=True, show=False)
+            fig.savefig(join(results_dir, 'sphere_triangles', f'p_{p}_c_{c}_reconstructed.png'))
             plt.close(fig)
 
-        fig = plot_3d_point_cloud(x[k][0], x[k][1], x[k][2], C=x[k][3:6].transpose(), in_u_sphere=True, show=False)
-        fig.savefig(join(results_dir, 'sphere_triangles', f'{k}_real.png'))
-        plt.close(fig)
+            for coefficient in np.linspace(start, end, num=transitions):
+                coefficient = round(coefficient, 3)
+
+                target_network_input_coefficient = target_network_input * coefficient
+                x_sphere = torch.transpose(target_network_points(target_network_input_coefficient.to(device)), 0, 1).cpu().numpy()
+                x_sphere_color = torch.transpose(target_network_colors(target_network_input_coefficient.to(device)), 0, 1).cpu().numpy()
+                x_sphere_color = colors.lab2xyz(x_sphere_color.transpose()).transpose()
+
+                np.save(join(results_dir, 'sphere_triangles', f'p_{p}_c_{c}_point_cloud_coefficient_{coefficient}'),
+                        np.array(target_network_input_coefficient))
+                np.save(join(results_dir, 'sphere_triangles', f'p_{p}_c_{c}_reconstruction_coefficient_{coefficient}'), x_sphere)
+                np.save(join(results_dir, 'sphere_triangles', f'p_{p}_c_{c}_reconstruction_coefficient_for_colors_{coefficient}'), x_sphere_color)
+
+                fig = plot_3d_point_cloud(x_sphere[0], x_sphere[1], x_sphere[2], C=x_sphere_color.transpose(), in_u_sphere=True, show=False)
+                fig.savefig(join(results_dir, 'sphere_triangles', f'p_{p}_c_{c}_{coefficient}_reconstructed.png'))
+                plt.close(fig)
+
+            fig = plot_3d_point_cloud(x[p][0], x[p][1], x[p][2], C=x[c][3:6].transpose(), in_u_sphere=True, show=False)
+            fig.savefig(join(results_dir, 'sphere_triangles', f'p_{p}_c_{c}_real.png'))
+            plt.close(fig)
 
 
-def sphere_triangles_interpolation(encoder, hyper_network, device, x, results_dir, amount, method, depth, coefficient,
-                                   transitions):
+def sphere_triangles_interpolation(encoder_p, encoder_cp, hyper_network_p, hyper_network_cp, device, x, results_dir, objects_amount, colors_amount, method, 
+                            depth, coefficient, transitions):
     from utils.sphere_triangles import generate
     log.info("Sphere triangles interpolation")
 
-    for k in range(amount):
-        x_a = x[None, 2 * k, :, :]
-        x_b = x[None, 2 * k + 1, :, :]
+    for p in range(objects_amount):
+        x_a_p = x[None, 2 * p, :, :]
+        x_b_p = x[None, 2 * p + 1, :, :]
+        for c in range(colors_amount):
+            x_a_cp = x[None, 2 * c, :, :]
+            x_b_cp = x[None, 2 * c + 1, :, :]
 
-        with torch.no_grad():
-            z_a, mu_a, var_a = encoder(x_a)
-            z_b, mu_b, var_b = encoder(x_b)
+            with torch.no_grad():
+                z_a_p, mu_a_p, var_a_p = encoder_p(x_a_p[:,:3,:])
+                z_b_p, mu_b_p, var_b_p = encoder_p(x_b_p[:,:3,:])
+                z_a_cp, mu_a_cp, var_a_cp = encoder_cp(x_a_cp)
+                z_b_cp, mu_b_cp, var_b_cp = encoder_cp(x_b_cp)
 
-        for j, alpha in enumerate(np.linspace(0, 1, transitions)):
-            z_int = (1 - alpha) * z_a + alpha * z_b  # interpolate in the latent space
-            weights_int = hyper_network(z_int)  # decode the interpolated sample
+            for j, alpha in enumerate(np.linspace(0, 1, transitions)):
+                z_int_p = (1 - alpha) * z_a_p + alpha * z_b_p  # interpolate in the latent space
+                weights_int_p = hyper_network_p(z_int_p)  # decode the interpolated sample
 
-            target_network = aae.TargetNetwork(config, weights_int[0])
-            target_network_input, triangulation = generate(method, depth)
-            x_int = torch.transpose(target_network(target_network_input.to(device)), 0, 1).cpu().numpy()
+                z_int_cp = (1 - alpha) * z_a_cp + alpha * z_b_cp  # interpolate in the latent space
+                weights_int_cp = hyper_network_cp(z_int_cp)  # decode the interpolated sample
 
-            np.save(join(results_dir, 'sphere_triangles_interpolation', f'{k}_{j}_point_cloud'),
-                    np.array(target_network_input))
-            np.save(join(results_dir, 'sphere_triangles_interpolation', f'{k}_{j}_interpolation'), x_int)
+                target_network_points = aae.TargetNetwork(config, weights_int_p[0])
+                target_network_colors = aae.ColorsAndPointsTargetNetwork(config, weights_int_cp[0])
 
-            with open(join(results_dir, 'sphere_triangles_interpolation', f'{k}_{j}_triangulation.pickle'),
-                      'wb') as triangulation_file:
-                pickle.dump(triangulation, triangulation_file)
+                target_network_input, triangulation = generate(method, depth)
+                x_int_p = torch.transpose(target_network_points(target_network_input.to(device)), 0, 1).cpu().numpy()
+                x_int_cp = torch.transpose(target_network_colors(target_network_input.to(device)), 0, 1).cpu().numpy()
+                x_int_cp = colors.lab2xyz(x_int_cp.transpose()).transpose()
 
-            fig = plot_3d_point_cloud(x_int[0], x_int[1], x_int[2], in_u_sphere=True, show=False)
-            fig.savefig(join(results_dir, 'sphere_triangles_interpolation', f'{k}_{j}_interpolation.png'))
-            plt.close(fig)
+                np.save(join(results_dir, 'sphere_triangles_interpolation', f'p_{p}_c_{c}_{j}_point_cloud'),
+                        np.array(target_network_input))
+                np.save(join(results_dir, 'sphere_triangles_interpolation', f'p_{p}_c_{c}_{j}_points_interpolation'), x_int_p)
+                np.save(join(results_dir, 'sphere_triangles_interpolation', f'p_{p}_c_{c}_{j}_colors_interpolation'), x_int_cp)
 
-            target_network_input_coefficient = target_network_input * coefficient
-            x_int_coeff = torch.transpose(target_network(target_network_input_coefficient.to(device)), 0, 1).cpu().numpy()
+                with open(join(results_dir, 'sphere_triangles_interpolation', f'p_{p}_c_{c}_{j}_triangulation.pickle'),
+                        'wb') as triangulation_file:
+                    pickle.dump(triangulation, triangulation_file)
 
-            np.save(join(results_dir,
-                         'sphere_triangles_interpolation', f'{k}_{j}_point_cloud_coefficient_{coefficient}'),
-                    np.array(target_network_input_coefficient))
-            np.save(join(results_dir, 'sphere_triangles_interpolation',
-                         f'{k}_{j}_interpolation_coefficient_{coefficient}'), x_int_coeff)
+                fig = plot_3d_point_cloud(x_int_p[0], x_int_p[1], x_int_p[2], C=x_int_cp.transpose(), in_u_sphere=True, show=False)
+                fig.savefig(join(results_dir, 'sphere_triangles_interpolation', f'p_{p}_c_{c}_{j}_interpolation.png'))
+                plt.close(fig)
 
-            fig = plot_3d_point_cloud(x_int_coeff[0], x_int_coeff[1], x_int_coeff[2], in_u_sphere=True, show=False)
-            fig.savefig(join(results_dir, 'sphere_triangles_interpolation', f'{k}_{j}_{coefficient}_interpolation.png'))
-            plt.close(fig)
+                target_network_input_coefficient = target_network_input * coefficient
+                x_int_coeff_p = torch.transpose(target_network_points(target_network_input_coefficient.to(device)), 0, 1).cpu().numpy()
+                x_int_coeff_cp = torch.transpose(target_network_colors(target_network_input_coefficient.to(device)), 0, 1).cpu().numpy()
+                x_int_coeff_cp = colors.lab2xyz(x_int_coeff_cp.transpose()).transpose()
+
+                np.save(join(results_dir,
+                            'sphere_triangles_interpolation', f'p_{p}_c_{c}_{j}_point_cloud_coefficient_{coefficient}'),
+                        np.array(target_network_input_coefficient))
+                np.save(join(results_dir, 'sphere_triangles_interpolation',
+                            f'p_{p}_c_{c}_{j}_points_interpolation_coefficient_{coefficient}'), x_int_coeff_p)
+                np.save(join(results_dir, 'sphere_triangles_interpolation',
+                            f'p_{p}_c_{c}_{j}_colors_interpolation_coefficient_{coefficient}'), x_int_coeff_cp)
+
+                fig = plot_3d_point_cloud(x_int_coeff_p[0], x_int_coeff_p[1], x_int_coeff_p[2], C=x_int_coeff_cp.transpose(), in_u_sphere=True, show=False)
+                fig.savefig(join(results_dir, 'sphere_triangles_interpolation', f'p_{p}_c_{c}_{j}_{coefficient}_interpolation.png'))
+                plt.close(fig)
 
 
 def different_number_of_points(encoder, hyper_network, x, device, results_dir, epoch, amount=5,
@@ -510,43 +539,57 @@ def different_number_of_points(encoder, hyper_network, x, device, results_dir, e
             plt.close(fig)
 
 
-def fixed(hyper_network, device, results_dir, epoch, fixed_number, z_size, fixed_mean, fixed_std, x_shape, triangulation,
-          method, depth):
+def fixed(hyper_network_points, hyper_network_colors, device, results_dir, epoch, fixed_number, z_size, fixed_points_mean, fixed_points_std,
+         fixed_colors_mean, fixed_colors_std, x_shape, triangulation, method, depth):
     log.info("Fixed")
 
-    fixed_noise = torch.zeros(fixed_number, z_size).normal_(mean=fixed_mean, std=fixed_std).to(device)
-    weights_fixed = hyper_network(fixed_noise)
+    fixed_points_noise = torch.zeros(fixed_number, z_size).normal_(mean=fixed_points_mean, std=fixed_points_std).to(device)
+    fixed_colors_noise = torch.zeros(fixed_number, z_size).normal_(mean=fixed_colors_mean, std=fixed_colors_std).to(device)
+    weights_points_fixed = hyper_network_points(fixed_points_noise)
+    weights_colors_fixed = hyper_network_colors(fixed_colors_noise)
 
-    for j, weights in enumerate(weights_fixed):
-        target_network = aae.TargetNetwork(config, weights).to(device)
+    for p, weights_points in enumerate(weights_points_fixed):
+        for c, weights_color in enumerate(weights_colors_fixed):
 
-        target_network_input = generate_points(config=config, epoch=epoch, size=(x_shape[1], x_shape[0]))
-        fixed_rec = torch.transpose(target_network(target_network_input.to(device)), 0, 1).cpu().numpy()
-        np.save(join(results_dir, 'fixed', f'{j}_target_network_input'), np.array(target_network_input))
-        np.save(join(results_dir, 'fixed', f'{j}_fixed_reconstruction'), fixed_rec)
+            target_network_points = aae.TargetNetwork(config, weights_points).to(device)
+            target_network_colors = aae.ColorsAndPointsTargetNetwork(config, weights_color).to(device)
 
-        fig = plot_3d_point_cloud(fixed_rec[0], fixed_rec[1], fixed_rec[2], in_u_sphere=True, show=False)
-        fig.savefig(join(results_dir, 'fixed', f'{j}_fixed_reconstructed.png'))
-        plt.close(fig)
+            target_network_input = generate_points(config=config, epoch=epoch, size=(x_shape[1], 3))
+            fixed_points_rec = torch.transpose(target_network_points(target_network_input.to(device)), 0, 1).cpu().numpy()
+            fixed_colors_rec = torch.transpose(target_network_colors(target_network_input.to(device)), 0, 1).cpu().numpy()
+            fixed_colors_rec = colors.lab2xyz(fixed_colors_rec.transpose()).transpose()
+            
+            np.save(join(results_dir, 'fixed', f'p_{p}_c_{c}_target_network_input'), np.array(target_network_input))
+            np.save(join(results_dir, 'fixed', f'p_{p}_c_{c}_fixed_reconstruction_points'), fixed_points_rec)
+            np.save(join(results_dir, 'fixed', f'p_{p}_c_{c}_fixed_reconstruction_colors'), fixed_colors_rec)
 
-        if triangulation:
-            from utils.sphere_triangles import generate
-
-            target_network_input, triangulation = generate(method, depth)
-
-            with open(join(results_dir, 'fixed', f'{j}_triangulation.pickle'), 'wb') as triangulation_file:
-                pickle.dump(triangulation, triangulation_file)
-
-            fixed_rec = torch.transpose(target_network(target_network_input.to(device)), 0, 1).cpu().numpy()
-            np.save(join(results_dir, 'fixed', f'{j}_target_network_input_triangulation'),
-                    np.array(target_network_input))
-            np.save(join(results_dir, 'fixed', f'{j}_fixed_reconstruction_triangulation'), fixed_rec)
-
-            fig = plot_3d_point_cloud(fixed_rec[0], fixed_rec[1], fixed_rec[2], in_u_sphere=True, show=False)
-            fig.savefig(join(results_dir, 'fixed', f'{j}_fixed_reconstructed_triangulation.png'))
+            fig = plot_3d_point_cloud(fixed_points_rec[0], fixed_points_rec[1], fixed_points_rec[2], C=fixed_colors_rec.transpose(), in_u_sphere=True, show=False)
+            fig.savefig(join(results_dir, 'fixed', f'p_{p}_c_{c}_fixed_reconstructed.png'))
             plt.close(fig)
 
-        np.save(join(results_dir, 'fixed', f'{j}_fixed_noise'), np.array(fixed_noise[j].cpu()))
+            if triangulation:
+                from utils.sphere_triangles import generate
+
+                target_network_input, triangulation = generate(method, depth)
+
+                with open(join(results_dir, 'fixed', f'p_{p}_c_{c}_triangulation.pickle'), 'wb') as triangulation_file:
+                    pickle.dump(triangulation, triangulation_file)
+
+                fixed_points_rec = torch.transpose(target_network_points(target_network_input.to(device)), 0, 1).cpu().numpy()
+                fixed_colors_rec = torch.transpose(target_network_colors(target_network_input.to(device)), 0, 1).cpu().numpy()
+                fixed_colors_rec = colors.lab2xyz(fixed_colors_rec.transpose()).transpose()
+
+                np.save(join(results_dir, 'fixed', f'p_{p}_c_{c}_target_network_input_triangulation'),
+                        np.array(target_network_input))
+                np.save(join(results_dir, 'fixed', f'p_{p}_c_{c}_fixed_points_reconstruction_triangulation'), fixed_points_rec)
+                np.save(join(results_dir, 'fixed', f'p_{p}_c_{c}_fixed_colors_reconstruction_triangulation'), fixed_colors_rec)
+
+                fig = plot_3d_point_cloud(fixed_points_rec[0], fixed_points_rec[1], fixed_points_rec[2], C=fixed_colors_rec.transpose(), in_u_sphere=True, show=False)
+                fig.savefig(join(results_dir, 'fixed', f'{p}_fixed_reconstructed_triangulation.png'))
+                plt.close(fig)
+
+            np.save(join(results_dir, 'fixed', f'p_{p}_c_{c}_fixed_points_noise'), np.array(fixed_points_noise[p].cpu()))
+            np.save(join(results_dir, 'fixed', f'p_{p}_c_{c}_fixed_colors_noise'), np.array(fixed_colors_noise[c].cpu()))
 
 
 if __name__ == '__main__':

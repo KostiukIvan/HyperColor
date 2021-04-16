@@ -1,5 +1,5 @@
 {
-    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_airplane",
+    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_airplane_15000",
     "arch": "vae",
     "clean_results_dir": false,
 
@@ -15,7 +15,7 @@
 
     "seed": 2018,
     "z_size": 2048,
-    "n_points": 4096,
+    "n_points": 15000,
 
     "metrics": {
         "distribution": "normal",
@@ -35,14 +35,14 @@
             "__comment":"Only with combined loss",
             "change_to": {
                 "enable": true,
-                "after_epoch": 4000
+                "after_epoch": 3000
             }
         },
 
         "normalization": {
             "enable": false,
             "type": "progressive",
-            "epoch": 1000
+            "epoch": 1
         }
     },
 
@@ -92,7 +92,7 @@
 
         "reconstruction": {
             "execute": true,
-            "amount": 20
+            "amount": 5
         },
 
         "sphere": {
@@ -106,21 +106,22 @@
 
         "sphere_triangles": {
             "execute": true,
-            "amount": 50,
+            "amount": 3,
             "method": "edge",
-            "depth": 7,
+            "depth": 2,
             "start": 0.5,
             "end": 1.5,
             "transitions": 21
         },
 
         "sphere_triangles_interpolation": {
-            "execute": false,
-            "amount": 10,
+            "execute": true,
+            "objects_amount": 3,
+            "colors_amount": 3,
             "method": "edge",
             "depth": 2,
             "coefficient": 1.5,
-            "transitions": 20
+            "transitions": 30
         },
 
         "different_number_of_points": {
@@ -130,10 +131,16 @@
         },
 
         "fixed": {
-            "execute": false,
-            "mean": 0.0,
-            "std": 0.015,
-            "amount": 64,
+            "execute": true,
+            "points":{
+                "mean": 0.0,
+                "std": 0.002
+            },
+            "colors":{
+                "mean": 0.0,
+                "std": 0.12 
+            },
+            "amount": 3,
             "triangulation": {
                 "execute": true,
                 "method": "edge",
