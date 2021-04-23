@@ -90,7 +90,7 @@ def main(config):
         reconstruction_loss = EMD().to(device)
     elif config['reconstruction_loss'].lower() == 'combined':
         from losses.combined_loss import CombinedLoss
-        reconstruction_loss = CombinedLoss(config).to(device)
+        reconstruction_loss = CombinedLoss(experiment=True).to(device)
     else:
         raise ValueError(f'Invalid reconstruction loss. Accepted `chamfer` or '
                          f'`earth_mover`, got: {config["reconstruction_loss"]}')
@@ -114,15 +114,16 @@ def main(config):
     encoder_p.eval()
     encoder_cp.eval()
 
-    total_loss_eg = 0.0
-    total_loss_e = 0.0
-    total_loss_kld = 0.0
+    total_loss_colors = []
+    total_loss_points = []
+    total_loss_colors_encoder = []
+    total_loss_points_encoder = []
     x = []
 
     with torch.no_grad():
         for i, point_data in enumerate(points_dataloader, 0):
-            if i > 10:
-                break
+            #if i > 10:
+            #    break
             if dataset_name == "custom":
                 X = torch.cat((point_data['points'], point_data['colors']), dim=2)
                 X = X.to(device, dtype=torch.float)
@@ -168,9 +169,12 @@ def main(config):
 
 
             if config['reconstruction_loss'].lower() == 'combined': 
-                loss_e = reconstruction_loss(X.permute(0, 2, 1),
+                loss_colors = reconstruction_loss(X.permute(0, 2, 1),
                                             X_rec.permute(0, 2, 1),
                                             True)
+                loss_points = reconstruction_loss(X.permute(0, 2, 1),
+                                            X_rec.permute(0, 2, 1),
+                                            False)
                 
             else:
                 loss_e = torch.mean(
@@ -178,17 +182,22 @@ def main(config):
                     reconstruction_loss(X.permute(0, 2, 1) + 0.5,
                                         X_rec.permute(0, 2, 1) + 0.5))
 
-            loss_kld = 0.5 * (torch.exp(logvar_p) + torch.pow(mu_p, 2) - 1 - logvar_p).sum()
+            loss_colors_encoder = 0.5 * (torch.exp(logvar_cp) + torch.pow(mu_cp, 2) - 1 - logvar_cp).sum()
+            loss_points_encoder = 0.5 * (torch.exp(logvar_p) + torch.pow(mu_p, 2) - 1 - logvar_p).sum()
 
-            loss_eg = loss_e + loss_kld
-            total_loss_e += loss_e.item()
-            total_loss_kld += loss_kld.item()
-            total_loss_eg += loss_eg.item()
+            total_loss_colors.append(loss_colors.item())
+            total_loss_points.append(loss_points.item())
+            total_loss_colors_encoder.append(loss_colors_encoder.item())
+            total_loss_points_encoder.append(loss_points_encoder.item())
+
 
         log.info(
-            f'Loss_ALL: {total_loss_eg / i:.4f} '
-            f'Loss_R: {total_loss_e / i:.4f} '
-            f'Loss_E: {total_loss_kld / i:.4f} '
+            f'Number of interations : {i} \n'
+            f'\tRec loss points: mean={np.mean(total_loss_points) :.10f} std={np.std(total_loss_points) :.10f} \n'
+            f'\tRec loss colors: mean={np.mean(total_loss_colors) :.4f} std={np.std(total_loss_colors) :.4f} \n'
+            f'\tRec loss points encoder: mean={np.mean(total_loss_points_encoder) :.4f} std={np.std(total_loss_points_encoder) :.4f} \n'
+            f'\tRec loss colors encoder: mean={np.mean(total_loss_points_encoder) :.4f} std={np.std(total_loss_points_encoder) :.4f} \n'
+
         )
 
         x = torch.cat(x)
