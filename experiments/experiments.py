@@ -123,7 +123,8 @@ def main(config):
     with torch.no_grad():
         for i, point_data in enumerate(points_dataloader, 0):
             #if i > 10:
-            #    break
+            #   break
+            
             if dataset_name == "custom":
                 X = torch.cat((point_data['points'], point_data['colors']), dim=2)
                 X = X.to(device, dtype=torch.float)
@@ -423,8 +424,8 @@ def sphere_triangles(encoder_p, encoder_cp, hyper_network_points, hyper_network_
             
             np.save(join(results_dir, 'sphere_triangles', f'p_{p}_c_{c}_real'), np.array(x[p]))
             np.save(join(results_dir, 'sphere_triangles', f'p_{p}_c_{c}_point_cloud'), np.array(target_network_input.cpu().numpy()))
-            np.save(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_reconstructed_points'), np.array(x_points_rec))
-            np.save(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_reconstructed_colors'), np.array(x_colors_rec))
+            np.save(join(results_dir, 'sphere_triangles', f'p_{p}_c_{c}_reconstructed_points'), np.array(x_points_rec))
+            np.save(join(results_dir, 'sphere_triangles', f'p_{p}_c_{c}_reconstructed_colors'), np.array(x_colors_rec))
 
             with open(join(results_dir, 'sphere_triangles', f'p_{p}_c_{c}_triangulation.pickle'), 'wb') as triangulation_file:
                 pickle.dump(triangulation, triangulation_file)
