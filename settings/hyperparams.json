@@ -21,7 +21,7 @@
     "n_points": 15000,
 
     "max_epochs": 5000,
-    "batch_size": 32,
+    "batch_size": 16,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
     "z_size": 2048,
@@ -42,15 +42,12 @@
 
     "target_network_input": {
         "constant": false,
-        "loss": {
-            "default": {
-                "chamfer_distance": true
-            },
-            "__comment":"Only with combined loss",
-            "change_to": {
-                "enable": true,
-                "after_epoch": 3000
-            }
+        "points": {
+            "disable_after" : 2000
+        },
+
+        "colors": {
+            "enable_after": 3000
         },
 
         "normalization": {
@@ -58,6 +55,7 @@
             "type": "progressive",
             "epoch": 1
         }
+
     },
 
     "model": {

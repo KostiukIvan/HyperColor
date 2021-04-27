@@ -91,7 +91,7 @@
         },
 
         "reconstruction": {
-            "execute": false,
+            "execute": true,
             "amount": 10
         },
 

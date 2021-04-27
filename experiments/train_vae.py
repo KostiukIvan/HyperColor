@@ -123,7 +123,7 @@ def main(config):
         reconstruction_loss = EMD().to(device)
     elif config['reconstruction_loss'].lower() == 'combined':
         from losses.combined_loss import CombinedLoss
-        reconstruction_loss = CombinedLoss(config).to(device)
+        reconstruction_loss = CombinedLoss().to(device)
     else:
         raise ValueError(f'Invalid reconstruction loss. Accepted `chamfer` or '
                          f'`earth_mover`, got: {config["reconstruction_loss"]}')
@@ -161,15 +161,23 @@ def main(config):
         #losses_e = np.load(join(metrics_path, f'{starting_epoch - 1:05}_E.npy')).tolist()
         #losses_kld = np.load(join(metrics_path, f'{starting_epoch - 1:05}_KLD.npy')).tolist()
         #losses_eg = np.load(join(metrics_path, f'{starting_epoch - 1:05}_EG.npy')).tolist()
-        losses_e = []
-        losses_kld = []
-        losses_eg = []
+        losses_e_p = []
+        losses_kld_p = []
+        losses_eg_p = []
+        
+        losses_e_cp = []
+        losses_kld_cp = []
+        losses_eg_cp = []
 
     else:
         log.info("First epoch")
-        losses_e = []
-        losses_kld = []
-        losses_eg = []
+        losses_e_p = []
+        losses_kld_p = []
+        losses_eg_p = []
+        
+        losses_e_cp = []
+        losses_kld_cp = []
+        losses_eg_cp = []
 
     if config['target_network_input']['normalization']['enable']:
         normalization_type = config['target_network_input']['normalization']['type']
@@ -180,9 +188,8 @@ def main(config):
         start_epoch_time = datetime.now()
         log.debug("Epoch: %s" % epoch)
 
-        train_colors = False
-        if epoch > config['target_network_input']['loss']['change_to']['after_epoch']:
-            train_colors = True
+        train_colors = epoch > config['target_network_input']['colors']['enable_after']
+        train_points = epoch < config['target_network_input']['points']['disable_after']
 
         if train_colors:
             hyper_network_p.train()
@@ -190,7 +197,8 @@ def main(config):
 
             hyper_network_cp.eval()
             encoder_cp.eval()
-        else:
+
+        if train_points:
             hyper_network_cp.train()
             encoder_cp.train()
 
@@ -198,9 +206,13 @@ def main(config):
             encoder_p.eval()
 
 
-        total_loss_all = 0.0
-        total_loss_r = 0.0
-        total_loss_kld = 0.0
+        total_loss_all_p = 0.0
+        total_loss_r_p = 0.0
+        total_loss_kld_p = 0.0
+
+        total_loss_all_cp = 0.0
+        total_loss_r_cp = 0.0
+        total_loss_kld_cp = 0.0
         for i, point_data in enumerate(points_dataloader, 1):
 
             if dataset_name == "custom":
@@ -218,6 +230,17 @@ def main(config):
             codes_p, mu_p, logvar_p = None, None, None
             codes_cp, mu_cp, logvar_cp = None, None, None
             codes_comb = None
+            X_rec = torch.zeros(torch.cat([X, X[:,:3,:]], dim=1).shape).to(device) # [b, 9, 4096]
+
+            if train_points and not train_colors:
+                codes_p, mu_p, logvar_p = encoder_p(X[:,:3,:])
+                target_networks_weights_p = hyper_network_p(codes_p)
+                for j, target_network_weights_p in enumerate(target_networks_weights_p):
+                    target_network_p = aae.TargetNetwork(config, target_network_weights_p).to(device)
+
+                    if not config['target_network_input']['constant'] or target_network_input is None:     
+                        target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
+                    X_rec[j][:3] = torch.transpose(target_network_p(target_network_input.to(device, dtype=torch.float)), 0, 1)
 
             if train_colors:
                 codes_p, mu_p, logvar_p = encoder_p(X[:,:3,:])
@@ -226,7 +249,6 @@ def main(config):
                 target_networks_weights_p = hyper_network_p(codes_p)
                 target_networks_weights_cp = hyper_network_cp(codes_cp)
                 
-                X_rec = torch.zeros(torch.cat([X, X[:,:3,:]], dim=1).shape).to(device) # [b, 9, 4096]
                 for j, target_network_weights in enumerate(zip(target_networks_weights_p, target_networks_weights_cp)):
 
                     target_network_p = aae.TargetNetwork(config, target_network_weights[0]).to(device)
@@ -250,44 +272,12 @@ def main(config):
 
                     X_rec[j] = torch.cat([pred_points, pred_colors, origin_colors], dim=0) # [B,6,N]
 
-            else:
-                codes_p, mu_p, logvar_p = encoder_p(X[:,:3,:])
-                target_networks_weights_p = hyper_network_p(codes_p)
-                X_rec = torch.zeros(X[:,:3,:].shape).to(device)
-                for j, target_network_weights_p in enumerate(target_networks_weights_p):
-                    target_network_p = aae.TargetNetwork(config, target_network_weights_p).to(device)
 
-                    if not config['target_network_input']['constant'] or target_network_input is None:     
-                        target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
-                    X_rec[j] = torch.transpose(target_network_p(target_network_input.to(device, dtype=torch.float)), 0, 1)
-
-        
-            if config['reconstruction_loss'].lower() == 'combined': 
+            if train_points and not train_colors:
                 loss_r = reconstruction_loss(X.permute(0, 2, 1),
                                             X_rec.permute(0, 2, 1),
-                                            train_colors)
-                
-            else:
-                loss_r = torch.mean(
-                    config['reconstruction_coef'] *
-                    reconstruction_loss(X.permute(0, 2, 1) + 0.5,
-                                        X_rec.permute(0, 2, 1) + 0.5))
-            if train_colors:
-                loss_kld = 0.5 * (torch.exp(logvar_cp) + torch.pow(mu_cp, 2) - 1 - logvar_cp).sum()
-                loss_all = loss_r + loss_kld
+                                            False)
 
-                e_hn_optimizer_cp.zero_grad()
-                hyper_network_cp.zero_grad()
-                encoder_cp.zero_grad()
-
-                loss_all.backward()
-                e_hn_optimizer_cp.step()
-
-                total_loss_r += loss_r.item()
-                total_loss_kld += loss_kld.item()
-                total_loss_all += loss_all.item()
-
-            else:
                 loss_kld = 0.5 * (torch.exp(logvar_p) + torch.pow(mu_p, 2) - 1 - logvar_p).sum()
                 loss_all = loss_r + loss_kld
 
@@ -298,21 +288,91 @@ def main(config):
                 loss_all.backward()
                 e_hn_optimizer_p.step()
 
-                total_loss_r += loss_r.item()
-                total_loss_kld += loss_kld.item()
-                total_loss_all += loss_all.item()
+                total_loss_r_p += loss_r.item()
+                total_loss_kld_p += loss_kld.item()
+                total_loss_all_p += loss_all.item()
+            
+            if train_colors and not train_points:
+                loss_r = reconstruction_loss(X.permute(0, 2, 1),
+                                            X_rec.permute(0, 2, 1),
+                                            True)
 
-        log.info(
-            f'[{epoch}/{config["max_epochs"]}] '
-            f'Loss_ALL: {total_loss_all / i:.4f} '
-            f'Loss_R: {total_loss_r / i:.4f} '
-            f'Loss_E: {total_loss_kld / i:.4f} '
-            f'Time: {datetime.now() - start_epoch_time}'
-        )
+                loss_kld = 0.5 * (torch.exp(logvar_cp) + torch.pow(mu_cp, 2) - 1 - logvar_cp).sum()
+                loss_all = loss_r + loss_kld
 
-        losses_e.append(total_loss_r)
-        losses_kld.append(total_loss_kld)
-        losses_eg.append(total_loss_all)
+                e_hn_optimizer_cp.zero_grad()
+                hyper_network_cp.zero_grad()
+                encoder_cp.zero_grad()
+
+                loss_all.backward()
+                e_hn_optimizer_cp.step()
+
+                total_loss_r_cp += loss_r.item()
+                total_loss_kld_cp += loss_kld.item()
+                total_loss_all_cp += loss_all.item()
+
+
+            if train_colors and train_points:
+                loss_r_cp = reconstruction_loss(X.permute(0, 2, 1),
+                                            X_rec.permute(0, 2, 1),
+                                            True)
+                loss_r_p = reconstruction_loss(X.permute(0, 2, 1),
+                                            X_rec.permute(0, 2, 1),
+                                            False)
+
+                loss_r = loss_r_cp + loss_r_p
+
+                loss_kld_cp = 0.5 * (torch.exp(logvar_cp) + torch.pow(mu_cp, 2) - 1 - logvar_cp).sum()
+                loss_kld_p = 0.5 * (torch.exp(logvar_p) + torch.pow(mu_p, 2) - 1 - logvar_p).sum()
+                loss_all = loss_r + loss_kld_cp + loss_kld_p
+
+                e_hn_optimizer_cp.zero_grad()
+                hyper_network_cp.zero_grad()
+                encoder_cp.zero_grad()
+
+                e_hn_optimizer_p.zero_grad()
+                encoder_p.zero_grad()
+                hyper_network_p.zero_grad()
+
+                loss_all.backward()
+
+                e_hn_optimizer_cp.step()
+                e_hn_optimizer_p.step()
+
+                total_loss_r_cp += loss_r_cp.item()
+                total_loss_kld_cp += loss_kld_cp.item()
+                total_loss_all_cp += (loss_r_cp + loss_kld_cp).item()
+                
+                total_loss_r_p += loss_r_p.item()
+                total_loss_kld_p += loss_kld_p.item()
+                total_loss_all_p += (loss_r_p + loss_kld_p).item()
+
+
+        if train_points:
+            log.info(
+                f'P: [{epoch}/{config["max_epochs"]}] '
+                f'Loss_ALL: {total_loss_all_p / i:.4f} '
+                f'Loss_R: {total_loss_r_p/ i:.4f} '
+                f'Loss_E: {total_loss_kld_p / i:.4f} '
+                f'Time: {datetime.now() - start_epoch_time}'
+            )
+
+            losses_e_p.append(total_loss_r_p)
+            losses_kld_p.append(total_loss_kld_p)
+            losses_eg_p.append(total_loss_all_p)
+
+        if train_colors:
+            log.info(
+                f'C: [{epoch}/{config["max_epochs"]}] '
+                f'Loss_ALL: {total_loss_all_cp / i:.4f} '
+                f'Loss_R: {total_loss_r_cp/ i:.4f} '
+                f'Loss_E: {total_loss_kld_cp / i:.4f} '
+                f'Time: {datetime.now() - start_epoch_time}'
+            )
+
+            losses_e_p.append(total_loss_r_cp)
+            losses_kld_p.append(total_loss_kld_cp)
+            losses_eg_p.append(total_loss_all_cp)
 
         #
         # Save intermediate results
