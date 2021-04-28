@@ -118,6 +118,8 @@ def main(config):
     total_loss_points = []
     total_loss_colors_encoder = []
     total_loss_points_encoder = []
+    total_codes_p = []
+    total_codes_cp = []
     x = []
 
     with torch.no_grad():
@@ -140,6 +142,8 @@ def main(config):
             x.append(X)
             codes_p, mu_p, logvar_p = encoder_p(X[:,:3,:])
             codes_cp, mu_cp, logvar_cp = encoder_cp(X)
+            total_codes_p.append(codes_p)
+            total_codes_cp.append(codes_cp)
 
             target_networks_weights_p = hyper_network_p(codes_p)
             target_networks_weights_cp = hyper_network_cp(codes_cp)
@@ -192,16 +196,20 @@ def main(config):
             total_loss_points_encoder.append(loss_points_encoder.item())
 
 
+        x = torch.cat(x)
+        total_codes_p = torch.cat(total_codes_p)
+        total_codes_cp = torch.cat(total_codes_cp)
+
         log.info(
             f'Number of interations : {i} \n'
             f'\tRec loss points: mean={np.mean(total_loss_points) :.10f} std={np.std(total_loss_points) :.10f} \n'
             f'\tRec loss colors: mean={np.mean(total_loss_colors) :.4f} std={np.std(total_loss_colors) :.4f} \n'
             f'\tRec loss points encoder: mean={np.mean(total_loss_points_encoder) :.4f} std={np.std(total_loss_points_encoder) :.4f} \n'
-            f'\tRec loss colors encoder: mean={np.mean(total_loss_points_encoder) :.4f} std={np.std(total_loss_points_encoder) :.4f} \n'
+            f'\tRec loss colors encoder: mean={np.mean(total_loss_colors_encoder) :.4f} std={np.std(total_loss_colors_encoder) :.4f} \n'
+            f'\tPoints encoder mean={torch.mean(total_codes_p.mean(dim=1)) :.4f} std={torch.mean(total_codes_p.std(dim=1)) :.4f} \n'
+            f'\tColors encoder mean={torch.mean(total_codes_cp.mean(dim=1)) :.4f} std={torch.mean(total_codes_cp.std(dim=1)) :.4f} \n'
 
         )
-
-        x = torch.cat(x)
 
         if config['experiments']['interpolation']['execute']:
             interpolation(x, encoder, hyper_network_points, device, results_dir, epoch,
@@ -325,10 +333,7 @@ def reconstruction(encoder_p, encoder_cp, hyper_network_points, hyper_network_co
     
     z_a, _, _ = encoder_p(x[:,:3,:])
     z_b, _, _ = encoder_cp(x)
-    print(torch.mean(z_a.mean(dim=1)))
-    print(torch.mean(z_a.std(dim=1)))
-    print(torch.mean(z_b.mean(dim=1)))
-    print(torch.mean(z_b.std(dim=1)))
+
     weights_points_rec = hyper_network_points(z_a)
     weights_colors_rec = hyper_network_colors(z_b)
     x = x.cpu().numpy()

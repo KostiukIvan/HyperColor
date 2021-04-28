@@ -158,13 +158,21 @@ def main(config):
             join(weights_path, f'{starting_epoch - 1:05}_EGoC.pth')))
 
         log.info("Loading losses...")
-        losses_e_p = np.load(join(metrics_path, f'{starting_epoch - 1:05}_E_P.npy')).tolist()
-        losses_kld_p = np.load(join(metrics_path, f'{starting_epoch - 1:05}_KLD_P.npy')).tolist()
-        losses_eg_p = np.load(join(metrics_path, f'{starting_epoch - 1:05}_EG_P.npy')).tolist()
+        #losses_e_p = np.load(join(metrics_path, f'{starting_epoch - 1:05}_E_P.npy')).tolist()
+        #losses_kld_p = np.load(join(metrics_path, f'{starting_epoch - 1:05}_KLD_P.npy')).tolist()
+        #losses_eg_p = np.load(join(metrics_path, f'{starting_epoch - 1:05}_EG_P.npy')).tolist()
         
-        losses_e_cp = np.load(join(metrics_path, f'{starting_epoch - 1:05}_E_CP.npy')).tolist()
-        losses_kld_cp = np.load(join(metrics_path, f'{starting_epoch - 1:05}_KLD_CP.npy')).tolist()
-        losses_eg_cp = np.load(join(metrics_path, f'{starting_epoch - 1:05}_EG_CP.npy')).tolist()
+        #losses_e_cp = np.load(join(metrics_path, f'{starting_epoch - 1:05}_E_CP.npy')).tolist()
+        #losses_kld_cp = np.load(join(metrics_path, f'{starting_epoch - 1:05}_KLD_CP.npy')).tolist()
+        #losses_eg_cp = np.load(join(metrics_path, f'{starting_epoch - 1:05}_EG_CP.npy')).tolist()
+        losses_e_p = []
+        losses_kld_p = []
+        losses_eg_p = []
+        
+        losses_e_cp = []
+        losses_kld_cp = []
+        losses_eg_cp = []
+
 
     else:
         log.info("First epoch")

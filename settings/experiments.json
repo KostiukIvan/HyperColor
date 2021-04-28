@@ -91,8 +91,8 @@
         },
 
         "reconstruction": {
-            "execute": true,
-            "amount": 10
+            "execute": false,
+            "amount": 15
         },
 
         "sphere": {
@@ -105,22 +105,22 @@
         },
 
         "sphere_triangles": {
-            "execute": false,
-            "amount": 7,
+            "execute": true,
+            "amount": 15,
             "method": "edge",
-            "depth": 7,
+            "depth": 5,
             "start": 0.5,
             "end": 1.5,
             "transitions": 21
         },
 
         "sphere_triangles_interpolation": {
-            "execute": false,
-            "objects_amount": 7,
-            "colors_amount": 7,
+            "execute": true,
+            "objects_amount": 15,
+            "colors_amount": 15,
             "method": "edge",
-            "depth": 7,
-            "coefficient": 1.5,
+            "depth": 5,
+            "coefficient": 1.0,
             "transitions": 30
         },
 
@@ -131,20 +131,20 @@
         },
 
         "fixed": {
-            "execute": false,
+            "execute": true,
             "points":{
                 "mean": 0.0,
-                "std": 0.002
+                "std": 0.001
             },
             "colors":{
                 "mean": 0.0,
-                "std": 0.12 
+                "std": 0.3
             },
-            "amount": 7,
+            "amount": 15,
             "triangulation": {
                 "execute": true,
                 "method": "edge",
-                "depth": 7
+                "depth": 5
             }
         }
     }

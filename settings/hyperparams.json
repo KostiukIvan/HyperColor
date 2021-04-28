@@ -20,7 +20,7 @@
     "num_workers": 14,
     "n_points": 15000,
 
-    "max_epochs": 5000,
+    "max_epochs": 7000,
     "batch_size": 16,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
@@ -43,7 +43,7 @@
     "target_network_input": {
         "constant": false,
         "points": {
-            "disable_after" : 2000
+            "disable_after" : 7000
         },
 
         "colors": {
