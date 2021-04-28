@@ -158,16 +158,13 @@ def main(config):
             join(weights_path, f'{starting_epoch - 1:05}_EGoC.pth')))
 
         log.info("Loading losses...")
-        #losses_e = np.load(join(metrics_path, f'{starting_epoch - 1:05}_E.npy')).tolist()
-        #losses_kld = np.load(join(metrics_path, f'{starting_epoch - 1:05}_KLD.npy')).tolist()
-        #losses_eg = np.load(join(metrics_path, f'{starting_epoch - 1:05}_EG.npy')).tolist()
-        losses_e_p = []
-        losses_kld_p = []
-        losses_eg_p = []
+        losses_e_p = np.load(join(metrics_path, f'{starting_epoch - 1:05}_E_P.npy')).tolist()
+        losses_kld_p = np.load(join(metrics_path, f'{starting_epoch - 1:05}_KLD_P.npy')).tolist()
+        losses_eg_p = np.load(join(metrics_path, f'{starting_epoch - 1:05}_EG_P.npy')).tolist()
         
-        losses_e_cp = []
-        losses_kld_cp = []
-        losses_eg_cp = []
+        losses_e_cp = np.load(join(metrics_path, f'{starting_epoch - 1:05}_E_CP.npy')).tolist()
+        losses_kld_cp = np.load(join(metrics_path, f'{starting_epoch - 1:05}_KLD_CP.npy')).tolist()
+        losses_eg_cp = np.load(join(metrics_path, f'{starting_epoch - 1:05}_EG_CP.npy')).tolist()
 
     else:
         log.info("First epoch")
@@ -370,9 +367,9 @@ def main(config):
                 f'Time: {datetime.now() - start_epoch_time}'
             )
 
-            losses_e_p.append(total_loss_r_cp)
-            losses_kld_p.append(total_loss_kld_cp)
-            losses_eg_p.append(total_loss_all_cp)
+            losses_e_cp.append(total_loss_r_cp)
+            losses_kld_cp.append(total_loss_kld_cp)
+            losses_eg_cp.append(total_loss_all_cp)
 
         #
         # Save intermediate results
@@ -411,9 +408,13 @@ def main(config):
             torch.save(e_hn_optimizer_p.state_dict(), join(weights_path, f'{epoch:05}_EGoP.pth'))
             torch.save(e_hn_optimizer_cp.state_dict(), join(weights_path, f'{epoch:05}_EGoC.pth'))
 
-            np.save(join(metrics_path, f'{epoch:05}_E'), np.array(losses_e))
-            np.save(join(metrics_path, f'{epoch:05}_KLD'), np.array(losses_kld))
-            np.save(join(metrics_path, f'{epoch:05}_EG'), np.array(losses_eg))
+            np.save(join(metrics_path, f'{epoch:05}_E_P'), np.array(losses_e_p))
+            np.save(join(metrics_path, f'{epoch:05}_KLD_P'), np.array(losses_kld_p))
+            np.save(join(metrics_path, f'{epoch:05}_EG_P'), np.array(losses_eg_p))
+
+            np.save(join(metrics_path, f'{epoch:05}_E_CP'), np.array(losses_e_cp))
+            np.save(join(metrics_path, f'{epoch:05}_KLD_CP'), np.array(losses_kld_cp))
+            np.save(join(metrics_path, f'{epoch:05}_EG_CP'), np.array(losses_eg_cp))
 
 
 if __name__ == '__main__':
