@@ -124,8 +124,8 @@ def main(config):
 
     with torch.no_grad():
         for i, point_data in enumerate(points_dataloader, 0):
-            #if i > 10:
-            #   break
+            #if i > 50:
+            #  break
             
             if dataset_name == "custom":
                 X = torch.cat((point_data['points'], point_data['colors']), dim=2)
@@ -261,7 +261,7 @@ def main(config):
                   config['z_size'], 
                   config['experiments']['fixed']['points']['mean'],
                   config['experiments']['fixed']['points']['std'], 
-                  config['experiments']['fixed']['colors']['mean'],
+                  torch.mean(total_codes_cp.mean(dim=1)), #config['experiments']['fixed']['colors']['mean'],
                   config['experiments']['fixed']['colors']['std'], 
                   (x.shape[1], x.shape[2]),
                   config['experiments']['fixed']['triangulation']['execute'],
