@@ -16,6 +16,9 @@ from utils.pcutil import plot_3d_point_cloud
 from utils.util import find_latest_epoch, prepare_results_dir, cuda_setup, setup_logging, set_seed, get_weights_dir
 from utils.points import generate_points
 
+from sklearn.neighbors import KNeighborsClassifier
+import skimage.color as colors
+
 cudnn.benchmark = True
 
 
@@ -54,6 +57,12 @@ def main(config):
         from datasets.shapenet import ShapeNetDataset
         dataset = ShapeNetDataset(root_dir=config['data_dir'],
                                   classes=config['classes'])
+    elif dataset_name == "custom":
+        # import pdb; pdb.set_trace()
+        from datasets.customDataset import CustomDataset
+        dataset = CustomDataset(root_dir=config['data_dir'],
+                                classes=config['classes'], config=config)
+
     else:
         raise ValueError(f'Invalid dataset name. Expected `shapenet` or '
                          f'`faust`. Got: `{dataset_name}`')
@@ -61,7 +70,7 @@ def main(config):
     log.info("Selected {} classes. Loaded {} samples.".format(
         'all' if not config['classes'] else ','.join(config['classes']), len(dataset)))
 
-    points_dataloader = DataLoader(dataset, batch_size=64, shuffle=True, num_workers=8, drop_last=True,
+    points_dataloader = DataLoader(dataset, batch_size=8, shuffle=True, num_workers=8, drop_last=True,
                                    pin_memory=True)
 
     #
@@ -78,6 +87,10 @@ def main(config):
         # reconstruction_loss = earth_mover_distance
         from losses.earth_mover_distance import EMD
         reconstruction_loss = EMD().to(device)
+    elif config['reconstruction_loss'].lower() == 'combined':
+        from losses.combined_loss import CombinedLoss
+        reconstruction_loss = CombinedLoss(experiment=True).to(device)
+
     else:
         raise ValueError(f'Invalid reconstruction loss. Accepted `chamfer` or '
                          f'`earth_mover`, got: {config["reconstruction_loss"]}')
@@ -91,46 +104,79 @@ def main(config):
     hyper_network.eval()
     encoder.eval()
 
-    total_loss_eg = 0.0
-    total_loss_e = 0.0
-    total_loss_kld = 0.0
+    total_loss_colors = []
+    total_loss_points = []
+    total_loss_encoder = []
     x = []
 
     with torch.no_grad():
         for i, point_data in enumerate(points_dataloader, 1):
-            X, _ = point_data
-            X = X.to(device)
+            #if i > 10:
+            #  break
+            
+            if dataset_name == "custom":
+                X = torch.cat((point_data['points'], point_data['colors']), dim=2)
+                X = X.to(device, dtype=torch.float)
+
+            else: 
+                X, _ = point_data
+                X = X.to(device, dtype=torch.float)
 
             # Change dim [BATCH, N_POINTS, N_DIM] -> [BATCH, N_DIM, N_POINTS]
-            if X.size(-1) == 3:
+            if X.size(-1) == 3 or X.size(-1) == 6 or X.size(-1) == 7:
                 X.transpose_(X.dim() - 2, X.dim() - 1)
 
             x.append(X)
             codes, mu, logvar = encoder(X)
             target_networks_weights = hyper_network(codes)
 
-            X_rec = torch.zeros(X.shape).to(device)
+            X_rec = torch.zeros(torch.cat([X, X[:,:3,:]], dim=1).shape).to(device) # [b, 9, 4096]
             for j, target_network_weights in enumerate(target_networks_weights):
                 target_network = aae.TargetNetwork(config, target_network_weights).to(device)
-                target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], X.shape[1]))
-                X_rec[j] = torch.transpose(target_network(target_network_input.to(device)), 0, 1)
+                target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
+                target_network_input = torch.cat([target_network_input, target_network_input], dim=1)
 
-            loss_e = torch.mean(
-                config['reconstruction_coef'] *
-                reconstruction_loss(X.permute(0, 2, 1) + 0.5,
-                                    X_rec.permute(0, 2, 1) + 0.5))
+                reconstruction = target_network(target_network_input.to(device, dtype=torch.float)) # [4096, 3]
+                pred_points = reconstruction[:, : 3]
+                pred_colors = reconstruction[:, 3 : 6]
 
-            loss_kld = 0.5 * (torch.exp(logvar) + torch.pow(mu, 2) - 1 - logvar).sum()
+                points_kneighbors = pred_points
+                clf = KNeighborsClassifier(1)
+                clf.fit(torch.transpose(X[j][:3], 0 , 1).cpu().numpy(), np.ones(len(torch.transpose(X[j][:3], 0 , 1))))
+                nearest_points = clf.kneighbors(points_kneighbors.detach().cpu().numpy(), return_distance=False)
+                origin_colors = torch.transpose(X[j][3:6], 0, 1)[nearest_points].squeeze()
+                
+                origin_colors = torch.transpose(origin_colors, 0, 1) # [3, 4096]
+                pred_colors = torch.transpose(pred_colors, 0, 1) # [3, 4096]
+                pred_points = torch.transpose(pred_points, 0, 1) # [3, 4096]
 
-            loss_eg = loss_e + loss_kld
-            total_loss_e += loss_e.item()
-            total_loss_kld += loss_kld.item()
-            total_loss_eg += loss_eg.item()
+                X_rec[j] = torch.cat([pred_points, pred_colors, origin_colors], dim=0) # [B,6,N]
+
+            if config['reconstruction_loss'].lower() == 'combined': 
+                loss_colors = reconstruction_loss(X.permute(0, 2, 1),
+                                            X_rec.permute(0, 2, 1),
+                                            True)
+                loss_points = reconstruction_loss(X.permute(0, 2, 1),
+                                            X_rec.permute(0, 2, 1),
+                                            False)
+                
+            else:
+                loss_e = torch.mean(
+                    config['reconstruction_coef'] *
+                    reconstruction_loss(X.permute(0, 2, 1) + 0.5,
+                                        X_rec.permute(0, 2, 1) + 0.5))
+
+            loss_encoder = 0.5 * (torch.exp(logvar) + torch.pow(mu, 2) - 1 - logvar).sum()
+
+            total_loss_colors.append(loss_colors.item())
+            total_loss_points.append(loss_points.item())
+            total_loss_encoder.append(loss_encoder.item())
 
         log.info(
-            f'Loss_ALL: {total_loss_eg / i:.4f} '
-            f'Loss_R: {total_loss_e / i:.4f} '
-            f'Loss_E: {total_loss_kld / i:.4f} '
+            f'Number of interations : {i} \n'
+            f'\tRec loss points: mean={np.mean(total_loss_points) :.10f} std={np.std(total_loss_points) :.10f} \n'
+            f'\tRec loss colors: mean={np.mean(total_loss_colors) :.4f} std={np.std(total_loss_colors) :.4f} \n'
+            f'\tRec loss encoder: mean={np.mean(total_loss_encoder) :.4f} std={np.std(total_loss_encoder) :.4f} \n'
         )
 
         x = torch.cat(x)

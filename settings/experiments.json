@@ -1,16 +1,17 @@
 {
-    "results_root": "./3d_point_cloud/results",
+    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_basic",
     "arch": "vae",
     "clean_results_dir": false,
 
     "cuda": true,
     "gpu": 0,
 
-    "reconstruction_loss": "chamfer",
-    "dataset": "shapenet",
-    "data_dir": "./3d_point_cloud/dataset/shapenet",
+    "reconstruction_loss": "combined",
+    "dataset": "custom",
+    "data_dir": "/mnt/users/ikostiuk/local/ShapePointNet",
+    "n_points": 15000,
 
-    "classes": [],
+    "classes": ["airplane"],
     "reconstruction_coef": 0.05,
 
     "seed": 2018,
@@ -25,7 +26,22 @@
         "jsd_how_many_last_epochs": -1
     },
 
+    "target_network_input": {
+        "constant": false,
+       
+        "normalization": {
+            "enable": false,
+            "type": "progressive",
+            "epoch": 1
+        }
+    },
+
     "model": {
+        "D": {
+            "dropout": 0.5,
+            "use_bias": true,
+            "relu_slope": 0.2
+        },
         "HN": {
             "use_bias": true,
             "relu_slope": 0.2
@@ -38,40 +54,31 @@
             "use_bias": true,
             "relu_slope": 0.2,
             "freeze_layers_learning": false,
-            "layer_out_channels": [16]
+            "layer_out_channels": [32, 64, 128, 64]
         }
     },
-
-    "target_network_input": {
-        "normalization": {
-            "enable": true,
-            "type": "progressive",
-            "epoch": 100
-        }
-    },
-
     "experiments": {
 
         "interpolation": {
-            "execute": true,
+            "execute": false,
             "amount": 5,
             "transitions": 10
         },
 
         "interpolation_between_two_points": {
-            "execute": true,
+            "execute": false,
             "amount": 30,
             "transitions": 21,
             "image_points": 1000
         },
 
         "reconstruction": {
-            "execute": true,
+            "execute": false,
             "amount": 5
         },
 
         "sphere": {
-            "execute": true,
+            "execute": false,
             "amount": 10,
             "image_points": 10240,
             "start": 2.0,
@@ -80,7 +87,7 @@
         },
 
         "sphere_triangles": {
-            "execute": true,
+            "execute": false,
             "amount": 10,
             "method": "edge",
             "depth": 2,
@@ -90,7 +97,7 @@
         },
 
         "sphere_triangles_interpolation": {
-            "execute": true,
+            "execute": false,
             "amount": 10,
             "method": "edge",
             "depth": 2,
@@ -99,13 +106,13 @@
         },
 
         "different_number_of_points": {
-            "execute": true,
+            "execute": false,
             "amount": 5,
             "image_points": [10, 100, 1000, 2048, 10000]
         },
 
         "fixed": {
-            "execute": true,
+            "execute": false,
             "mean": 0.0,
             "std": 0.015,
             "amount": 64,

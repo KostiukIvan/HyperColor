@@ -116,7 +116,7 @@ def main(config):
 
     elif config['reconstruction_loss'].lower() == 'combined':
         from losses.combined_loss import CombinedLoss
-        reconstruction_loss = CombinedLoss(config).to(device)
+        reconstruction_loss = CombinedLoss(experiment=False).to(device)
 
     else:
         raise ValueError(f'Invalid reconstruction loss. Accepted `chamfer` or '
@@ -177,7 +177,6 @@ def main(config):
                     X = point_data['points']"""
                 X = torch.cat((point_data['points'], point_data['colors']), dim=2)
                 X = X.to(device, dtype=torch.float)
-                X_normals = point_data['normals'].to(device, dtype=torch.float)
 
             else: 
                 X, _ = point_data
@@ -195,27 +194,16 @@ def main(config):
             for j, target_network_weights in enumerate(target_networks_weights):
                 target_network = aae.TargetNetwork(config, target_network_weights).to(device)
 
-                if config['target_network_input']['loss']['change_to']['enable'] and \
-                    epoch > config['target_network_input']['loss']['change_to']['after_epoch'] :
-                    target_network_input, faces = meshes.get_random_object()
-                    target_network_input = torch.from_numpy(target_network_input).to(device)
-                    S_mesh.append(torch.from_numpy(faces).to(device))
-
-                elif not config['target_network_input']['constant'] or target_network_input is None:     
+                if not config['target_network_input']['constant'] or target_network_input is None:     
                     target_network_input = generate_points(config=config, epoch=epoch, size=(X.shape[2], 3)).to(device)
 
                 target_network_input = torch.cat([target_network_input, target_network_input], dim=1)
                 X_rec[j] = torch.transpose(target_network(target_network_input.to(device, dtype=torch.float)), 0, 1)
 
             if config['reconstruction_loss'].lower() == 'combined': 
-                change_loss_func = False
-                if config['target_network_input']['loss']['change_to']['enable'] and \
-                    epoch > config['target_network_input']['loss']['change_to']['after_epoch'] :
-                    change_loss_func = True
-
-                loss_r = reconstruction_loss(X.permute(0, 2, 1) + 0.5,
-                                                            X_rec.permute(0, 2, 1) + 0.5,
-                                                            X_normals, S_mesh, change_loss_func)
+                loss_r = reconstruction_loss(X.permute(0, 2, 1),
+                                            X_rec.permute(0, 2, 1),
+                                            False)
                 
             else:
                 loss_r = torch.mean(
@@ -255,7 +243,7 @@ def main(config):
         X = X.cpu().numpy()
         X_rec = X_rec.detach().cpu().numpy()
 
-        for k in range(min(5, X_rec.shape[0])):
+        for k in range(min(1, X_rec.shape[0])):
             fig = plot_3d_point_cloud(X_rec[k][0], X_rec[k][1], X_rec[k][2], C = X_rec[k][3:6].transpose(), in_u_sphere=True, show=False,
                                       title=str(epoch))
             fig.savefig(join(results_dir, 'samples', f'{epoch}_{k}_reconstructed.png'))

@@ -1,7 +1,7 @@
 {
-    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results",
-    "clean_results_dir": true,
-    "clean_weights_dir": true,
+    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_basic",
+    "clean_results_dir": false,
+    "clean_weights_dir": false,
 
     "cuda": true,
     "gpu": 0,
@@ -11,20 +11,20 @@
     "metrics": [],
 
     "dataset": "custom",
-    "data_dir": "/mnt/users/ikostiuk/home/3d_point_cloud/dataset/custom",
-    "classes": ["airplane"],
+    "data_dir": "/mnt/users/ikostiuk/local/ShapePointNet",
+    "classes": ["car"],
     "meshs_of_sphere_dir": "/home/ikostiuk/3d_point_cloud/dataset/sphere_mesh",
     
     "shuffle": true,
     "transforms": ["rotate"],
-    "num_workers": 8,
-    "n_points": 4096,
+    "num_workers": 12,
+    "n_points": 15000,
 
-    "max_epochs": 1000,
-    "batch_size": 64,
+    "max_epochs": 2000,
+    "batch_size": 16,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
-    "z_size": 4096,
+    "z_size": 2048,
     "pointnet": false,
     "feature_regularization_coef": 0.001,
     "wasserstein": true,
@@ -37,43 +37,16 @@
     "normal_std": 0.2,
 
     "seed": 2018,
-    "save_frequency": 1,
+    "save_frequency": 100,
     "epsilon": 0.001,
 
     "target_network_input": {
         "constant": false,
-        "loss": {
-            "default": {
-                "chamfer_distance": true,
-                "mesh_edge_loss": false,
-                "mesh_laplacian_smoothing": false,
-                "mesh_normal_consistency": false,
-                "point_mesh_edge_distance": false,
-                "point_mesh_face_distance": false,  
-                "colors": false,
-                "colors_alpha": 1
-            },
-            "__comment":"Only with combined loss",
-            "change_to": {
-                "enable": false,
-                "after_epoch": 1000,
-
-                "chamfer_distance": true,
-                "mesh_edge_loss": false,
-                "mesh_laplacian_smoothing": false,
-                "mesh_normal_consistency": false,
-                "point_mesh_edge_distance": true,
-                "point_mesh_face_distance": false,
-                "colors": false,
-                "colors_alpha": 1
-            }
-            
-        },
        
         "normalization": {
-            "enable": true,
+            "enable": false,
             "type": "progressive",
-            "epoch": 500
+            "epoch": 1
         }
     },
 
@@ -95,7 +68,7 @@
             "use_bias": true,
             "relu_slope": 0.2,
             "freeze_layers_learning": false,
-            "layer_out_channels": [32]
+            "layer_out_channels": [32, 64, 128, 64]
         }
     },
     "optimizer": {

@@ -28,12 +28,10 @@ class CombinedLoss(nn.Module):
 
         if self.experiment:
             if train_colors: # [2, 4096, 6]
-
                 origin_colors= pred_X[:, :, 6:9].type(ftype)
                 pred_colors = pred_X[:, :, 3:6].type(ftype)
-                origin_colors = torch.tensor(colors.xyz2lab(origin_colors.detach().cpu().numpy()), dtype=torch.float32).cuda()
-                pred_colors = torch.tensor(colors.xyz2lab(pred_colors.detach().cpu().numpy()), dtype=torch.float32).cuda()
 
+                origin_colors = torch.tensor(colors.xyz2lab(origin_colors.detach().cpu().numpy()), dtype=torch.long).cuda()
 
                 MSE = torch.nn.MSELoss()
                 colors_loss = MSE(origin_colors, pred_colors)
@@ -47,11 +45,22 @@ class CombinedLoss(nn.Module):
 
         else:
 
-            gts_points = torch.cat([gts_X[:, :, :3].type(ftype) + 0.5, 0.01 * gts_X[:, :, 3:6].type(ftype)], dim=2)
-            preds_points = torch.cat([pred_X[:, :, :3].type(ftype) + 0.5, 0.01 * pred_X[:, :, 3:6].type(ftype)], dim=2)
+            if train_colors: # [2, 4096, 6]
+                origin_colors= pred_X[:, :, 6:9].type(ftype)
+                pred_colors = pred_X[:, :, 3:6].type(ftype)
 
-            champher_loss, _ = chamfer_distance(gts_points, preds_points)
-            loss +=  champher_loss * 3000
+                origin_colors = torch.tensor(colors.xyz2lab(origin_colors.detach().cpu().numpy()), dtype=torch.long).cuda()
+
+                MSE = torch.nn.MSELoss()
+                colors_loss = MSE(origin_colors, pred_colors)
+                loss += colors_loss * 3
+
+            else: # [2, 4096, 3]
+                gts_points = gts_X[:, :, :3].type(ftype) + 0.5  # [2, 4096, 3]
+                preds_points = pred_X[:, :, :3].type(ftype) + 0.5  # [2, 4096, 3]
+  
+                champher_loss, _ = chamfer_distance(gts_points, preds_points)
+                loss +=  champher_loss * 3000
 
         return loss
 

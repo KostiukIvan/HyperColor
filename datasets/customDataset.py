@@ -8,9 +8,9 @@ import pandas as pd
 import numpy as np
 from torch.utils.data import Dataset
 
+
 synth_id_to_category = {
-    '02958343': 'car', '02747177': 'lamp', '02691156': 'airplane', '02773838':'cos_1', '02818832':'cos_2',
-     '02843684':'house', '02808440':'cos_4', '02828884':'chairs', '02871439':'cos_6'
+    '02691156': 'airplane', '03001627': 'chair', '02958343': 'car' 
 }
 
 category_to_synth_id = {v: k for k, v in synth_id_to_category.items()}
@@ -77,12 +77,14 @@ class CustomDataset(Dataset):
         if self.transform:
             sample = self.transform(sample)
 
+
         return sample
 
     def load_object(self, directory: str, prefix: str) -> dict: # dict<str, np.ndarray>
-        suffixes = ['_mesh_data.txt', '_color_data.txt', '_normals_data.txt']
-        parts = ['points', 'colors', 'normals']
+        suffixes = ['_mesh_data.txt', '_color_data.txt']#, '_normals_data.txt']
+        parts = ['points', 'colors']#, 'normals']
         result = dict()
+        drop_indices = None
 
         for suffix, part in zip(suffixes, parts):
             filename = prefix + suffix
@@ -90,15 +92,17 @@ class CustomDataset(Dataset):
             df = pd.read_csv(path,sep=' ', header=None, engine='c', )
             if part == 'colors':
                 df = df.iloc[:, :-1] # drop the last column
-            #if len(df.index) < 40_000:
-                #df = df.reindex(range(40_000), fill_value = 0) #add missing rows filled with zeros
-                
-            if len(df.index) > self.config['n_points']:
-                remove_n = len(df.index) - self.config['n_points']
-                drop_indices = np.random.choice(df.index, remove_n, replace=False)
-                df = df.drop(drop_indices)
+
+            if part == 'points':
+                df = df.reindex(columns=[0,2,1])
+
+            #if len(df.index) > self.config['n_points']:
+            #    remove_n = len(df.index) - self.config['n_points']
+            #    if drop_indices is None:
+            #        drop_indices = np.random.choice(df.index, remove_n, replace=False)
+            #    df = df.drop(drop_indices)
+
             result[part] = df.to_numpy()
-        
         return result
 
     def _get_names(self) -> pd.DataFrame:
