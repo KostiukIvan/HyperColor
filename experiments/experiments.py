@@ -61,7 +61,7 @@ def main(config):
         # import pdb; pdb.set_trace()
         from datasets.customDataset import CustomDataset
         dataset = CustomDataset(root_dir=config['data_dir'],
-                                classes=config['classes'], config=config)
+                                classes=config['classes'], split='test', config=config)
 
     else:
         raise ValueError(f'Invalid dataset name. Expected `shapenet` or '

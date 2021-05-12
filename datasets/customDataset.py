@@ -10,7 +10,7 @@ from torch.utils.data import Dataset
 
 
 synth_id_to_category = {
-    '02691156': 'airplane', '03001627': 'chair', '02958343': 'car' 
+    '02691156': 'airplane', '03001627': 'chair', '02958343': 'car'
 }
 
 category_to_synth_id = {v: k for k, v in synth_id_to_category.items()}
@@ -25,13 +25,19 @@ class CustomDataset(Dataset):
             transform (callable, optional): Optional transform to be applied
                 on a sample.
         """
-        self.root_dir = root_dir
-        self.transform = transform
-        self.split = split
 
         if not config:
             raise ValueError("PhotogrammetryDataset JSON config is not set")
-            
+
+        self.root_dir = root_dir
+        self.transform = transform
+        self.split = split
+        self.test_files_path = None
+        try:
+            self.test_files_path = config['csv_files_dir']
+        except KeyError:
+            print("Parameter csv_files_dir is required in case of experimet part!")
+        
         self.config = config
 
         self._maybe_download_data()
@@ -46,7 +52,11 @@ class CustomDataset(Dataset):
 
         self.point_clouds_names_train = pd.concat([pc_df[pc_df['category'] == c][:int(0.85*len(pc_df[pc_df['category'] == c]))].reset_index(drop=True) for c in classes])
         self.point_clouds_names_valid = pd.concat([pc_df[pc_df['category'] == c][int(0.85*len(pc_df[pc_df['category'] == c])):int(0.9*len(pc_df[pc_df['category'] == c]))].reset_index(drop=True) for c in classes])
-        self.point_clouds_names_test = pd.concat([pc_df[pc_df['category'] == c][int(0.9*len(pc_df[pc_df['category'] == c])):].reset_index(drop=True) for c in classes])
+        if self.test_files_path == None:
+            self.point_clouds_names_test = pd.concat([pc_df[pc_df['category'] == c][int(0.9*len(pc_df[pc_df['category'] == c])):].reset_index(drop=True) for c in classes])
+        else:
+            self.point_clouds_names_test = pd.read_csv(join(self.test_files_path, self.config["classes"][0] + ".csv"),
+                                                         usecols = ['category', 'file_prefix'], dtype=str)
 
     def __len__(self):
         if self.split == 'train':
