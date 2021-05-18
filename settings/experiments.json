@@ -12,7 +12,7 @@
     "csv_files_dir": "/home/ikostiuk/git_repos/HyperCloud/proces_airplane/HyperCloud/docs/test_data/",
     "n_points": 15000,
 
-    "classes": ["car"],
+    "classes": ["airplane"],
     "reconstruction_coef": 0.05,
 
     "seed": 2018,
