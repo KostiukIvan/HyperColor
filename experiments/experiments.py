@@ -71,7 +71,7 @@ def main(config):
     log.info("Selected {} classes. Loaded {} samples.".format(
         'all' if not config['classes'] else ','.join(config['classes']), len(dataset)))
 
-    points_dataloader = DataLoader(dataset, batch_size=16, shuffle=True, num_workers=12, drop_last=True,
+    points_dataloader = DataLoader(dataset, batch_size=1, shuffle=True, num_workers=12, drop_last=True,
                                    pin_memory=True)
 
     #
