@@ -7,13 +7,11 @@
     "gpu": 0,
 
     "reconstruction_loss": "combined",
-
     "metrics": [],
 
     "dataset": "custom",
     "data_dir": "/mnt/users/ikostiuk/local/ShapePointNet",
     "classes": ["airplane"],
-    "meshs_of_sphere_dir": "/home/ikostiuk/3d_point_cloud/dataset/sphere_mesh",
     
     "shuffle": true,
     "transforms": ["rotate"],

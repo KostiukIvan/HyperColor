@@ -9,6 +9,7 @@
     "reconstruction_loss": "combined",
     "dataset": "custom",
     "data_dir": "/mnt/users/ikostiuk/local/ShapePointNet",
+    "csv_files_dir": "./docs/test_data/",
 
     "classes": ["airplane"],
     "reconstruction_coef": 0.05,
@@ -28,15 +29,12 @@
 
     "target_network_input": {
         "constant": false,
-        "loss": {
-            "default": {
-                "chamfer_distance": true
-            },
-            "__comment":"Only with combined loss",
-            "change_to": {
-                "enable": true,
-                "after_epoch": 3000
-            }
+        "points": {
+            "disable_after" : 7000
+        },
+
+        "colors": {
+            "enable_after": 3000
         },
 
         "normalization": {
@@ -44,6 +42,7 @@
             "type": "progressive",
             "epoch": 1
         }
+
     },
 
     "model": {
@@ -105,7 +104,7 @@
         },
 
         "sphere_triangles": {
-            "execute": true,
+            "execute": false,
             "amount": 15,
             "method": "edge",
             "depth": 5,
@@ -115,7 +114,7 @@
         },
 
         "sphere_triangles_interpolation": {
-            "execute": true,
+            "execute": false,
             "objects_amount": 15,
             "colors_amount": 15,
             "method": "edge",
@@ -131,7 +130,7 @@
         },
 
         "fixed": {
-            "execute": true,
+            "execute": false,
             "points":{
                 "mean": 0.0,
                 "std": 0.001
