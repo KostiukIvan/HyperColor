@@ -61,8 +61,6 @@ class CustomDataset(Dataset):
     def __len__(self):
         if self.split == 'train':
             pc_names = self.point_clouds_names_train
-        elif self.split == 'valid':
-            pc_names = self.point_clouds_names_valid
         elif self.split == 'test':
             pc_names = self.point_clouds_names_test
         else:
@@ -72,8 +70,6 @@ class CustomDataset(Dataset):
     def __getitem__(self, idx):
         if self.split == 'train':
             pc_names = self.point_clouds_names_train
-        elif self.split == 'valid':
-            pc_names = self.point_clouds_names_valid
         elif self.split == 'test':
             pc_names = self.point_clouds_names_test
         else:
@@ -105,13 +101,6 @@ class CustomDataset(Dataset):
 
             if part == 'points':
                 df = df.reindex(columns=[0,2,1])
-
-            #if len(df.index) > self.config['n_points']:
-            #    remove_n = len(df.index) - self.config['n_points']
-            #    if drop_indices is None:
-            #        drop_indices = np.random.choice(df.index, remove_n, replace=False)
-            #    df = df.drop(drop_indices)
-
             result[part] = df.to_numpy()
         return result
 
