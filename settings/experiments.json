@@ -90,8 +90,8 @@
         },
 
         "reconstruction": {
-            "execute": false,
-            "amount": 15
+            "execute": true,
+            "amount": 3
         },
 
         "sphere": {

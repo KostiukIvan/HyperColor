@@ -18,6 +18,8 @@ from utils.points import generate_points
 
 from sklearn.neighbors import KNeighborsClassifier
 import skimage.color as colors
+import pandas as pd
+import math
 
 cudnn.benchmark = True
 
@@ -61,9 +63,7 @@ def main(config):
         # import pdb; pdb.set_trace()
         from datasets.customDataset import CustomDataset
         dataset = CustomDataset(root_dir=config['data_dir'],
-                                classes=config['classes'],
-                                split='test',
-                                config=config)
+                                classes=config['classes'], split='test', config=config)
     else:
         raise ValueError(f'Invalid dataset name. Expected `shapenet` or '
                          f'`faust`. Got: `{dataset_name}`')
@@ -71,7 +71,7 @@ def main(config):
     log.info("Selected {} classes. Loaded {} samples.".format(
         'all' if not config['classes'] else ','.join(config['classes']), len(dataset)))
 
-    points_dataloader = DataLoader(dataset, batch_size=1, shuffle=True, num_workers=12, drop_last=True,
+    points_dataloader = DataLoader(dataset, batch_size=16, shuffle=True, num_workers=12, drop_last=True,
                                    pin_memory=True)
 
     #
@@ -126,6 +126,8 @@ def main(config):
 
     with torch.no_grad():
         for i, point_data in enumerate(points_dataloader, 0):
+            #if i > 50:
+            #  break
             
             if dataset_name == "custom":
                 X = torch.cat((point_data['points'], point_data['colors']), dim=2)
@@ -145,6 +147,10 @@ def main(config):
             total_codes_p.append(codes_p)
             total_codes_cp.append(codes_cp)
 
+            # test
+            ########################################################################################
+
+            ########################################################################################
             target_networks_weights_p = hyper_network_p(codes_p)
             target_networks_weights_cp = hyper_network_cp(codes_cp)
             
@@ -327,41 +333,171 @@ def interpolation_between_two_points(encoder, hyper_network, device, x, results_
         plt.close(fig)
 
 
+
+class CodeBookInstance(object):
+    def __init__(self, codeword, point, normalized):
+        self.codeword = codeword
+        self.point = point
+        self.normalized = normalized
+
+
+class CodeBook(object):
+    def __init__(self, vec_length, l1_norm_val, stream_len, std):
+        assert l1_norm_val > 0
+        assert vec_length > 0
+
+        self.book = []
+        self.vec_length = vec_length
+        self.l1_norm_val = l1_norm_val
+        self.stream_len = stream_len
+        self.std = std
+        self._create_codebook()
+
+    def _create_codebook(self):
+        p = [-self.l1_norm_val] + [0] * (self.vec_length - 1)
+        while True:
+            if sum(abs(x) for x in p) == self.l1_norm_val:
+                l2_norm = math.sqrt(sum(x ** 2 for x in p)) 
+                normalized = tuple(self.std * x / l2_norm for x in p)
+                #print(len(self.book), p, normalized)
+                cb_instance = CodeBookInstance(len(self.book), tuple(p), normalized)
+                self.book.append(cb_instance)
+
+            index = np.nonzero(p)[-1][-1]
+            if p[index] > 0:
+                left_index = index - 1
+                if p[left_index] == 0:
+                    p[index] = -(p[index])
+                    p[index] += 1
+                    p[left_index] += 1
+                else:
+                    p[index] = -(p[index])
+                    p[index] += -1 if p[left_index] < 0 else 1
+                    p[left_index] += 1
+            else:
+                if index >= self.vec_length - 1:
+                    p[index] = -(p[index])
+                else:
+                    p[index] += 1
+                    p[index + 1] -= 1
+
+            if p[0] == self.l1_norm_val:
+                break
+
+    def find_nearest_pvq_code(self, value):
+        assert len(value) == self.vec_length, f"{len(value)}, expected {self.vec_length}"
+        ret = None
+        min_dist = None
+        for i in range(len(self.book)):
+            q = self.book[i].normalized
+            dist = math.sqrt(sum(abs(q[j] - value[j]) ** 2 for j in range(len(value))))
+            if min_dist is None or dist < min_dist:
+                ret = self.book[i]
+                min_dist = dist
+
+        return ret, min_dist
+
+    def encode_sequence(self, latent):
+        assert len(latent) >= self.vec_length
+        latent = list(latent)
+        ret = []
+        for i in range(0, len(latent), self.vec_length):
+            value = latent[i : (i + self.vec_length)]
+            if i + self.vec_length >= len(latent):
+                zeros_len = (i + self.vec_length) - len(latent)
+                value = latent[i: len(latent)] + [0] * zeros_len
+            node, min_dist = self.find_nearest_pvq_code(value)
+            ret.append(node.codeword)
+        return ret
+
+    def decode_sequence(self, stream):
+        ret = []
+        for idx in stream:
+            #x = list(filter(lambda x: x.codeword == idx, self.book))[0]
+            x = self.book[idx]
+            ret.extend(list(x.normalized))
+
+        return ret[:self.stream_len]
+
+
 def reconstruction(encoder_p, encoder_cp, hyper_network_points, hyper_network_colors, device, x, results_dir, epoch, amount=5):
     log.info("Reconstruction")
     x = x[:amount]
-    
+
     z_a, _, _ = encoder_p(x[:,:3,:])
     z_b, _, _ = encoder_cp(x)
 
     weights_points_rec = hyper_network_points(z_a)
     weights_colors_rec = hyper_network_colors(z_b)
     x = x.cpu().numpy()
+    for c in range(amount):
+        target_network_points = aae.TargetNetwork(config, weights_points_rec[c])
+        target_network_colors = aae.ColorsAndPointsTargetNetwork(config, weights_colors_rec[c])
 
-    for p in range(amount):
-        for c in range(amount):
-            target_network_points = aae.TargetNetwork(config, weights_points_rec[p])
-            target_network_colors = aae.ColorsAndPointsTargetNetwork(config, weights_colors_rec[c])
+        target_network_input = generate_points(config=config, epoch=epoch, size=(x.shape[2], 3)).to(device)
 
-            target_network_input = generate_points(config=config, epoch=epoch, size=(x.shape[2], 3)).to(device)
+        x_points_rec = torch.transpose(target_network_points(target_network_input.to(device)), 0, 1).cpu().numpy()
+        x_colors_rec = torch.transpose(target_network_colors(target_network_input.to(device)), 0, 1).cpu().numpy()
+        x_colors_rec = colors.lab2xyz(x_colors_rec.transpose()).transpose()
 
-            x_points_rec = torch.transpose(target_network_points(target_network_input.to(device)), 0, 1).cpu().numpy()
-            x_colors_rec = torch.transpose(target_network_colors(target_network_input.to(device)), 0, 1).cpu().numpy()
-            x_colors_rec = colors.lab2xyz(x_colors_rec.transpose()).transpose()
-
-            np.save(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_target_network_input'), np.array(target_network_input.detach().cpu().numpy()))
-            np.save(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_real'), np.array(x[p]))
-            np.save(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_reconstructed_points'), np.array(x_points_rec))
-            np.save(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_reconstructed_colors'), np.array(x_colors_rec))
+        np.save(join(results_dir, 'reconstruction', f'p_{c}_c_{c}_target_network_input'), np.array(target_network_input.detach().cpu().numpy()))
+        np.save(join(results_dir, 'reconstruction', f'p_{c}_c_{c}_real'), np.array(x[c]))
+        np.save(join(results_dir, 'reconstruction', f'p_{c}_c_{c}_reconstructed_points'), np.array(x_points_rec))
+        np.save(join(results_dir, 'reconstruction', f'p_{c}_c_{c}_reconstructed_colors'), np.array(x_colors_rec))
 
 
-            fig = plot_3d_point_cloud(x_points_rec[0], x_points_rec[1], x_points_rec[2], C=x_colors_rec.transpose(), in_u_sphere=True, show=False)
-            fig.savefig(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_reconstructed.png'))
-            plt.close(fig)
+        fig = plot_3d_point_cloud(x_points_rec[0], x_points_rec[1], x_points_rec[2], C=x_colors_rec.transpose(), in_u_sphere=True, show=False)
+        fig.savefig(join(results_dir, 'reconstruction', f'p_{c}_c_{c}_reconstructed.png'))
+        plt.close(fig)
 
-            fig = plot_3d_point_cloud(x[p][0], x[p][1], x[p][2], C=x[c][3:6].transpose(), in_u_sphere=True, show=False)
-            fig.savefig(join(results_dir, 'reconstruction', f'p_{p}_c_{c}_real.png'))
-            plt.close(fig)
+        fig = plot_3d_point_cloud(x[c][0], x[c][1], x[c][2], C=x[c][3:6].transpose(), in_u_sphere=True, show=False)
+        fig.savefig(join(results_dir, 'reconstruction', f'p_{c}_c_{c}_real.png'))
+        plt.close(fig)
+
+    new_z_a = torch.zeros_like(z_a)
+    new_z_b = torch.zeros_like(z_b)
+    
+    cb_a = CodeBook(3, 32, 2048, std=0.0005)
+    for i, latent in enumerate(z_a):
+        stream = cb_a.encode_sequence(latent.cpu().numpy())
+        new_latent = cb_a.decode_sequence(stream)
+        new_z_a[i] = torch.tensor(new_latent)
+
+    cb_b = CodeBook(3, 32, 2048, std=0.0217)
+    for i, latent in enumerate(z_b):
+        stream = cb_b.encode_sequence(latent.cpu().numpy())
+        new_latent = cb_b.decode_sequence(stream)
+        new_z_b[i] = torch.tensor(new_latent)
+
+    weights_points_rec = hyper_network_points(new_z_a)
+    weights_colors_rec = hyper_network_colors(new_z_b)
+
+    for c in range(amount):
+        target_network_points = aae.TargetNetwork(config, weights_points_rec[c])
+        target_network_colors = aae.ColorsAndPointsTargetNetwork(config, weights_colors_rec[c])
+
+        target_network_input = generate_points(config=config, epoch=epoch, size=(x.shape[2], 3)).to(device)
+
+        x_points_rec = torch.transpose(target_network_points(target_network_input.to(device)), 0, 1).cpu().numpy()
+        x_colors_rec = torch.transpose(target_network_colors(target_network_input.to(device)), 0, 1).cpu().numpy()
+        x_colors_rec = colors.lab2xyz(x_colors_rec.transpose()).transpose()
+
+        np.save(join(results_dir, 'reconstruction', f'p_{c}_c_{c}_target_network_input'), np.array(target_network_input.detach().cpu().numpy()))
+        np.save(join(results_dir, 'reconstruction', f'p_{c}_c_{c}_real'), np.array(x[c]))
+        np.save(join(results_dir, 'reconstruction', f'p_{c}_c_{c}_reconstructed_points'), np.array(x_points_rec))
+        np.save(join(results_dir, 'reconstruction', f'p_{c}_c_{c}_reconstructed_colors'), np.array(x_colors_rec))
+
+
+        fig = plot_3d_point_cloud(x_points_rec[0], x_points_rec[1], x_points_rec[2], C=x_colors_rec.transpose(), in_u_sphere=True, show=False)
+        fig.savefig(join(results_dir, 'reconstruction', f'p_{c}_c_{c}_reconstructed.png'))
+        plt.close(fig)
+
+        fig = plot_3d_point_cloud(x[c][0], x[c][1], x[c][2], C=x[c][3:6].transpose(), in_u_sphere=True, show=False)
+        fig.savefig(join(results_dir, 'reconstruction', f'p_{c}_c_{c}_real.png'))
+        plt.close(fig)
+
+
+    
 
 
 def sphere(encoder, hyper_network, device, x, results_dir, epoch, amount=10, image_points=10240, start=2.0, end=4.0,
