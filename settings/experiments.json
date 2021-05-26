@@ -1,5 +1,5 @@
 {
-    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_airplane_15000",
+    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_chair_15000",
     "arch": "vae",
     "clean_results_dir": false,
 
@@ -11,7 +11,7 @@
     "data_dir": "/mnt/users/ikostiuk/local/ShapePointNet",
     "csv_files_dir": "./docs/test_data/",
 
-    "classes": ["airplane"],
+    "classes": ["chair"],
     "reconstruction_coef": 0.05,
 
     "seed": 2018,
@@ -91,7 +91,7 @@
 
         "reconstruction": {
             "execute": true,
-            "amount": 3
+            "amount": 10
         },
 
         "sphere": {
