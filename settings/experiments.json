@@ -8,7 +8,7 @@
 
     "reconstruction_loss": "combined",
     "dataset": "custom",
-    "data_dir": "/mnt/users/ikostiuk/local/ShapePointNet",
+    "data_dir": "/shared/results/ikostiuk/datasets/ShapeNet_colors",
     "csv_files_dir": "/home/ikostiuk/git_repos/HyperCloud/proces_airplane/HyperCloud/docs/test_data/",
     "n_points": 15000,
 
