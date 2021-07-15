@@ -1,5 +1,5 @@
 {
-    "results_root": "/mnt/users/ikostiuk/local/3d_point_cloud/results_airplane_15000",
+    "results_root": "/shared/results/ikostiuk/results",
     "clean_results_dir": false,
     "clean_weights_dir": false,
 
@@ -10,8 +10,8 @@
     "metrics": [],
 
     "dataset": "custom",
-    "data_dir": "/mnt/users/ikostiuk/local/ShapePointNet",
-    "classes": ["airplane"],
+    "data_dir": "/shared/results/ikostiuk/datasets/ShapeNet_colors",
+    "classes": ["chair"],
     
     "shuffle": true,
     "transforms": ["rotate"],

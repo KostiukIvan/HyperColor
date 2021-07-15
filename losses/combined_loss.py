@@ -31,7 +31,7 @@ class CombinedLoss(nn.Module):
                 origin_colors= pred_X[:, :, 6:9].type(ftype)
                 pred_colors = pred_X[:, :, 3:6].type(ftype)
 
-                origin_colors = torch.tensor(colors.xyz2lab(origin_colors.detach().cpu().numpy()), dtype=torch.long).cuda()
+                origin_colors = torch.tensor(colors.xyz2lab(origin_colors.detach().cpu().numpy()), dtype=torch.float).cuda()
 
                 MSE = torch.nn.MSELoss()
                 colors_loss = MSE(origin_colors, pred_colors)
@@ -49,7 +49,7 @@ class CombinedLoss(nn.Module):
                 origin_colors= pred_X[:, :, 6:9].type(ftype)
                 pred_colors = pred_X[:, :, 3:6].type(ftype)
 
-                origin_colors = torch.tensor(colors.xyz2lab(origin_colors.detach().cpu().numpy()), dtype=torch.long).cuda()
+                origin_colors = torch.tensor(colors.xyz2lab(origin_colors.detach().cpu().numpy()), dtype=torch.float).cuda()
 
                 MSE = torch.nn.MSELoss()
                 colors_loss = MSE(origin_colors, pred_colors)
