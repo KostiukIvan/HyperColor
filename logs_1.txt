@@ -1,3 +1,0 @@
-/mnt/users/ikostiuk/local/3d_point_cloud/results/vae/training/uniform_normed_progressive_to_epoch_500/custom/airplane
-True
-All meshes loaded!!!

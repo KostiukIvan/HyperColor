@@ -1,5 +1,5 @@
 {
-    "results_root": "/shared/results/ikostiuk/results",
+    "results_root": "./results",
     "arch": "vae",
     "clean_results_dir": false,
 
@@ -8,7 +8,7 @@
 
     "reconstruction_loss": "combined",
     "dataset": "custom",
-    "data_dir": "/shared/results/ikostiuk/datasets/ShapeNet_colors",
+    "data_dir": "./database",
     "csv_files_dir": "./docs/test_data/",
 
     "classes": ["chair"],

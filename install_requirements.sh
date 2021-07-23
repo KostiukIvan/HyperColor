@@ -2,5 +2,5 @@
 
 set -e
 
-conda install -y cudatoolkit=10.0
-pip install -r requirements.txt
+conda install -y cudatoolkit=11.0.221 
+conda install --file requirements.txt
