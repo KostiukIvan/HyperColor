@@ -80,8 +80,6 @@ def main(config):
         dataset = CustomDataset(root_dir=config['data_dir'],
                                 classes=config['classes'], config=config)
 
-        # Load spheres and faces
-        meshes = Mesh(config["meshs_of_sphere_dir"], config["n_points"])
 
     else:
         raise ValueError(f'Invalid dataset name. Expected `shapenet` or '

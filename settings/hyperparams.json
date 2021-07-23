@@ -1,5 +1,5 @@
 {
-    "results_root": "/shared/results/ikostiuk/results_basic",
+    "results_root": "./results",
     "clean_results_dir": false,
     "clean_weights_dir": false,
 
@@ -11,9 +11,8 @@
     "metrics": [],
 
     "dataset": "custom",
-    "data_dir": "/shared/results/ikostiuk/datasets/ShapeNet_colors",
+    "data_dir": "./database",
     "classes": ["car"],
-    "meshs_of_sphere_dir": "/home/ikostiuk/3d_point_cloud/dataset/sphere_mesh",
     
     "shuffle": true,
     "transforms": ["rotate"],
