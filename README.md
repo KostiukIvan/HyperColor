@@ -68,9 +68,9 @@ Results will be saved in the directory:
 `${results_root}/[aae|vae]/training/uniform*/${dataset}/${classes}`
 
 Model dataset is loaded from path:
- -${data_dir}
- -This folder should to contain other folders named as follows ["airplane", "car", "chair" ...]
- -Above three classes dataset could be downloaded from : https://drive.google.com/drive/folders/14fDCME5hsXv-DoX98sNwtAflriKfG_3n?usp=sharing
+  - ${data_dir}
+  - This folder should to contain other folders named as follows ["airplane", "car", "chair" ...]
+  - Above three classes dataset could be downloaded from : https://drive.google.com/drive/folders/14fDCME5hsXv-DoX98sNwtAflriKfG_3n?usp=sharing
 
 
 ### Experiments
