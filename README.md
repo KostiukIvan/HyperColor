@@ -1,4 +1,4 @@
-# HyperColor: A HyperNetwork Approach forSynthesizing Auto-colored 3D Models forGame Scenes Population
+# HyperColor: A HyperNetwork Approach for Synthesizing Auto-colored 3D Models forGame Scenes Population
 
 Authors: Ivan Kostiuk, Przemysław Stachura, Sławomir K. Tadeja, Tomasz Trzci ́nski, and Przemysław Spurek
 
