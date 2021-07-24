@@ -2,7 +2,7 @@
 
 Authors: Ivan Kostiuk, Przemysław Stachura, Sławomir K. Tadeja, Tomasz Trzci ́nski, and Przemysław Spurek
 
-![Hyper Color add photo from publication](docs/hyper_cloud.png)
+![Hyper Color](docs/hyper_color_with_meshes.PNG)
 
 #### [Hypernetwork approach to generating point clouds](https://arxiv.org/pdf/2003.00802.pdf)
 
