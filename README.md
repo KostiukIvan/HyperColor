@@ -69,8 +69,7 @@ Results will be saved in the directory:
 
 Model dataset is loaded from path:
   - ${data_dir}
-  - This folder should to contain other folders named as follows ["airplane", "car", "chair" ...]
-  - Database for above three classes could be downloaded from : https://drive.google.com/drive/folders/14fDCME5hsXv-DoX98sNwtAflriKfG_3n?usp=sharing
+  - This folder should to contain unziped folders from : https://drive.google.com/drive/folders/14fDCME5hsXv-DoX98sNwtAflriKfG_3n?usp=sharing
 
 
 ### Experiments
