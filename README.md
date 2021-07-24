@@ -67,6 +67,11 @@ For epochs: [100, inf] target networks input is sampled from a uniform unit 3D b
 Results will be saved in the directory: 
 `${results_root}/[aae|vae]/training/uniform*/${dataset}/${classes}`
 
+Model dataset is loaded from path:
+ -${data_dir}
+ -This folder should to contain other folders named as follows ["airplane", "car", "chair" ...]
+ -Above three classes dataset could be downloaded from : https://drive.google.com/drive/folders/14fDCME5hsXv-DoX98sNwtAflriKfG_3n?usp=sharing
+
 
 ### Experiments
 `python experiments/experiments.py --config settings/experiments.json`
@@ -78,8 +83,8 @@ Model weights are loaded from path:
   - ${weights_path} if specified
   - otherwise: ${results_root}/${arch}/training/.../weights (make sure that `target_network_input` and `classes` are the
    same in the `hyperparams.json`/`experiments.json`)
-  - If you do not want to train from scratch, you can download weights from : https://drive.google.com/drive/folders/1QIswhEThSbFyZimpepJZ-jpkbgyJwMEm?usp=sharing
-    And unpack this folder under ${results_root}. 
+  - If you do not want to train model from scratch, you can download weights from : https://drive.google.com/drive/folders/1QIswhEThSbFyZimpepJZ-jpkbgyJwMEm?usp=sharing.
+    And unpack this data under ${results_root}. 
     Structure of the path should be like this : ${results_root}/${arch}/training/.../weights
    
 ###### Sphere distribution:
@@ -93,14 +98,6 @@ The following experiments provide input of the target network as samples from a 
 
 Available methods: `hybrid | hybrid2 | hybrid3 | midpoint | midpoint2 | centroid | edge`
 
-
-### Compute metrics
-`python experiments/compute_metrics.py --config settings/experiments.json`
-
-Model weights are loaded from path:
-  - ${weights_path} if specified
-  - otherwise: ${results_root}/${arch}/training/.../weights (make sure that `target_network_input` and `classes` are the
-   same in the `hyperparams.json`/`experiments.json`)
   
 ### Shapenet dataset classes
 Classes can be specified in the hyperparams/experiments file in the **classes** key
