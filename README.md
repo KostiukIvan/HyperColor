@@ -79,8 +79,8 @@ Model weights are loaded from path:
   - otherwise: ${results_root}/${arch}/training/.../weights (make sure that `target_network_input` and `classes` are the
    same in the `hyperparams.json`/`experiments.json`)
   - If you do not want to train from scratch, you can download weights from : https://drive.google.com/drive/folders/1QIswhEThSbFyZimpepJZ-jpkbgyJwMEm?usp=sharing
-And unpack this folder under ${results_root}. 
-Structure of the path should be like this : ${results_root}/${arch}/training/.../weights
+    And unpack this folder under ${results_root}. 
+    Structure of the path should be like this : ${results_root}/${arch}/training/.../weights
    
 ###### Sphere distribution:
 ![tni_triangulation](docs/tni_triangulation.png)
