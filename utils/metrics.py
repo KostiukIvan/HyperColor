@@ -6,7 +6,7 @@ from sklearn.neighbors import NearestNeighbors
 from numpy.linalg import norm
 
 # Import CUDA version of approximate EMD, from https://github.com/zekunhao1995/pcgan-pytorch//:
-from utils.pytorch_structural_losses.match_cost import match_cost
+#from utils.pytorch_structural_losses.match_cost import match_cost
 
 
 def _average_precision(query: torch.Tensor, retrieved: torch.Tensor) -> torch.Tensor:
@@ -62,16 +62,20 @@ def earth_mover_distance(sample_pcs, ref_pcs, batch_size=None):
 def emd_approx(sample, ref):
     B, N, N_ref = sample.size(0), sample.size(1), ref.size(1)
     assert N == N_ref, "Not sure what would EMD do in this case"
+    #from pyemd import emd_samples
     emd = match_cost(sample, ref)  # (B,)
     emd_norm = emd / float(N)  # (B,)
-    return emd_norm
+    
+    return "This is emb_approx"
 
 def dist_chamfer(x, y):
-    from losses.champfer_loss import ChamferLoss
-    from utils.util import cuda_setup
-    chamfer_loss = ChamferLoss().to(cuda_setup())
-    P = chamfer_loss.batch_pairwise_dist(x, y)
-    return P.min(1)[0], P.min(2)[0]
+    # from losses.champfer_loss import ChamferLoss
+    # from utils.util import cuda_setup
+    # chamfer_loss = ChamferLoss().to(cuda_setup())
+    # P = chamfer_loss.batch_pairwise_dist(x, y)
+    # return P.min(1)[0], P.min(2)[0]
+    from pytorch3d.loss import chamfer_distance
+    return chamfer_distance(x, y, batch_reduction=None)[0]
 
 
 def EMD_CD(sample_pcs, ref_pcs, batch_size, reduced=True):
@@ -80,7 +84,7 @@ def EMD_CD(sample_pcs, ref_pcs, batch_size, reduced=True):
     assert N_sample == N_ref, f'REF:{N_ref} SMP:{N_sample}'
 
     cd_lst = []
-    emd_lst = []
+    #emd_lst = []
     iterator = range(0, N_sample, batch_size)
 
     for b_start in iterator:
@@ -91,19 +95,19 @@ def EMD_CD(sample_pcs, ref_pcs, batch_size, reduced=True):
         dl, dr = dist_chamfer(sample_batch, ref_batch)
         cd_lst.append(dl.mean(dim=1) + dr.mean(dim=1))
 
-        emd_batch = emd_approx(sample_batch, ref_batch)
-        emd_lst.append(emd_batch)
+        #emd_batch = emd_approx(sample_batch, ref_batch)
+        #emd_lst.append(emd_batch)
 
     if reduced:
         cd = torch.cat(cd_lst).mean()
-        emd = torch.cat(emd_lst).mean()
+        #emd = torch.cat(emd_lst).mean()
     else:
         cd = torch.cat(cd_lst)
-        emd = torch.cat(emd_lst)
+        #emd = torch.cat(emd_lst)
 
     results = {
         'MMD-CD': cd,
-        'MMD-EMD': emd
+        'MMD-EMD': None # emd
     }
 
     return results
@@ -113,36 +117,35 @@ def _pairwise_EMD_CD_(sample_pcs, ref_pcs, batch_size):
     N_sample = sample_pcs.shape[0]
     N_ref = ref_pcs.shape[0]
     all_cd = []
-    all_emd = []
+    #all_emd = []
     iterator = range(N_sample)
     for sample_b_start in iterator:
         sample_batch = sample_pcs[sample_b_start]
 
         cd_lst = []
-        emd_lst = []
+        #emd_lst = []
         for ref_b_start in range(0, N_ref, batch_size):
             ref_b_end = min(N_ref, ref_b_start + batch_size)
             ref_batch = ref_pcs[ref_b_start:ref_b_end]
 
             batch_size_ref = ref_batch.size(0)
-            sample_batch_exp = sample_batch.view(1, -1, 3).expand(batch_size_ref, -1, -1)
+            sample_batch_exp = sample_batch.view(1, -1, 6).expand(batch_size_ref, -1, -1)
             sample_batch_exp = sample_batch_exp.contiguous()
 
-            dl, dr = dist_chamfer(sample_batch_exp, ref_batch)
-            cd_lst.append((dl.mean(dim=1) + dr.mean(dim=1)).view(1, -1))
+            dist = dist_chamfer(sample_batch_exp, ref_batch)
+            cd_lst.append(dist.view(1, -1))
 
-            emd_batch = emd_approx(sample_batch_exp, ref_batch)
-            emd_lst.append(emd_batch.view(1, -1))
-
+            #emd_batch = emd_approx(sample_batch_exp, ref_batch)
+            #emd_lst.append(emd_batch.view(1, -1))
         cd_lst = torch.cat(cd_lst, dim=1)
-        emd_lst = torch.cat(emd_lst, dim=1)
+        #emd_lst = torch.cat(emd_lst, dim=1)
         all_cd.append(cd_lst)
-        all_emd.append(emd_lst)
+        #all_emd.append(emd_lst)
 
     all_cd = torch.cat(all_cd, dim=0)  # N_sample, N_ref
-    all_emd = torch.cat(all_emd, dim=0)  # N_sample, N_ref
+    #all_emd = torch.cat(all_emd, dim=0)  # N_sample, N_ref
 
-    return all_cd, all_emd
+    return all_cd, None # all_emd
 
 
 # Adapted from https://github.com/xuqiantong/GAN-Metrics/blob/master/framework/metric.py
@@ -150,6 +153,9 @@ def knn(Mxx, Mxy, Myy, k, sqrt=False):
     n0 = Mxx.size(0)
     n1 = Myy.size(0)
     label = torch.cat((torch.ones(n0), torch.zeros(n1))).to(Mxx)
+
+    torch.cat((Mxx, Mxy), 1)
+    torch.cat((Mxy.transpose(0, 1), Myy), 1)
     M = torch.cat((torch.cat((Mxx, Mxy), 1), torch.cat((Mxy.transpose(0, 1), Myy), 1)), 0)
     if sqrt:
         M = M.abs().sqrt()
@@ -203,10 +209,10 @@ def compute_all_metrics(sample_pcs, ref_pcs, batch_size):
         "%s-CD" % k: v for k, v in res_cd.items()
     })
 
-    res_emd = mmd_cov(M_rs_emd.t())
-    results.update({
-        "%s-EMD" % k: v for k, v in res_emd.items()
-    })
+    # res_emd = mmd_cov(M_rs_emd.t())
+    # results.update({
+    #     "%s-EMD" % k: v for k, v in res_emd.items()
+    # })
 
     M_rr_cd, M_rr_emd = _pairwise_EMD_CD_(ref_pcs, ref_pcs, batch_size)
     M_ss_cd, M_ss_emd = _pairwise_EMD_CD_(sample_pcs, sample_pcs, batch_size)
@@ -216,10 +222,10 @@ def compute_all_metrics(sample_pcs, ref_pcs, batch_size):
     results.update({
         "1-NN-CD-%s" % k: v for k, v in one_nn_cd_res.items() if 'acc' in k
     })
-    one_nn_emd_res = knn(M_rr_emd, M_rs_emd, M_ss_emd, 1, sqrt=False)
-    results.update({
-        "1-NN-EMD-%s" % k: v for k, v in one_nn_emd_res.items() if 'acc' in k
-    })
+    # one_nn_emd_res = knn(M_rr_emd, M_rs_emd, M_ss_emd, 1, sqrt=False)
+    # results.update({
+    #     "1-NN-EMD-%s" % k: v for k, v in one_nn_emd_res.items() if 'acc' in k
+    # })
 
     return results
 
@@ -232,23 +238,29 @@ def unit_cube_grid_point_cloud(resolution, clip_sphere=False):
     that is placed in the unit-cube.
     If clip_sphere it True it drops the "corner" cells that lie outside the unit-sphere.
     """
-    grid = np.ndarray((resolution, resolution, resolution, 3), np.float32)
+    grid = np.ndarray((resolution, resolution, resolution, resolution, resolution, resolution, 6), np.float32)
     spacing = 1.0 / float(resolution - 1)
     for i in range(resolution):
         for j in range(resolution):
             for k in range(resolution):
-                grid[i, j, k, 0] = i * spacing - 0.5
-                grid[i, j, k, 1] = j * spacing - 0.5
-                grid[i, j, k, 2] = k * spacing - 0.5
+                for l in range(resolution):
+                    for m in range(resolution):
+                        for n in range(resolution):
+                            grid[i, j, k, l, m, n, 0] = i * spacing - 0.5
+                            grid[i, j, k, l, m, n, 1] = j * spacing - 0.5
+                            grid[i, j, k, l, m, n, 2] = k * spacing - 0.5
+                            grid[i, j, k, l, m, n, 3] = l * spacing - 0.5
+                            grid[i, j, k, l, m, n, 4] = m * spacing - 0.5
+                            grid[i, j, k, l, m, n, 5] = n * spacing - 0.5
 
     if clip_sphere:
-        grid = grid.reshape(-1, 3)
+        grid = grid.reshape(-1, 6)
         grid = grid[norm(grid, axis=1) <= 0.5]
 
     return grid, spacing
 
 
-def jsd_between_point_cloud_sets(sample_pcs, ref_pcs, resolution=28):
+def jsd_between_point_cloud_sets(sample_pcs, ref_pcs, resolution=7):
     """Computes the JSD between two sets of point-clouds, as introduced in the paper
     ```Learning Representations And Generative Models For 3D Point Clouds```.
     Args:
@@ -280,7 +292,7 @@ def entropy_of_occupancy_grid(pclouds, grid_resolution, in_sphere=False, verbose
             warnings.warn('Point-clouds are not in unit sphere.')
 
     grid_coordinates, _ = unit_cube_grid_point_cloud(grid_resolution, in_sphere)
-    grid_coordinates = grid_coordinates.reshape(-1, 3)
+    grid_coordinates = grid_coordinates.reshape(-1, 6)
     grid_counters = np.zeros(len(grid_coordinates))
     grid_bernoulli_rvars = np.zeros(len(grid_coordinates))
     nn = NearestNeighbors(n_neighbors=1).fit(grid_coordinates)
