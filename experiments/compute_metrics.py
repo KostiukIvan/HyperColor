@@ -16,7 +16,7 @@ from utils.points import generate_points
 from utils.metrics import jsd_between_point_cloud_sets
 from utils.util import set_seed, cuda_setup, get_weights_dir, find_latest_epoch
 
-n_points=15000
+n_points=1024
 
 def _get_epochs_by_regex(path, regex):
     reg = re.compile(regex)
@@ -250,7 +250,7 @@ def all_metrics(config, weights_path, device, epoch, jsd_value):
         from datasets.customDataset import CustomDataset
         dataset = CustomDataset(root_dir=config['data_dir'],
                                 classes=config['classes'],
-                                split='valid',
+                                split='test',
                                 config=config)
     else:
         raise ValueError(f'Invalid dataset name. Expected `shapenet` or '
@@ -284,64 +284,72 @@ def all_metrics(config, weights_path, device, epoch, jsd_value):
     hyper_network_cp.load_state_dict(torch.load(
         join(weights_path, f'{epoch:05}_G_CP.pth')))
 
-    result = {}
-    size = 0
-    start_clock = datetime.now()
-    for point_data in data_loader:
+    
+    for p_std in np.linspace(1e-3, 1e-8, 5):
+        for cp_std in np.linspace(1e-3, 1e-8, 5):
+            result = {}
+            size = 0
+            start_clock = datetime.now()
+            for point_data in data_loader:
 
-        if dataset_name == "custom":
-            X = torch.cat((point_data['points'], point_data['colors']), dim=2)
-            X = X.to(device, dtype=torch.float)
+                if dataset_name == "custom":
+                    X = torch.cat((point_data['points'], point_data['colors']), dim=2)
+                    X = X.to(device, dtype=torch.float)
 
-        else: 
-            X, _ = point_data
-            X = X.to(device, dtype=torch.float)
+                else: 
+                    X, _ = point_data
+                    X = X.to(device, dtype=torch.float)
 
-        # Change dim [BATCH, N_POINTS, N_DIM] -> [BATCH, N_DIM, N_POINTS]
-        if X.size(-1) == 3 or X.size(-1) == 6 or X.size(-1) == 7:
-            X.transpose_(X.dim() - 2, X.dim() - 1)
+                # Change dim [BATCH, N_POINTS, N_DIM] -> [BATCH, N_DIM, N_POINTS]
+                if X.size(-1) == 3 or X.size(-1) == 6 or X.size(-1) == 7:
+                    X.transpose_(X.dim() - 2, X.dim() - 1)
 
-        with torch.no_grad():
-            points_noise = torch.zeros(X.shape[0], config['z_size'])
-            colors_noise = torch.zeros(X.shape[0], config['z_size'])
+                with torch.no_grad():
+                    points_noise = torch.zeros(X.shape[0], config['z_size'])
+                    colors_noise = torch.zeros(X.shape[0], config['z_size'])
 
-            if distribution == 'normal':
-                points_noise.normal_(config['metrics']['normal_mu_p'], config['metrics']['normal_std_p'])
-                colors_noise.normal_(config['metrics']['normal_mu_cp'], config['metrics']['normal_std_cp'])
-                points_noise = points_noise.to(device)
-                colors_noise = colors_noise.to(device)
-            elif distribution == 'beta':
-                noise_np = np.random.beta(config['metrics']['beta_a'], config['metrics']['beta_b'], noise.shape)
-                noise = torch.tensor(noise_np).float().round().to(device)
+                    if distribution == 'normal':
+                        # points_noise.normal_(config['metrics']['normal_mu_p'], config['metrics']['normal_std_p'])
+                        # colors_noise.normal_(config['metrics']['normal_mu_cp'], config['metrics']['normal_std_cp'])
+                        points_noise.normal_(config['metrics']['normal_mu_p'], p_std)
+                        colors_noise.normal_(config['metrics']['normal_mu_cp'], cp_std)
+                        points_noise = points_noise.to(device)
+                        colors_noise = colors_noise.to(device)
+                    elif distribution == 'beta':
+                        noise_np = np.random.beta(config['metrics']['beta_a'], config['metrics']['beta_b'], noise.shape)
+                        noise = torch.tensor(noise_np).float().round().to(device)
 
-            target_networks_points_weights = hyper_network_p(points_noise)
-            target_networks_colors_weights = hyper_network_cp(colors_noise)
+                    target_networks_points_weights = hyper_network_p(points_noise)
+                    target_networks_colors_weights = hyper_network_cp(colors_noise)
 
-            X_rec = torch.zeros(X.shape[0], X.shape[1], n_points).to(device)
-            for j, (weights_points, weights_color) in enumerate(zip(target_networks_points_weights, target_networks_colors_weights)):
-                target_network_p = aae.TargetNetwork(config, weights_points).to(device)
-                target_network_cp = aae.ColorsAndPointsTargetNetwork(config, weights_color).to(device)
+                    X_rec = torch.zeros(X.shape[0], X.shape[1], n_points).to(device)
+                    for j, (weights_points, weights_color) in enumerate(zip(target_networks_points_weights, target_networks_colors_weights)):
+                        target_network_p = aae.TargetNetwork(config, weights_points).to(device)
+                        target_network_cp = aae.ColorsAndPointsTargetNetwork(config, weights_color).to(device)
 
-                target_network_input = generate_points(config=config, epoch=epoch, size=(n_points, 3)).to(device)
+                        target_network_input = generate_points(config=config, epoch=epoch, size=(n_points, 3)).to(device)
 
-                pred_points = target_network_p(target_network_input.to(device, dtype=torch.float)) # [4096, 3]
-                pred_colors = target_network_cp(target_network_input.to(device, dtype=torch.float)) # [4096, 3]
-                
-                pred_colors = torch.from_numpy(colors.lab2xyz(pred_colors.cpu().numpy()).transpose()).transpose(0, 1).to(device)
+                        pred_points = target_network_p(target_network_input.to(device, dtype=torch.float)) # [4096, 3]
+                        pred_colors = target_network_cp(target_network_input.to(device, dtype=torch.float)) # [4096, 3]
+                        
+                        pred_colors = torch.from_numpy(colors.lab2xyz(pred_colors.cpu().numpy()).transpose()).transpose(0, 1).to(device)
 
-                X_rec[j] = torch.cat([pred_points, pred_colors], dim=1).transpose(0, 1) # [B,6,N]
+                        X_rec[j] = torch.cat([pred_points, pred_colors], dim=1).transpose(0, 1) # [B,6,N]
 
-            for k, v in compute_all_metrics(torch.transpose(X, 1, 2).contiguous(),
-                                            torch.transpose(X_rec, 1, 2).contiguous(), X.shape[0]).items():
-                result[k] = (size * result.get(k, 0.0) + X.shape[0] * v.item()) / (size + X.shape[0])
+                    choice = np.random.randint(0, X_rec.shape[2], size=n_points)
+                    X = X[:, :, choice]
 
-        size += X.shape[0]
+                    for k, v in compute_all_metrics(torch.transpose(X, 1, 2).contiguous(),
+                                                    torch.transpose(X_rec, 1, 2).contiguous(), X.shape[0]).items():
+                        result[k] = (size * result.get(k, 0.0) + X.shape[0] * v.item()) / (size + X.shape[0])
 
-    result['jsd'] = jsd_value
-    print(f'Time: {datetime.now() - start_clock}')
-    print(f'Result:')
-    for k, v in result.items():
-        print(f'{k}: {v}')
+                size += X.shape[0]
+            print(f"========={p_std} {cp_std}")
+            result['jsd'] = jsd_value
+            print(f'Time: {datetime.now() - start_clock}')
+            print(f'Result:')
+            for k, v in result.items():
+                print(f'{k}: {v}')
 
 
 def main(config):
