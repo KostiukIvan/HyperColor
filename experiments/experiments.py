@@ -22,6 +22,17 @@ import skimage.color as colors
 cudnn.benchmark = True
 
 
+
+
+"""
+    AIR P/C: 0.002229
+    CAR P/C: 0.00056, (0.12731111111111112, 0.2229)
+    CHAIR P/C: 0.006 , 0.1 0.299 / 0.06888
+    TABLE P/C: 0.013666666666666667 0.08
+    SOFA P/C: 0.01 0.11199999999999999
+"""
+
+
 def main(config):
     set_seed(config['seed'])
 
@@ -176,10 +187,12 @@ def main(config):
             if config['reconstruction_loss'].lower() == 'combined': 
                 loss_colors = reconstruction_loss(X.permute(0, 2, 1),
                                             X_rec.permute(0, 2, 1),
-                                            True)
+                                            True,
+                                            n_points=1024)
                 loss_points = reconstruction_loss(X.permute(0, 2, 1),
                                             X_rec.permute(0, 2, 1),
-                                            False)
+                                            False,
+                                            n_points=1024)
                 
             else:
                 loss_e = torch.mean(

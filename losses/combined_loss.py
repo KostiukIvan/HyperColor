@@ -16,7 +16,7 @@ class CombinedLoss(nn.Module):
         self.experiment = experiment
 
         
-    def forward(self, gts_X, pred_X, train_colors):
+    def forward(self, gts_X, pred_X, train_colors, n_points):
         if self.use_cuda:
             dtype = torch.cuda.LongTensor
             ftype = torch.cuda.FloatTensor
@@ -27,9 +27,15 @@ class CombinedLoss(nn.Module):
         loss = torch.tensor(0.0).type(ftype)
 
         if self.experiment:
+
             if train_colors: # [2, 4096, 6]
                 origin_colors= pred_X[:, :, 6:9].type(ftype)
                 pred_colors = pred_X[:, :, 3:6].type(ftype)
+                
+                if n_points != origin_colors.shape[1]:
+                    choice = np.random.randint(0, origin_colors.shape[1], size=n_points)
+                    origin_colors = origin_colors[:, choice, :]
+                    pred_colors = pred_colors[:, choice, :]
 
                 origin_colors = torch.tensor(colors.xyz2lab(origin_colors.detach().cpu().numpy()), dtype=torch.float).cuda()
 
@@ -40,6 +46,12 @@ class CombinedLoss(nn.Module):
             else: # [2, 4096, 3]
                 gts_points = gts_X[:, :, :3].type(ftype) + 0.5  # [2, 4096, 3]
                 preds_points = pred_X[:, :, :3].type(ftype) + 0.5  # [2, 4096, 3]
+
+                if n_points != gts_points.shape[1]:
+                    choice = np.random.randint(0, gts_points.shape[1], size=n_points)
+                    gts_points = gts_points[:, choice, :]
+                    preds_points = preds_points[:, choice, :]
+
                 champher_loss, _ = chamfer_distance(gts_points, preds_points)
                 loss +=  champher_loss 
 

@@ -8,10 +8,10 @@
 
     "reconstruction_loss": "combined",
     "dataset": "custom",
-    "data_dir": "./database",
+    "data_dir": "/home/z1142375/dev/Progressive-Conditional-Generative-Adversarial-Network/datasets/shapenet/point-clouds/hc_format",
     "csv_files_dir": "./docs/test_data/",
 
-    "classes": ["chair"],
+    "classes": ["airplane"],
     "reconstruction_coef": 0.05,
 
     "seed": 2018,
@@ -22,9 +22,11 @@
         "distribution": "normal",
         "beta_a": 0.01,
         "beta_b": 0.01,
-        "normal_mu": 0.0,
-        "normal_std": 0.015,
-        "jsd_how_many_last_epochs": -1
+        "normal_mu_p": 0.0,
+        "normal_std_p": 0.0005,
+        "normal_mu_cp": 0.0,
+        "normal_std_cp": 0.0003,
+        "jsd_how_many_last_epochs": 1
     },
 
     "target_network_input": {
@@ -130,7 +132,7 @@
         },
 
         "fixed": {
-            "execute": false,
+            "execute": true,
             "points":{
                 "mean": 0.0,
                 "std": 0.001
@@ -139,9 +141,9 @@
                 "mean": 0.0,
                 "std": 0.3
             },
-            "amount": 15,
+            "amount": 10,
             "triangulation": {
-                "execute": true,
+                "execute": false,
                 "method": "edge",
                 "depth": 5
             }

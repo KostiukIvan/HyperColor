@@ -21,9 +21,11 @@ from utils.util import set_seed, cuda_setup, get_weights_dir, find_latest_epoch
     AIR P/C: 0.002229
     CAR P/C: 0.00056, (0.12731111111111112, 0.2229)
     CHAIR P/C: 0.006 , 0.1 0.299 / 0.06888
+    TABLE P/C: 0.013666666666666667 0.08
+    SOFA P/C: 0.01 0.11199999999999999
 """
-p_std = 0.002229
-cp_std = 0.06888
+p_std = 0.007
+cp_std = 0.556
 n_points=1024
 
 
@@ -32,7 +34,7 @@ def _get_epochs_by_regex(path, regex):
     return {int(w[:5]) for w in listdir(path) if reg.match(w)}
 
 
-def jsd(config, weights_path, device):
+def jsd(config, weights_path, device, p_std, cp_std):
     print('Evaluating Jensen-Shannon divergences on validation set on all saved epochs.')
 
     # Find all epochs that have saved model weights
@@ -254,7 +256,7 @@ def minimum_matching_distance(config, weights_path, device):
 
 
 
-def all_metrics(config, weights_path, device, epoch, jsd_value_p, jsd_value_cp):
+def all_metrics(config, weights_path, device, epoch, jsd_value_p, jsd_value_cp, p_std, cp_std):
     from utils.metrics_3_3 import compute_all_metrics, compute_all_metrics_colors, sort_data_by_points
     print('All metrics')
     if epoch is None:
@@ -315,7 +317,7 @@ def all_metrics(config, weights_path, device, epoch, jsd_value_p, jsd_value_cp):
     start_clock = datetime.now()
 
     #for p_std in np.linspace(0.01, 1e-5, 10): 
-    #for cp_std in np.linspace(1, 1e-1, 10):
+    #for cp_std in np.linspace(1, 1e-3, 10):
     result_p = {}
     result_cp = {}
     size = 0
@@ -407,15 +409,21 @@ def main(config):
         print(f'Current CUDA device: {torch.cuda.current_device()}')
 
     print('\n')
-    all_metrics(config, weights_path, device, None, None, None)
+    #all_metrics(config, weights_path, device, None, None, None, p_std, cp_std)
+    print('\n')
+    
+
+    p_std = 0.013666666666666667
+    cp_std = 0.08
+    #for p_std in np.linspace(0.019, 0.007, 10): 
+    #for cp_std in np.linspace(0.08, 0.01, 2):
+    set_seed(config['seed'])
+    #all_metrics(config, weights_path, device, None, None, None, p_std, cp_std)
+    jsd_epoch_p, jsd_value_p, jsd_epoch_cp, jsd_value_cp = jsd(config, weights_path, device, p_std, cp_std)
     print('\n')
 
     set_seed(config['seed'])
-    jsd_epoch_p, jsd_value_p, jsd_epoch_cp, jsd_value_cp = jsd(config, weights_path, device)
-    print('\n')
-
-    set_seed(config['seed'])
-    all_metrics(config, weights_path, device, jsd_epoch_p, jsd_value_p, jsd_value_cp)
+    all_metrics(config, weights_path, device, jsd_epoch_p, jsd_value_p, jsd_value_cp, p_std, cp_std)
 
 
 if __name__ == '__main__':

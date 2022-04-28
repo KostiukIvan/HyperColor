@@ -1,5 +1,5 @@
 {
-    "results_root": "./results",
+    "results_root": "./results_full",
     "clean_results_dir": false,
     "clean_weights_dir": false,
 
@@ -10,16 +10,29 @@
     "metrics": [],
 
     "dataset": "custom",
-    "data_dir": "./database",
-    "classes": ["chair"],
+    "data_dir": "/shared/sets/datasets/3D_points/shapenet_points",
+    "csv_files_dir": "/home/z1142375/dev/HyperCloud/docs/test_data",
+    
+    "classes": [],
+
+    "comment" : ["airplane", "bag", "basket","bathtub", "bed",  "bench",
+        "bicycle", "birdhouse", "bookshelf", "bottle", "bowl", "bus",
+        "cabinet",  "can",  "camera",  "cap",  "car",  "chair",
+        "clock", "dishwasher", "monitor", "table", "telephone", "tin_can",
+        "tower", "train", "keyboard", "earphone", "faucet", "file",
+        "guitar", "helmet", "jar", "knife", "lamp", "laptop",
+        "speaker", "mailbox", "microphone", "microwave", "motorcycle", "mug",
+        "piano", "pillow", "pistol", "pot", "printer", "remote_control",
+        "rifle", "rocket",  "skateboard", "sofa", "stove",  "watercraft",
+        "washer", "boat", "cellphone"],
     
     "shuffle": true,
     "transforms": ["rotate"],
-    "num_workers": 14,
+    "num_workers": 20,
     "n_points": 15000,
 
-    "max_epochs": 7000,
-    "batch_size": 16,
+    "max_epochs": 4000,
+    "batch_size": 32,
     "gradient_penalty_coef": 10,
     "reconstruction_coef": 0.05,
     "z_size": 2048,
@@ -41,11 +54,11 @@
     "target_network_input": {
         "constant": false,
         "points": {
-            "disable_after" : 7000
+            "disable_after" : 1999
         },
 
         "colors": {
-            "enable_after": 3000
+            "enable_after": 2000
         },
 
         "normalization": {

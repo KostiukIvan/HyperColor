@@ -281,7 +281,8 @@ def main(config):
             if train_points and not train_colors:
                 loss_r = reconstruction_loss(X.permute(0, 2, 1),
                                             X_rec.permute(0, 2, 1),
-                                            False)
+                                            False,
+                                            n_points=15000)
 
                 loss_kld = 0.5 * (torch.exp(logvar_p) + torch.pow(mu_p, 2) - 1 - logvar_p).sum()
                 loss_all = loss_r + loss_kld
@@ -300,7 +301,8 @@ def main(config):
             if train_colors and not train_points:
                 loss_r = reconstruction_loss(X.permute(0, 2, 1),
                                             X_rec.permute(0, 2, 1),
-                                            True)
+                                            True,
+                                            n_points=15000)
 
                 loss_kld = 0.5 * (torch.exp(logvar_cp) + torch.pow(mu_cp, 2) - 1 - logvar_cp).sum()
                 loss_all = loss_r + loss_kld
@@ -320,10 +322,12 @@ def main(config):
             if train_colors and train_points:
                 loss_r_cp = reconstruction_loss(X.permute(0, 2, 1),
                                             X_rec.permute(0, 2, 1),
-                                            True)
+                                            True,
+                                            n_points=15000)
                 loss_r_p = reconstruction_loss(X.permute(0, 2, 1),
                                             X_rec.permute(0, 2, 1),
-                                            False)
+                                            False,
+                                            n_points=15000)
 
                 loss_r = loss_r_cp + loss_r_p
 
